@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apresentação do Projeto | Letícia Arthuso</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#4D0E13">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root{--creme:#EEE4DA;--areia:#D8C4AC;--rosa:#C8A49F;--bordo:#4D0E13;--claro:#F7F1EA;--texto:#3A1416;--apagado:#6E4A47;--bronze:#8E5A54;--titulo:"Italiana",Georgia,serif;--corpo:"DM Sans",system-ui,sans-serif;--saida:cubic-bezier(.16,.84,.3,1);--margem:clamp(20px,5vw,72px)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--creme);color:var(--texto);font:400 1rem/1.65 var(--corpo);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+ul,ol{list-style:none;padding:0}
+h1,h2{font-family:var(--titulo);font-weight:400;line-height:1.05}
+h2{font-size:clamp(2.3rem,7vw,4.6rem);color:var(--bordo)}
+.rot{font-size:.74rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);margin-bottom:14px}
+section{padding:80px var(--margem)}
+.miolo{max-width:1160px;margin:auto}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+
+.capa{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:72px var(--margem) 40px;background:var(--bordo);color:var(--creme);overflow:hidden}
+.capa-mono{position:absolute;top:-2vh;right:-4vw;font:400 min(70vh,100vw)/.95 var(--titulo);color:var(--rosa);opacity:.2;letter-spacing:-.05em;animation:mono 1.6s var(--saida) both}
+@keyframes mono{from{opacity:0;transform:translateX(50px)}}
+.capa-pre{position:absolute;top:28px;left:var(--margem);right:var(--margem);display:flex;justify-content:space-between;gap:16px;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase}
+.capa h1{position:relative;font-size:clamp(3.2rem,12.5vw,9.2rem);line-height:.96;color:var(--creme);animation:sobe 1.2s var(--saida) .15s both}
+.capa p.sub{position:relative;max-width:34em;margin-top:18px;animation:sobe 1.2s var(--saida) .35s both}
+@keyframes sobe{from{opacity:0;transform:translateY(34px)}}
+.pilula{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:600;text-decoration:none;transition:transform .3s var(--saida),background .3s}
+.pilula:hover{transform:translateY(-2px)}
+.p-rosa{background:var(--rosa);color:var(--bordo)}.p-rosa:hover{background:var(--areia)}
+.p-bordo{background:var(--bordo);color:var(--creme)}.p-bordo:hover{background:#6A1A20}
+.capa .pilula{position:relative;margin-top:26px;align-self:flex-start;animation:sobe 1.2s var(--saida) .5s both}
+
+.conceito{display:grid;gap:28px}
+.conceito q{quotes:none;display:block;font:400 clamp(2.1rem,6.4vw,4.2rem)/1.08 var(--titulo);color:var(--bordo)}
+.conceito p{max-width:36em}
+.conceito p+p{margin-top:12px}
+
+.cores{background:var(--claro)}
+.cores h2{margin-bottom:12px}
+.cores-nota{max-width:38em;margin-bottom:30px;color:var(--apagado)}
+.pil{display:grid;gap:10px}
+.cor{width:100%;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 20px;min-height:92px;padding:16px 30px;border:0;border-radius:999px;font:inherit;text-align:left;cursor:pointer;transition:transform .5s var(--saida)}
+.cor:hover{transform:translateX(10px)}
+.cor b{font:400 clamp(1.6rem,4.6vw,2.6rem)/1.1 var(--titulo)}
+.cor span{font-size:.86rem}
+.cor em{font-style:normal;font-size:.76rem;letter-spacing:.14em;opacity:.8}
+
+.letras{background:var(--bordo);color:var(--creme);display:grid;gap:36px}
+.letras h2{color:var(--creme)}
+.letras .rot{color:var(--areia)}
+.ag{font:400 clamp(8rem,32vw,20rem)/.86 var(--titulo);color:var(--rosa)}
+.tipo{display:grid;gap:22px}
+.tipo div{padding-top:16px;border-top:1px solid rgba(238,228,218,.3)}
+.tipo strong{display:block;font-weight:500;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--areia)}
+.t1{font:400 clamp(2rem,5vw,3.2rem)/1.1 var(--titulo)}
+.t2{font-size:1.15rem}
+
+.ver{background:var(--areia)}
+.ver h2{margin-bottom:12px}
+.ver>.miolo>p{max-width:38em}
+.telas{display:grid;gap:36px;margin-top:40px;align-items:end}
+.note{display:none}
+.note-tela{position:relative;border:10px solid #1F1214;border-bottom-width:12px;border-radius:14px 14px 0 0;overflow:hidden;background:#1F1214;aspect-ratio:16/10}
+.note-tela iframe{position:absolute;left:0;top:0;width:1280px;height:800px;border:0;transform-origin:0 0}
+.note-base{height:14px;margin:0 -5%;background:linear-gradient(#B9A898,#8B7A6C);border-radius:0 0 14px 14px}
+.cel{justify-self:center;width:300px;padding:10px;border-radius:40px;background:#1F1214;box-shadow:0 30px 50px -30px rgba(58,20,22,.8)}
+.cel-tela{position:relative;height:600px;border-radius:30px;overflow:hidden;background:#fff}
+.cel iframe{position:absolute;left:0;top:0;width:390px;height:836px;border:0;transform:scale(.7179);transform-origin:0 0}
+
+.caminho ol{display:grid;gap:0;margin-top:30px}
+.caminho li{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;padding:18px 0;border-top:1px solid var(--areia)}
+.caminho li b{grid-row:1/3;font:400 2.4rem/1 var(--titulo);color:var(--bronze);min-width:1.1em}
+.caminho li strong{color:var(--bordo);font-weight:600}
+.caminho li p{color:var(--apagado)}
+
+.pede{background:var(--rosa);color:var(--bordo)}
+.pede .rot{color:var(--bordo)}
+.pede ul{display:grid;gap:10px;margin:28px 0 32px}
+.pede li{padding:14px 22px;border-radius:26px;background:var(--creme);line-height:1.4}
+.pede li strong{display:block}
+
+.js [data-r]{opacity:0;transition:opacity .9s var(--saida) var(--d,0s),transform 1s var(--saida) var(--d,0s)}
+.js [data-r=e]{transform:translateX(-60px)}
+.js [data-r=d]{transform:translateX(60px)}
+.js [data-r=b]{transform:translateY(30px)}
+.js [data-r].in{opacity:1;transform:none}
+
+@media (min-width:1000px){
+  section{padding:120px var(--margem)}
+  .conceito{grid-template-columns:1.2fr .8fr;gap:72px;align-items:end}
+  .letras{grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding-left:max(var(--margem),calc((100vw - 1160px)/2));padding-right:max(var(--margem),calc((100vw - 1160px)/2))}
+  .telas{grid-template-columns:1fr 300px;gap:48px}
+  .note{display:block}
+  .pede ul{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .js [data-r]{opacity:1!important;transform:none!important}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<header class="capa">
+  <div class="capa-mono" aria-hidden="true">LA</div>
+  <div class="capa-pre"><span>Apresentação do projeto</span><span>Prévia</span></div>
+  <h1>Letícia<br>Arthuso</h1>
+  <p class="sub">Letícia, esta é a proposta do seu site. Em vez de um PDF, você vê aqui a ideia, as cores, as letras e o próprio site funcionando.</p>
+  <a class="pilula p-rosa" href="#ver">Ver o site funcionando</a>
+</header>
+
+<section>
+  <div class="miolo conceito">
+    <div data-r="e">
+      <p class="rot">A ideia</p>
+      <q>Realço sua beleza com naturalidade nos detalhes.</q>
+    </div>
+    <div data-r="d" style="--d:.15s">
+      <p>A frase é da sua bio e virou o centro do projeto. O site precisa passar o que suas pacientes já dizem: atendimento atencioso, resultado natural e nenhum exagero.</p>
+      <p>Por isso a entrada coloca você em primeiro plano, com o seu monograma LA atrás, como a capa de uma revista.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cores">
+  <div class="miolo">
+    <p class="rot" data-r="e">As cores</p>
+    <h2 data-r="e">Quatro tons, cada um com função</h2>
+    <p class="cores-nota" data-r="e" style="--d:.1s">Hoje seu Instagram usa dourado, off-white e preto. Esta paleta é uma evolução mais quente, com o bordô no lugar do preto. Se preferir manter o dourado, dá para ajustar.</p>
+    <div class="pil">
+      <div class="cor" data-r="e" style="background:#EEE4DA;color:#4D0E13"><b>Creme</b><span>Fundo da página, leve para a leitura</span><em>#EEE4DA</em></div>
+      <div class="cor" data-r="d" style="--d:.08s;background:#D8C4AC;color:#4D0E13"><b>Areia</b><span>Áreas de contato e linhas</span><em>#D8C4AC</em></div>
+      <div class="cor" data-r="e" style="--d:.16s;background:#C8A49F;color:#4D0E13"><b>Rosa queimado</b><span>Depoimentos e destaques</span><em>#C8A49F</em></div>
+      <div class="cor" data-r="d" style="--d:.24s;background:#4D0E13;color:#EEE4DA"><b>Bordô</b><span>Entrada, botões e títulos</span><em>#4D0E13</em></div>
+    </div>
+  </div>
+</section>
+
+<section class="letras">
+  <div data-r="e">
+    <p class="rot">As letras</p>
+    <div class="ag" aria-hidden="true">Ag</div>
+  </div>
+  <div class="tipo" data-r="d" style="--d:.15s">
+    <div><strong>Italiana, para os títulos</strong><p class="t1">Elegante, fina e feminina, sem exagero.</p></div>
+    <div><strong>DM Sans, para os textos</strong><p class="t2">Simples e fácil de ler, inclusive em uma tela pequena de celular.</p></div>
+  </div>
+</section>
+
+<section class="ver" id="ver">
+  <div class="miolo">
+    <p class="rot" data-r="e">O site</p>
+    <h2 data-r="e">Pode mexer, está funcionando</h2>
+    <p data-r="e" style="--d:.1s">Role dentro das telas, toque nos pontos do rosto e arraste o antes e depois. Pensado primeiro para o celular.</p>
+    <div class="telas">
+      <div class="note" data-r="e">
+        <div class="note-tela" id="noteTela"><iframe id="noteFrame" title="Site no computador" data-src="index.html" tabindex="-1"></iframe></div>
+        <div class="note-base" aria-hidden="true"></div>
+      </div>
+      <div class="cel" data-r="d" style="--d:.15s">
+        <div class="cel-tela"><iframe title="Site no celular" data-src="index.html"></iframe></div>
+      </div>
+    </div>
+    <p style="margin-top:32px" data-r="b"><a class="pilula p-bordo" href="index.html" target="_blank" rel="noopener">Abrir o site em tela cheia</a></p>
+  </div>
+</section>
+
+<section class="caminho">
+  <div class="miolo">
+    <p class="rot" data-r="e">O caminho da paciente</p>
+    <h2 data-r="e">Como o site conduz até o agendamento</h2>
+    <ol>
+      <li data-r="e"><b>1</b><strong>Entrada</strong><p>Primeira impressão: seu nome, seu rosto e sua frase.</p></li>
+      <li data-r="d"><b>2</b><strong>Quem é você e o que faz</strong><p>Sua história e a lista de procedimentos.</p></li>
+      <li data-r="e"><b>3</b><strong>Depoimentos e resultados</strong><p>Relatos, antes e depois para arrastar e vídeos que abrem na lateral.</p></li>
+      <li data-r="d"><b>4</b><strong>Cada procedimento explicado</strong><p>A paciente toca no rosto e entende cada um, com as respostas para as dúvidas que você mais recebe.</p></li>
+      <li data-r="e"><b>5</b><strong>WhatsApp</strong><p>Em qualquer ponto, um toque abre a conversa com a mensagem pronta.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="pede">
+  <div class="miolo">
+    <p class="rot" data-r="e">O que falta</p>
+    <h2 style="color:inherit" data-r="e">Preciso de você para fechar</h2>
+    <ul>
+      <li data-r="e"><strong>Autorização das pacientes</strong>Confirmar quais fotos e vídeos podem ficar no site.</li>
+      <li data-r="d"><strong>Revisar os textos</strong>Vieram das suas legendas. Veja se as informações técnicas e a lista de procedimentos estão certas.</li>
+      <li data-r="e"><strong>WhatsApp e agenda</strong>O (31) 99116-9590 é o número certo? Como fica a agenda durante a gestação?</li>
+      <li data-r="d"><strong>Fotos e vídeos originais</strong>Os arquivos do seu ensaio deixam o site bem mais nítido, e o seu logo também entra aqui.</li>
+      <li data-r="e"><strong>Mais depoimentos</strong>Quais dos seus feedbacks podemos usar?</li>
+      <li data-r="d"><strong>Clube do Botox</strong>Se fizer sentido, conte como funciona para ganhar um espaço no site.</li>
+    </ul>
+    <a class="pilula p-bordo" href="index.html" target="_blank" rel="noopener" data-r="b">Abrir o site</a>
+  </div>
+</section>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
+  document.querySelectorAll('[data-r]').forEach(function(a){io.observe(a)});
+  var fr=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.src=e.target.dataset.src;fr.unobserve(e.target)}})},{rootMargin:'300px'});
+  document.querySelectorAll('iframe[data-src]').forEach(function(f){fr.observe(f)});
+  var nt=document.getElementById('noteTela'),nf=document.getElementById('noteFrame');
+  function escala(){if(nt.clientWidth)nf.style.transform='scale('+(nt.clientWidth/1280)+')'}
+  addEventListener('resize',escala);escala();
+})();
+</script>
+</body>
+</html>
