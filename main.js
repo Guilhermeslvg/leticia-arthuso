@@ -44,12 +44,20 @@
      l:['Rotina personalizada para a sua pele','Cuidados em casa e procedimentos no consultório','Acompanhamento e manutenção'],n:''}
   ];
 
-  /* Monta lista, chips, pontos e opções do formulário */
+  /* Fotos do mosaico: classe de tamanho e descrição */
+  var FOTO={"labios": {"c": "tile-a", "a": "Lábios depois do preenchimento, com a mão de luva da Letícia ajustando o rosto da paciente"}, "botox": {"c": "tile-b", "a": "Letícia segurando um frasco de toxina botulínica, com a logo LA dourada na parede"}, "bio": {"c": "", "a": "Antes e depois de bioestimulador de colágeno em uma paciente"}, "skin": {"c": "", "a": "Retrato da Letícia com a pele iluminada"}, "face": {"c": "tile-b", "a": "Letícia aplicando um procedimento no rosto de uma paciente"}, "rino": {"c": "tile-b", "a": "Nariz de paciente logo após o procedimento, com gaze"}, "pdrn": {"c": "tile-c", "a": "Letícia aplicando PDRN no rosto de uma paciente"}, "pele": {"c": "tile-c", "a": "Letícia cuidando da pele em frente ao espelho de mão com a logo LA"}};
+  var ORDEM=["labios", "botox", "bio", "skin", "face", "rino", "pdrn", "pele"];
+  function porId(id){for(var i=0;i<P.length;i++)if(P[i].id===id)return i}
+
+  /* Monta mosaico, chips, pontos e opções do formulário */
   var lista=document.getElementById('fazLista'),chips=document.getElementById('chips'),foto=document.getElementById('mapaFoto'),sel=document.getElementById('f-int'),painel=document.getElementById('painel');
-  P.forEach(function(p,n){
-    var li=document.createElement('li');li.dataset.r=n%2?'right':'left';li.style.setProperty('--d',(n%4)*.06+'s');
-    li.innerHTML='<button class="faz-item" type="button" data-vai="'+n+'">'+svg(p.i)+'<span><span class="faz-nome">'+p.t+'</span><span class="faz-sub">'+p.c+'</span></span><svg aria-hidden="true"><use href="#i-seta"/></svg></button>';
+  ORDEM.forEach(function(id,k){
+    var n=porId(id),p=P[n],f=FOTO[id],li=document.createElement('li');
+    li.className='tile '+f.c;li.dataset.r=k%2?'right':'left';li.style.setProperty('--d',(k%4)*.07+'s');
+    li.innerHTML='<button class="tile-btn" type="button" data-vai="'+n+'" aria-label="Ver detalhes de '+p.t+'"><img src="assets/proc-'+id+'.webp" loading="lazy" alt="'+f.a+'"><span class="tile-mais" aria-hidden="true"></span><span class="tile-txt"><span class="tile-nome">'+p.t+'</span><span class="tile-sub">'+p.c+'</span></span></button>';
     lista.appendChild(li);
+  });
+  P.forEach(function(p,n){
     var c=document.createElement('button');c.className='chip';c.type='button';c.role='tab';c.textContent=p.t;c.dataset.p=n;chips.appendChild(c);
     if(p.x){
       var b=document.createElement('button');b.className='ponto';b.type='button';b.dataset.p=n;b.style.left=p.x+'%';b.style.top=p.y+'%';
@@ -58,6 +66,7 @@
     var o=document.createElement('option');o.value=p.t;o.textContent=p.t;sel.appendChild(o);
   });
 
+  var veu=document.getElementById('veu');
   var atual=-1;
   function seleciona(n){
     if(n===atual)return;
@@ -72,10 +81,41 @@
   seleciona(0);
   chips.addEventListener('click',function(e){var b=e.target.closest('.chip');if(b)seleciona(+b.dataset.p)});
   foto.addEventListener('click',function(e){var b=e.target.closest('.ponto');if(b)seleciona(+b.dataset.p)});
-  lista.addEventListener('click',function(e){
-    var b=e.target.closest('[data-vai]');if(!b)return;
-    seleciona(+b.dataset.vai);
-    document.getElementById('procedimentos').scrollIntoView({behavior:reduz?'auto':'smooth'});
+  /* Modal de cada procedimento */
+  var modal=document.getElementById('modal'),mImg=document.getElementById('mod-img'),mTxt=document.getElementById('mod-txt'),mCta=document.getElementById('mod-cta'),mProx=document.getElementById('mod-prox'),mFec=modal.querySelector('.modal-fechar'),mOrigem=null,mAberto=false,mPos=0;
+  function preenche(k,volta){
+    mPos=k;var n=porId(ORDEM[k]),p=P[n],f=FOTO[ORDEM[k]],prox=P[porId(ORDEM[(k+1)%ORDEM.length])];
+    mImg.src='assets/proc-'+ORDEM[k]+'.webp';mImg.alt=f.a;
+    var novo=mTxt.cloneNode(false);novo.className='modal-txt'+(volta?' volta':'');
+    novo.innerHTML='<h2 id="mod-tit">'+p.t+'</h2><p>'+p.r+'</p><ul>'+p.l.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'+(p.n?'<p class="modal-nota">'+p.n+'</p>':'');
+    mTxt.parentNode.replaceChild(novo,mTxt);mTxt=novo;
+    mCta.href=linkWa('Olá, Dra. Letícia! Gostaria de agendar uma avaliação sobre '+p.t.toLowerCase()+'.');
+    mProx.textContent='Próximo: '+prox.t;
+    modal.scrollTop=0;
+  }
+  function abreModal(b){
+    mOrigem=b;mAberto=true;preenche(ORDEM.indexOf(P[+b.dataset.vai].id));
+    modal.hidden=false;veu.hidden=false;document.body.classList.add('travado');
+    requestAnimationFrame(function(){requestAnimationFrame(function(){modal.classList.add('on');veu.classList.add('on');mFec.focus()})});
+  }
+  function fechaModal(){
+    if(!mAberto)return;mAberto=false;
+    modal.classList.remove('on');veu.classList.remove('on');document.body.classList.remove('travado');
+    setTimeout(function(){modal.hidden=true;veu.hidden=true},reduz?0:700);
+    if(mOrigem)mOrigem.focus({preventScroll:true});
+  }
+  lista.addEventListener('click',function(e){var b=e.target.closest('[data-vai]');if(b)abreModal(b)});
+  mFec.addEventListener('click',fechaModal);
+  mProx.addEventListener('click',function(){preenche((mPos+1)%ORDEM.length)});
+  addEventListener('keydown',function(e){
+    if(!mAberto)return;
+    if(e.key==='Escape')return fechaModal();
+    if(e.key==='ArrowRight')return preenche((mPos+1)%ORDEM.length);
+    if(e.key==='ArrowLeft')return preenche((mPos-1+ORDEM.length)%ORDEM.length,true);
+    if(e.key==='Tab'){
+      if(e.shiftKey&&document.activeElement===mFec){e.preventDefault();mProx.focus()}
+      else if(!e.shiftKey&&document.activeElement===mProx){e.preventDefault();mFec.focus()}
+    }
   });
 
   /* WhatsApp com mensagem pronta */
@@ -112,21 +152,35 @@
     alvos.forEach(function(a){io.observe(a)});
   } else alvos.forEach(mostra);
 
-  /* Abertura: cortinas, monograma, foto e nome */
-  var ent=document.getElementById('inicio');
-  function abrir(){ent.classList.add('pronta')}
-  var img=ent.querySelector('.figura');
-  if(img.complete)requestAnimationFrame(function(){requestAnimationFrame(abrir)});
-  else{img.addEventListener('load',abrir);img.addEventListener('error',abrir);setTimeout(abrir,1800)}
+  /* Abertura: a logo se desenha no centro da tela e desliza para trás da foto */
+  var ent=document.getElementById('inicio'),logo=document.getElementById('logoG'),img=ent.querySelector('.figura'),txt=ent.querySelector('.entrada-txt'),wa=document.querySelector('.wa-flutuante');
+  function centraLogo(){
+    var r=logo.getBoundingClientRect(),alvo=Math.min(innerWidth*.62,innerHeight*.5);
+    logo.style.setProperty('--lx',(innerWidth/2-(r.left+r.width/2))+'px');
+    logo.style.setProperty('--ly',(innerHeight/2-(r.top+r.height/2))+'px');
+    logo.style.setProperty('--ls',alvo/r.width);
+  }
+  function solta(){
+    ent.classList.add('pronta');
+    logo.style.setProperty('--lx','0px');logo.style.setProperty('--ly','0px');logo.style.setProperty('--ls',1);
+    setTimeout(function(){ent.classList.add('solta')},reduz?0:3200);
+  }
+  function abrir(){
+    if(reduz||scrollY>40){solta();return}
+    centraLogo();
+    requestAnimationFrame(function(){requestAnimationFrame(function(){ent.classList.add('desenha');setTimeout(solta,1500)})});
+  }
+  if(reduz){var br=document.getElementById('brilho');if(br)br.remove()}
+  abrir();
 
-  /* Rolagem: monograma cresce, foto sobe mais devagar, texto some */
-  var mono=ent.querySelector('.mono'),txt=ent.querySelector('.entrada-txt'),wa=document.querySelector('.wa-flutuante'),pendente=false;
+  /* Rolagem: a logo gira de leve, a foto sobe mais devagar e o texto some */
+  var pendente=false;
   function rola(){
     pendente=false;
     var y=window.scrollY,h=ent.offsetHeight,k=Math.min(y/h,1);
-    if(!reduz){
-      mono.style.setProperty('--ms',1+k*.28);mono.style.setProperty('--my',(k*-70)+'px');
-      img.style.setProperty('--fy',(k*h*.16)+'px');txt.style.setProperty('--to',Math.max(0,1-k*1.8));
+    if(!reduz&&ent.classList.contains('solta')){
+      logo.style.setProperty('--lr',(k*28)+'deg');logo.style.setProperty('--ls',1+k*.18);
+      img.style.setProperty('--fy',(k*h*.14)+'px');txt.style.setProperty('--to',Math.max(0,1-k*2));
     }
     wa.classList.toggle('ver',y>h*.7);
   }
@@ -145,7 +199,7 @@
   car.addEventListener('dragstart',function(e){e.preventDefault()});
 
   /* Gaveta lateral com o vídeo do Instagram */
-  var gav=document.getElementById('gaveta'),veu=document.getElementById('veu'),box=document.getElementById('gavVideo'),tit=document.getElementById('gav-tit'),fec=gav.querySelector('.fechar'),origem=null,aberta=false;
+  var gav=document.getElementById('gaveta'),box=document.getElementById('gavVideo'),tit=document.getElementById('gav-tit'),fec=gav.querySelector('.fechar'),origem=null,aberta=false;
   function abreVideo(b){
     if(moveu>6)return;
     origem=b;aberta=true;tit.textContent=b.dataset.tit;
@@ -160,7 +214,7 @@
     if(origem)origem.focus({preventScroll:true});
   }
   car.addEventListener('click',function(e){var b=e.target.closest('[data-reel]');if(b)abreVideo(b)});
-  fec.addEventListener('click',fecha);veu.addEventListener('click',fecha);
+  fec.addEventListener('click',fecha);veu.addEventListener('click',function(){fecha();fechaModal()});
   addEventListener('keydown',function(e){
     if(!aberta)return;
     if(e.key==='Escape')return fecha();

@@ -6,6 +6,7 @@
 <title>Apresentação do Projeto | Letícia Arthuso</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#4D0E13">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
@@ -24,8 +25,8 @@ section{padding:80px var(--margem)}
 :focus-visible{outline:2px solid currentColor;outline-offset:3px}
 
 .capa{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:72px var(--margem) 40px;background:var(--bordo);color:var(--creme);overflow:hidden}
-.capa-mono{position:absolute;top:-2vh;right:-4vw;font:400 min(70vh,100vw)/.95 var(--titulo);color:var(--rosa);opacity:.2;letter-spacing:-.05em;animation:mono 1.6s var(--saida) both}
-@keyframes mono{from{opacity:0;transform:translateX(50px)}}
+.capa-mono{position:absolute;top:50%;right:-8vmin;width:min(92vh,90vw);max-width:none;opacity:.3;transform:translateY(-50%);animation:mono 1.6s var(--saida) both}
+@keyframes mono{from{opacity:0;transform:translate(50px,-50%)}}
 .capa-pre{position:absolute;top:28px;left:var(--margem);right:var(--margem);display:flex;justify-content:space-between;gap:16px;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase}
 .capa h1{position:relative;font-size:clamp(3.2rem,12.5vw,9.2rem);line-height:.96;color:var(--creme);animation:sobe 1.2s var(--saida) .15s both}
 .capa p.sub{position:relative;max-width:34em;margin-top:18px;animation:sobe 1.2s var(--saida) .35s both}
@@ -41,6 +42,10 @@ section{padding:80px var(--margem)}
 .conceito p{max-width:36em}
 .conceito p+p{margin-top:12px}
 
+.marca-nota{max-width:38em;margin:12px 0 30px;color:var(--apagado)}
+.marca-grade{display:grid;gap:10px}
+.marca-grade figure{margin:0;padding:clamp(20px,5vw,44px);border-radius:32px}
+.marca-grade img{display:block;width:min(100%,300px);margin:auto}
 .cores{background:var(--claro)}
 .cores h2{margin-bottom:12px}
 .cores-nota{max-width:38em;margin-bottom:30px;color:var(--apagado)}
@@ -93,6 +98,7 @@ section{padding:80px var(--margem)}
 
 @media (min-width:1000px){
   section{padding:120px var(--margem)}
+  .marca-grade{grid-template-columns:repeat(3,1fr)}
   .conceito{grid-template-columns:1.2fr .8fr;gap:72px;align-items:end}
   .letras{grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding-left:max(var(--margem),calc((100vw - 1160px)/2));padding-right:max(var(--margem),calc((100vw - 1160px)/2))}
   .telas{grid-template-columns:1fr 300px;gap:48px}
@@ -110,7 +116,7 @@ section{padding:80px var(--margem)}
 <body>
 
 <header class="capa">
-  <div class="capa-mono" aria-hidden="true">LA</div>
+  <img class="capa-mono" src="assets/logo-la-creme.svg" alt="">
   <div class="capa-pre"><span>Apresentação do projeto</span><span>Prévia</span></div>
   <h1>Letícia<br>Arthuso</h1>
   <p class="sub">Letícia, esta é a proposta do seu site. Em vez de um PDF, você vê aqui a ideia, as cores, as letras e o próprio site funcionando.</p>
@@ -125,7 +131,20 @@ section{padding:80px var(--margem)}
     </div>
     <div data-r="d" style="--d:.15s">
       <p>A frase é da sua bio e virou o centro do projeto. O site precisa passar o que suas pacientes já dizem: atendimento atencioso, resultado natural e nenhum exagero.</p>
-      <p>Por isso a entrada coloca você em primeiro plano, com o seu monograma LA atrás, como a capa de uma revista.</p>
+      <p>Por isso a entrada abre com o seu LA se desenhando em dourado, como o da parede do consultório, e ele desliza para trás da sua foto.</p>
+    </div>
+  </div>
+</section>
+
+<section class="marca">
+  <div class="miolo">
+    <p class="rot" data-r="e">A logo</p>
+    <h2 data-r="e">O seu LA, redesenhado em vetor</h2>
+    <p class="marca-nota" data-r="e" style="--d:.1s">Parti do monograma que já está nos seus posts e no consultório: o L cursivo com laço, o A atravessado e o círculo aberto. Agora ele fica nítido em qualquer tamanho, de um ícone a uma fachada.</p>
+    <div class="marca-grade">
+      <figure data-r="e" style="background:#EEE4DA"><img src="assets/logo-la-dourado.svg" alt="Logo em dourado sobre creme"></figure>
+      <figure data-r="b" style="--d:.1s;background:#C8A49F"><img src="assets/logo-la-bordo.svg" alt="Logo em bordô sobre rosa queimado"></figure>
+      <figure data-r="d" style="--d:.2s;background:#4D0E13"><img src="assets/logo-la-creme.svg" alt="Logo em creme sobre bordô"></figure>
     </div>
   </div>
 </section>
@@ -134,12 +153,12 @@ section{padding:80px var(--margem)}
   <div class="miolo">
     <p class="rot" data-r="e">As cores</p>
     <h2 data-r="e">Quatro tons, cada um com função</h2>
-    <p class="cores-nota" data-r="e" style="--d:.1s">Hoje seu Instagram usa dourado, off-white e preto. Esta paleta é uma evolução mais quente, com o bordô no lugar do preto. Se preferir manter o dourado, dá para ajustar.</p>
+    <p class="cores-nota" data-r="e" style="--d:.1s">Hoje seu Instagram usa dourado, off-white e preto. Esta paleta é uma evolução mais quente, com o bordô no lugar do preto. O dourado continua na logo.</p>
     <div class="pil">
       <div class="cor" data-r="e" style="background:#EEE4DA;color:#4D0E13"><b>Creme</b><span>Fundo da página, leve para a leitura</span><em>#EEE4DA</em></div>
       <div class="cor" data-r="d" style="--d:.08s;background:#D8C4AC;color:#4D0E13"><b>Areia</b><span>Áreas de contato e linhas</span><em>#D8C4AC</em></div>
       <div class="cor" data-r="e" style="--d:.16s;background:#C8A49F;color:#4D0E13"><b>Rosa queimado</b><span>Depoimentos e destaques</span><em>#C8A49F</em></div>
-      <div class="cor" data-r="d" style="--d:.24s;background:#4D0E13;color:#EEE4DA"><b>Bordô</b><span>Entrada, botões e títulos</span><em>#4D0E13</em></div>
+      <div class="cor" data-r="d" style="--d:.24s;background:#4D0E13;color:#EEE4DA"><b>Bordô</b><span>Botões, títulos e rodapé</span><em>#4D0E13</em></div>
     </div>
   </div>
 </section>
@@ -178,8 +197,8 @@ section{padding:80px var(--margem)}
     <p class="rot" data-r="e">O caminho da paciente</p>
     <h2 data-r="e">Como o site conduz até o agendamento</h2>
     <ol>
-      <li data-r="e"><b>1</b><strong>Entrada</strong><p>Primeira impressão: seu nome, seu rosto e sua frase.</p></li>
-      <li data-r="d"><b>2</b><strong>Quem é você e o que faz</strong><p>Sua história e a lista de procedimentos.</p></li>
+      <li data-r="e"><b>1</b><strong>Entrada</strong><p>Primeira impressão: sua logo, seu rosto e sua frase.</p></li>
+      <li data-r="d"><b>2</b><strong>Quem é você e o que faz</strong><p>Sua história e os procedimentos em fotos. Cada foto abre um modal com a explicação.</p></li>
       <li data-r="e"><b>3</b><strong>Depoimentos e resultados</strong><p>Relatos, antes e depois para arrastar e vídeos que abrem na lateral.</p></li>
       <li data-r="d"><b>4</b><strong>Cada procedimento explicado</strong><p>A paciente toca no rosto e entende cada um, com as respostas para as dúvidas que você mais recebe.</p></li>
       <li data-r="e"><b>5</b><strong>WhatsApp</strong><p>Em qualquer ponto, um toque abre a conversa com a mensagem pronta.</p></li>
@@ -195,7 +214,7 @@ section{padding:80px var(--margem)}
       <li data-r="e"><strong>Autorização das pacientes</strong>Confirmar quais fotos e vídeos podem ficar no site.</li>
       <li data-r="d"><strong>Revisar os textos</strong>Vieram das suas legendas. Veja se as informações técnicas e a lista de procedimentos estão certas.</li>
       <li data-r="e"><strong>WhatsApp e agenda</strong>O (31) 99116-9590 é o número certo? Como fica a agenda durante a gestação?</li>
-      <li data-r="d"><strong>Fotos e vídeos originais</strong>Os arquivos do seu ensaio deixam o site bem mais nítido, e o seu logo também entra aqui.</li>
+      <li data-r="d"><strong>Fotos e vídeos originais</strong>Os arquivos do seu ensaio deixam o site bem mais nítido. Se tiver o arquivo original da logo, ele serve para conferir o desenho novo.</li>
       <li data-r="e"><strong>Mais depoimentos</strong>Quais dos seus feedbacks podemos usar?</li>
       <li data-r="d"><strong>Clube do Botox</strong>Se fizer sentido, conte como funciona para ganhar um espaço no site.</li>
     </ul>
