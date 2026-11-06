@@ -7,11 +7,11 @@
 <meta name="description" content="Preenchimento labial, botox e bioestimulador de colágeno em São João del Rei/MG, com avaliação individual e foco em naturalidade. CRO-MG 70325.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#EEE4DA">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/marca/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/styles.css">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -31,6 +31,7 @@
       <a href="#sobre">Sobre</a>
       <a href="#depoimentos">Depoimentos</a>
       <a href="#procedimentos">Procedimentos</a>
+      <a class="so-largo" href="#chegar">Como chegar</a>
     </nav>
     <a class="barra-cta" data-wa href="https://wa.me/5531991169590"><svg><use href="#i-wa"/></svg>Agendar</a>
   </header>
@@ -55,7 +56,7 @@
     </g>
   </svg>
 
-  <img class="figura" src="assets/entrada.webp" width="689" height="934" alt="Dra. Letícia Arthuso de blazer branco, sentada, com a mão apoiada no rosto" fetchpriority="high">
+  <img class="figura" src="assets/fotos/entrada.webp" width="689" height="934" alt="Dra. Letícia Arthuso de blazer branco, sentada, com a mão apoiada no rosto" fetchpriority="high">
 
   <div class="entrada-txt">
     <p class="entrada-pre">Dra. Letícia Arthuso · Harmonização Facial</p>
@@ -69,12 +70,13 @@
 </section>
 
 <main>
+<div class="onda" data-onda="creme"></div>
 
 <!-- QUEM É E O QUE FAZ -->
 <section class="sobre" id="sobre">
   <div class="sobre-cab">
     <div class="sobre-foto" data-r="left">
-      <img src="assets/bio.webp" width="900" height="825" loading="lazy" alt="Retrato da Dra. Letícia Arthuso em fundo bege, de blazer preto">
+      <img src="assets/fotos/bio.webp" width="900" height="825" loading="lazy" alt="Retrato da Dra. Letícia Arthuso em fundo bege, de blazer preto">
     </div>
     <div class="sobre-txt">
       <p class="rotulo" data-r="down">Prazer, Letícia</p>
@@ -92,43 +94,58 @@
   </div>
 </section>
 
+<div class="onda" data-onda="rosa" data-vira></div>
 <!-- DEPOIMENTOS -->
 <section class="depo" id="depoimentos">
   <div class="depo-topo">
     <p class="rotulo" data-r="down">Depoimentos e resultados</p>
     <h2 data-split>“Foi um verdadeiro achado aqui em São João del Rei”</h2>
-    <blockquote data-r="left" style="--d:.2s">
-      <p>Desde a primeira conversa, me senti super à vontade para falar exatamente o que eu queria. Ela me ouviu, fez uma avaliação personalizada e me explicou cada detalhe.</p>
-      <footer>Paciente de botox, relato publicado no Instagram da Letícia</footer>
-    </blockquote>
   </div>
 
-  <div class="compara-bloco">
-    <div class="compara" id="compara" data-r="right" style="--pos:50%">
-      <img src="assets/depois.webp" width="961" height="430" loading="lazy" alt="Testa e olhos da paciente depois do botox, com linhas suavizadas">
-      <div class="compara-antes"><img src="assets/antes.webp" width="961" height="430" loading="lazy" alt="Testa e olhos da paciente antes do botox, franzindo a testa"></div>
-      <span class="compara-linha" aria-hidden="true"><i></i></span>
-      <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois do botox">
+  <div class="depo-grade">
+    <figure class="relato" data-r="left">
+      <span class="relato-aspas" aria-hidden="true">“</span>
+      <blockquote>
+        <p>Desde a primeira conversa, me senti super à vontade para falar exatamente o que eu queria. Ela me ouviu, fez uma avaliação personalizada e me explicou cada detalhe.</p>
+        <p>A aplicação foi super tranquila, tive todo o suporte antes, durante e depois.</p>
+      </blockquote>
+      <figcaption>Paciente de botox, em relato publicado no Instagram</figcaption>
+      <a class="link-ig" target="_blank" rel="noopener" href="https://www.instagram.com/p/Db6oRmSFrew/">Ver o relato completo<svg><use href="#i-seta"/></svg></a>
+    </figure>
+
+    <div class="compara-bloco" data-r="right" style="--d:.15s">
+      <div class="compara" id="compara" style="--pos:50%">
+        <img src="assets/fotos/depois.webp" width="961" height="430" loading="lazy" alt="Testa e olhos da paciente depois do botox, com linhas suavizadas">
+        <div class="compara-antes"><img src="assets/fotos/antes.webp" width="961" height="430" loading="lazy" alt="Testa e olhos da paciente antes do botox, franzindo a testa"></div>
+        <span class="compara-rot compara-rot-a" aria-hidden="true">Antes</span>
+        <span class="compara-rot compara-rot-d" aria-hidden="true">Depois</span>
+        <span class="compara-linha" aria-hidden="true"><i></i></span>
+        <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois do botox">
+      </div>
+      <p class="compara-leg"><strong>Botox.</strong> Arraste para comparar. “Pequenos ajustes fazem uma grande diferença, mantendo a essência da paciente.”</p>
     </div>
-    <p class="compara-leg" data-r="up">Botox. Arraste para comparar. “Pequenos ajustes fazem uma grande diferença, mantendo a essência da paciente.”</p>
   </div>
 
   <div class="carrossel-cab">
-    <h3 data-r="left">Fotos e vídeos do consultório</h3>
+    <div>
+      <h3 data-r="left">Fotos e vídeos do consultório</h3>
+      <p data-r="left" style="--d:.1s">Toque nos vídeos para assistir no Instagram.</p>
+    </div>
     <span class="pilula-arraste" data-r="right">Arraste para o lado<svg><use href="#i-seta"/></svg></span>
   </div>
   <ul class="carrossel" id="carrossel" tabindex="0" aria-label="Fotos e vídeos de resultados">
-    <li><button class="cartao cartao-video" type="button" data-reel="DeNcwNtosu8" data-tit="O poder de um preenchimento"><img src="assets/vid-resultado.webp" loading="lazy" alt=""><span class="play" aria-hidden="true"></span><span class="sr">Ver vídeo: resultado de preenchimento labial</span></button></li>
-    <li><figure class="cartao"><img src="assets/res-labios1.webp" loading="lazy" alt="Lábios depois do preenchimento, com a frase: a sutileza está na elegância"></figure></li>
-    <li><button class="cartao cartao-video" type="button" data-reel="DccC6DwIgF8" data-tit="Um pouco de um atendimento"><img src="assets/vid-atendimento.webp" loading="lazy" alt=""><span class="play" aria-hidden="true"></span><span class="sr">Ver vídeo: acompanhe um atendimento</span></button></li>
-    <li><figure class="cartao"><img src="assets/res-labios2.webp" loading="lazy" alt="Lábios com marcações de arco do cupido, proporção e hidratação"></figure></li>
-    <li><button class="cartao cartao-video" type="button" data-reel="Deuz_oMBkzq" data-tit="Mudanças que vão além do espelho"><img src="assets/vid-labios.webp" loading="lazy" alt=""><span class="play" aria-hidden="true"></span><span class="sr">Ver vídeo: preenchimento labial bem planejado</span></button></li>
-    <li><figure class="cartao"><img src="assets/res-bio.webp" loading="lazy" alt="Antes e depois de bioestimulador de colágeno"></figure></li>
-    <li><button class="cartao cartao-video" type="button" data-reel="Dd-EOR5I6Su" data-tit="Estímulo de colágeno"><img src="assets/vid-pele.webp" loading="lazy" alt=""><span class="play" aria-hidden="true"></span><span class="sr">Ver vídeo: estímulo de colágeno</span></button></li>
-    <li><figure class="cartao"><img src="assets/res-labios3.webp" loading="lazy" alt="Lábios antes e depois de preenchimento, com o texto: você também pode realçar o que já é seu, com sutileza"></figure></li>
+    <li><button class="cartao cartao-video" type="button" data-reel="DeNcwNtosu8" data-tit="O poder de um preenchimento"><img src="assets/fotos/vid-resultado.webp" loading="lazy" alt=""><span class="play" aria-hidden="true"></span><span class="sr">Ver vídeo: resultado de preenchimento labial</span></button></li>
+    <li><figure class="cartao"><img src="assets/fotos/res-labios1.webp" loading="lazy" alt="Lábios depois do preenchimento, com a frase: a sutileza está na elegância"></figure></li>
+    <li><button class="cartao cartao-video" type="button" data-reel="DccC6DwIgF8" data-tit="Um pouco de um atendimento"><img src="assets/fotos/vid-atendimento.webp" loading="lazy" alt=""><span class="play" aria-hidden="true"></span><span class="sr">Ver vídeo: acompanhe um atendimento</span></button></li>
+    <li><figure class="cartao"><img src="assets/fotos/res-labios2.webp" loading="lazy" alt="Lábios com marcações de arco do cupido, proporção e hidratação"></figure></li>
+    <li><button class="cartao cartao-video" type="button" data-reel="Deuz_oMBkzq" data-tit="Mudanças que vão além do espelho"><img src="assets/fotos/vid-labios.webp" loading="lazy" alt=""><span class="play" aria-hidden="true"></span><span class="sr">Ver vídeo: preenchimento labial bem planejado</span></button></li>
+    <li><figure class="cartao"><img src="assets/fotos/res-bio.webp" loading="lazy" alt="Antes e depois de bioestimulador de colágeno"></figure></li>
+    <li><button class="cartao cartao-video" type="button" data-reel="Dd-EOR5I6Su" data-tit="Estímulo de colágeno"><img src="assets/fotos/vid-pele.webp" loading="lazy" alt=""><span class="play" aria-hidden="true"></span><span class="sr">Ver vídeo: estímulo de colágeno</span></button></li>
+    <li><figure class="cartao"><img src="assets/fotos/res-labios3.webp" loading="lazy" alt="Lábios antes e depois de preenchimento, com o texto: você também pode realçar o que já é seu, com sutileza"></figure></li>
   </ul>
 </section>
 
+<div class="onda" data-onda="creme"></div>
 <!-- PROCEDIMENTOS INTERATIVOS -->
 <section class="mapa" id="procedimentos">
   <div class="mapa-cab">
@@ -137,40 +154,128 @@
     <p data-r="up" style="--d:.15s">Toque nos pontos do rosto ou escolha pelo nome. Nem todo mundo precisa de tudo, e é a avaliação que define o que faz sentido para você.</p>
   </div>
   <div class="mapa-corpo">
-    <div class="mapa-foto" id="mapaFoto" data-r="left">
-      <img src="assets/retrato-branco.webp" width="1080" height="837" loading="lazy" alt="Rosto da Dra. Letícia, usado como mapa dos procedimentos">
+    <div class="mapa-foto" data-r="left">
+      <div class="mapa-giro" id="mapaGiro">
+        <div class="mapa-cena" id="mapaFoto">
+          <img src="assets/fotos/retrato-branco.webp" width="1080" height="837" loading="lazy" alt="Rosto da Dra. Letícia, usado como mapa dos procedimentos">
+          <span class="mapa-luz" aria-hidden="true"></span>
+          <svg class="mapa-zona" viewBox="0 0 1080 837" preserveAspectRatio="none" aria-hidden="true">
+            <defs><linearGradient id="ouroZ" gradientUnits="userSpaceOnUse" x1="360" y1="0" x2="760" y2="0"><stop offset="0" stop-color="#B8893F"/><stop offset=".5" stop-color="#F6E3B0"/><stop offset="1" stop-color="#B8893F"/></linearGradient></defs>
+            <g id="zonas"></g>
+          </svg>
+        </div>
+      </div>
     </div>
     <div class="mapa-painel">
-      <div class="chips" id="chips" role="tablist" aria-label="Procedimentos"></div>
-      <div class="painel" id="painel" role="tabpanel" aria-live="polite"></div>
+      <div class="chips" id="chips" role="tablist" aria-label="Procedimentos"><span class="chip-marca" id="chipMarca" aria-hidden="true"></span></div>
+      <div class="painel" id="painel" role="tabpanel">
+        <span class="painel-barra" id="barra" aria-hidden="true"></span>
+        <div class="painel-nav">
+          <span class="painel-conta" id="conta"></span>
+          <button class="seta seta-ant" id="ant" type="button" aria-label="Procedimento anterior"></button>
+          <button class="seta" id="prox" type="button" aria-label="Próximo procedimento"></button>
+        </div>
+        <div class="painel-in" id="painelIn"></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CONSULTÓRIO E CONTATO -->
-<section class="fim" id="contato">
-  <div class="fim-foto" data-r="left">
-    <img src="assets/espelho2.webp" width="900" height="1280" loading="lazy" alt="Letícia em frente ao espelho em arco do consultório, com a frase em dourado: Você é seu melhor investimento">
+<div class="onda" data-onda="bordo" data-vira></div>
+<!-- HARMONIZAÇÃO HOJE -->
+<section class="hoje" id="hoje">
+  <div class="hoje-cab">
+    <p class="rotulo" data-r="down">Harmonização hoje</p>
+    <h2 data-split>Harmonização não é sinônimo de <span class="ouro">exagero</span></h2>
+    <p data-r="up" style="--d:.15s">Com tanta tendência e tanto filtro nas redes, é normal chegar com medo de ficar artificial. Algumas coisas eu explico quase todos os dias. Toque em cada cartão para ver a resposta.</p>
+    <button class="hoje-reel" type="button" data-reel="DZs_fitB19G" data-tit="Coisas que eu preciso explicar" data-r="up" style="--d:.25s">
+      <img src="assets/fotos/vid-rotina.webp" width="640" height="1136" loading="lazy" alt="">
+      <span class="play" aria-hidden="true"></span>
+      <span class="hoje-reel-txt">Assista ao vídeo<small>Coisas que eu preciso explicar</small></span>
+    </button>
   </div>
-  <div class="fim-txt">
-    <p class="rotulo" data-r="down">O consultório</p>
-    <h2 data-split>“Você é seu melhor <span class="ac">investimento</span>”</h2>
-    <p data-r="right" style="--d:.15s">A frase está escrita em dourado no espelho do consultório, no bairro Matozinhos. Atendimento com hora marcada, individual do começo ao fim.</p>
-    <address data-r="right" style="--d:.2s">Av. Josué de Queirós, 349, Matozinhos<br>São João del Rei/MG · <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Av.+Josu%C3%A9+de+Queir%C3%B3s%2C+349%2C+Matozinhos%2C+S%C3%A3o+Jo%C3%A3o+del+Rei%2C+MG">abrir no mapa</a></address>
+  <ul class="duvidas" id="duvidas">
+    <li data-r="up"><button class="duvida" type="button" aria-pressed="false">
+      <span class="duvida-face duvida-frente"><small>Ouço muito</small><strong>“Vou ficar com o rosto exagerado.”</strong><i aria-hidden="true">Ver resposta</i></span>
+      <span class="duvida-face duvida-verso"><small>Na prática</small>Uma harmonização bem planejada não muda quem você é. Ela valoriza seus traços, respeita sua anatomia e mantém a sua essência.</span>
+    </button></li>
+    <li data-r="up" style="--d:.1s"><button class="duvida" type="button" aria-pressed="false">
+      <span class="duvida-face duvida-frente"><small>Ouço muito</small><strong>“Esse procedimento serve para todo mundo.”</strong><i aria-hidden="true">Ver resposta</i></span>
+      <span class="duvida-face duvida-verso"><small>Na prática</small>Cada rosto tem suas proporções e necessidades. Por isso um bom tratamento começa com avaliação, planejamento e expectativas alinhadas.</span>
+    </button></li>
+    <li data-r="up" style="--d:.2s"><button class="duvida" type="button" aria-pressed="false">
+      <span class="duvida-face duvida-frente"><small>Ouço muito</small><strong>“Botox tem idade certa para começar.”</strong><i aria-hidden="true">Ver resposta</i></span>
+      <span class="duvida-face duvida-verso"><small>Na prática</small>Mais importante do que a idade é entender se ele é indicado para você neste momento.</span>
+    </button></li>
+    <li data-r="up" style="--d:.3s"><button class="duvida" type="button" aria-pressed="false">
+      <span class="duvida-face duvida-frente"><small>Ouço muito</small><strong>“Cuidar da aparência é vaidade.”</strong><i aria-hidden="true">Ver resposta</i></span>
+      <span class="duvida-face duvida-verso"><small>Na prática</small>É sobre autoestima, confiança e se sentir bem com a própria imagem. O resultado mais bonito é aquele que ninguém aponta, só percebe que você está ainda mais bonita.</span>
+    </button></li>
+  </ul>
+</section>
 
-    <form class="form" id="form" novalidate data-r="up" style="--d:.25s">
-      <h3>Agende sua avaliação</h3>
+<div class="onda" data-onda="areia"></div>
+<!-- CONSULTÓRIO, COMO CHEGAR E CONTATO -->
+<section class="fim" id="contato">
+  <div class="cons">
+    <div class="cons-fotos">
+      <div class="cons-arco" data-r="left"><img id="consImg" src="assets/fotos/espelho2.webp" width="900" height="1280" loading="lazy" alt="Letícia em frente ao espelho em arco do consultório, com a frase em dourado: Você é seu melhor investimento"></div>
+      <svg class="cons-fio" viewBox="0 0 100 130" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 130V50A48 48 0 0 1 98 50V130"/></svg>
+      <figure class="cons-mini" data-r="up" style="--d:.3s"><img src="assets/fotos/prateleira.webp" width="1000" height="556" loading="lazy" alt="Prateleira do consultório com esculturas douradas e caixas de preenchedor"></figure>
+    </div>
+    <div class="cons-txt">
+      <p class="rotulo" data-r="down">O consultório</p>
+      <h2 data-split>“Você é seu melhor <span class="ouro">investimento</span>”</h2>
+      <p data-r="right" style="--d:.15s">A frase está escrita em dourado no espelho do consultório. O espaço foi pensado para receber você com conforto, segurança e um atendimento totalmente individualizado.</p>
+      <dl class="cons-fatos" data-r="up" style="--d:.25s">
+        <div><dt>Atendimento</dt><dd>Com hora marcada, individual do começo ao fim</dd></div>
+        <div><dt>Endereço</dt><dd>Av. Josué de Queirós, 349, Matozinhos</dd></div>
+        <div><dt>Registro</dt><dd>CRO-MG 70325</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="chegar" id="chegar">
+    <div class="chegar-cab">
+      <p class="rotulo" data-r="down">Como chegar</p>
+      <h2 data-split>O caminho até o <span class="ac">consultório</span></h2>
+      <p data-r="up" style="--d:.15s">Fica no bairro Matozinhos, em São João del Rei. Escolha o aplicativo e a rota já sai traçada de onde você estiver.</p>
+    </div>
+    <div class="chegar-mapa" id="chegarMapa">
+      <iframe id="mapaGoogle" title="Mapa com a localização do consultório da Dra. Letícia Arthuso" data-src="https://maps.google.com/maps?q=Av.%20Josu%C3%A9%20de%20Queiroz%2C%20349%20-%20Matozinhos%2C%20S%C3%A3o%20Jo%C3%A3o%20del-Rei%20-%20MG&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <span class="chegar-radar" aria-hidden="true"><i></i><i></i><i></i></span>
+      <div class="chegar-cartao">
+        <svg class="chegar-logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg>
+        <strong>Dra. Letícia Arthuso</strong>
+        <address>Av. Josué de Queirós, 349<br>Matozinhos, São João del Rei/MG</address>
+        <div class="chegar-acoes">
+          <a class="btn btn-bordo" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Av.+Josu%C3%A9+de+Queiroz%2C+349+-+Matozinhos%2C+S%C3%A3o+Jo%C3%A3o+del-Rei+-+MG">Traçar rota no Google Maps</a>
+          <a class="btn btn-linha" target="_blank" rel="noopener" href="https://waze.com/ul?q=Av.%20Josu%C3%A9%20de%20Queiroz%20349%20S%C3%A3o%20Jo%C3%A3o%20del-Rei&navigate=yes">Abrir no Waze</a>
+          <button class="copiar" id="copiar" type="button">Copiar endereço</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="agenda">
+    <div class="agenda-txt">
+      <p class="rotulo" data-r="down">Agende</p>
+      <h2 data-split>Sua avaliação começa com uma <span class="ac">conversa</span></h2>
+      <p data-r="up" style="--d:.15s">Conte seu nome e o que você quer avaliar. A mensagem abre pronta no WhatsApp da Letícia.</p>
+    </div>
+    <form class="form" id="form" novalidate data-r="up" style="--d:.2s">
       <label for="f-nome">Seu nome</label>
       <input id="f-nome" type="text" autocomplete="name" required>
       <p class="erro" id="f-erro" role="alert" hidden>Escreva seu nome para a Letícia saber com quem está falando.</p>
       <label for="f-int">O que você quer avaliar?</label>
       <select id="f-int"><option value="">Ainda não sei, quero orientação</option></select>
       <button class="btn btn-bordo" type="submit"><svg><use href="#i-wa"/></svg>Enviar pelo WhatsApp</button>
-      <p class="form-nota">A mensagem abre pronta no WhatsApp, é só enviar.</p>
+      <p class="form-nota">É só tocar em enviar quando o WhatsApp abrir.</p>
     </form>
   </div>
 </section>
 
+<div class="onda" data-onda="bordo"></div>
 </main>
 
 <footer class="rodape">
@@ -210,6 +315,7 @@
   <a class="btn btn-bordo" data-wa href="https://wa.me/5531991169590"><svg><use href="#i-wa"/></svg>Agendar avaliação</a>
 </aside>
 
-<script src="main.js"></script>
+<script src="js/conteudo.js"></script>
+<script src="js/site.js"></script>
 </body>
 </html>
