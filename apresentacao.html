@@ -10,7 +10,7 @@
 <link rel="icon" href="assets/marca/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:ital,wght@1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 <style>
 /* Apresentação do projeto (independente do site). Estilo e scripts ficam todos aqui.
    A LOGO mora num lugar só: o <symbol id="logo"> no começo do <body>. A vinheta, a construção
@@ -230,71 +230,6 @@ button{font:inherit;color:inherit}
 .insta-bloco>p{margin-bottom:22px;color:#D9C5B9;max-width:30em}
 .insta-bloco+.insta-bloco{margin-top:64px}
 
-/* ARTES: o mesmo desenho serve no celular (miniatura) e na galeria (grande); o tamanho sai da largura (cqw) */
-.arte{position:relative;overflow:hidden;aspect-ratio:4/5;display:flex;flex-direction:column;padding:9%;container-type:inline-size}
-.arte .logo{position:absolute;right:8%;bottom:6%;width:12%;height:auto}
-.arte small{font-size:3.4cqw;font-weight:700;letter-spacing:.26em;text-transform:uppercase}
-.arte .t{font:400 9cqw/1.06 var(--titulo)}
-.arte .c{font-size:4cqw;line-height:1.4}
-.a-frase{background:var(--bordo);color:var(--creme);justify-content:center;gap:5cqw}
-.a-frase small{color:var(--ouro)}
-.a-frase .t{font-size:10cqw}
-.a-foto{color:var(--creme);justify-content:flex-end;gap:2cqw}
-.a-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.a-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(42,7,9,.88))}
-.a-foto>*:not(img){position:relative;z-index:1}
-.a-foto small{color:var(--ouro-claro)}
-.a-mito{background:var(--creme);color:var(--bordo);justify-content:space-between}
-.a-mito small{color:var(--ouro-escuro)}
-.a-mito .t{font-size:10.5cqw}
-.a-mito .risco{background:linear-gradient(var(--ouro),var(--ouro)) 0 60%/100% .7cqw no-repeat;-webkit-box-decoration-break:clone;box-decoration-break:clone;color:var(--bronze)}
-.a-mito .c{color:var(--apagado)}
-.a-capa{background:var(--areia);color:var(--bordo);justify-content:space-between}
-.a-capa .arrasta{display:flex;align-items:center;gap:3cqw;font-size:3.6cqw;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
-.a-capa .arrasta::after{content:"";width:14cqw;height:.5cqw;background:currentColor}
-.a-capa .num{font:400 30cqw/.8 var(--titulo);color:var(--ouro-escuro)}
-.a-ad{background:var(--claro);color:var(--bordo);padding:6%;gap:3cqw}
-.a-ad .pares{display:grid;grid-template-columns:1fr 1fr;gap:1.6cqw;flex:1;min-height:0}
-.a-ad .pares div{position:relative;border-radius:2.4cqw;overflow:hidden;background:var(--areia)}
-.a-ad .pares img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.a-ad .pares span{position:absolute;left:4cqw;top:4cqw;padding:1cqw 2.6cqw;border-radius:99px;background:rgba(42,7,9,.7);color:var(--creme);font-size:3cqw;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
-.a-ad .t{font-size:7.4cqw}
-.a-ad .c{font-size:3.2cqw;color:var(--apagado)}
-.a-agenda{background:radial-gradient(circle at 50% 120%,rgba(199,159,88,.5),transparent 60%),var(--noite);color:var(--creme);justify-content:center;align-items:center;text-align:center;gap:4cqw}
-.a-agenda .logo{position:static;width:22%;margin-bottom:2cqw}
-.a-agenda small{color:var(--ouro)}
-.a-agenda .botao{margin-top:2cqw;padding:2.4cqw 6cqw;border-radius:99px;background:var(--ouro);color:var(--noite);font-size:3.8cqw;font-weight:700}
-.a-tecnica{background:var(--rosa);color:var(--bordo);justify-content:flex-end;gap:4cqw}
-.a-tecnica .t{font-size:11cqw}
-.a-lista{background:var(--claro);color:var(--bordo);justify-content:center;gap:5cqw}
-.a-lista small{color:var(--ouro-escuro)}
-.a-lista ul{display:grid;gap:3.4cqw;font-size:5cqw;line-height:1.35}
-.a-lista li{position:relative;padding-left:6cqw}
-.a-lista li::before{content:"";position:absolute;left:0;top:2cqw;width:2.4cqw;height:2.4cqw;border-radius:50%;background:var(--rosa)}
-
-.stories{display:grid;grid-auto-flow:column;grid-auto-columns:62%;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--margem)*-1);padding:0 var(--margem) 30px;scrollbar-width:none}
-.stories::-webkit-scrollbar{display:none}
-.story{scroll-snap-align:center}
-.story{position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;padding:13% 9% 9%;container-type:inline-size;box-shadow:0 30px 40px -30px #000}
-.story::before{content:"";position:absolute;z-index:3;left:5%;right:5%;top:2.4%;height:1cqw;border-radius:9px;background:rgba(255,255,255,.45)}
-.story::after{content:"";position:absolute;z-index:4;left:5%;top:2.4%;height:1cqw;width:0;border-radius:9px;background:#fff;animation:storyBar 6s linear infinite}
-.story:nth-child(2)::after{animation-delay:2s}.story:nth-child(3)::after{animation-delay:4s}
-@keyframes storyBar{to{width:90%}}
-.s-perg{background:linear-gradient(170deg,var(--rosa),var(--bordo));color:#fff;justify-content:center;gap:6cqw}
-.s-perg .t{font:400 12cqw/1.05 var(--titulo);text-align:center}
-.sticker{border-radius:5cqw;overflow:hidden;background:#fff;color:#222;text-align:center;box-shadow:0 4cqw 8cqw -4cqw rgba(0,0,0,.4)}
-.sticker b{display:block;padding:4cqw 3cqw;background:var(--bordo);color:#fff;font-size:5.4cqw;line-height:1.25}
-.sticker span{display:block;padding:5cqw 3cqw;font-size:4.6cqw;color:#999}
-.s-bast{color:#fff;justify-content:flex-end;gap:3cqw}
-.s-bast img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.s-bast>.tag,.s-bast>.t{position:relative;z-index:1}
-.s-bast .tag{align-self:flex-start;padding:2cqw 4cqw;border-radius:2cqw;background:var(--creme);color:var(--bordo);font-size:5.4cqw;font-weight:700;transform:rotate(-4deg)}
-.s-bast .t{font:400 11cqw/1.05 var(--titulo);text-shadow:0 2px 14px rgba(0,0,0,.6)}
-.s-agenda{background:var(--creme);color:var(--bordo);justify-content:space-between;align-items:center;text-align:center}
-.s-agenda .logo{width:30%;color:var(--ouro-escuro)}
-.s-agenda .t{font:400 13cqw/1 var(--titulo)}
-.s-agenda .link{padding:3cqw 6cqw;border-radius:3cqw;background:#fff;color:#2563eb;font-size:5cqw;font-weight:600;box-shadow:0 2cqw 6cqw -2cqw rgba(0,0,0,.25)}
-.s-agenda small{font-size:4.4cqw;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze);font-weight:700}
 
 .carrossel-ig{position:relative;max-width:420px;border-radius:14px;overflow:hidden;box-shadow:0 30px 40px -30px #000}
 .carrossel-trilho{display:flex;transition:transform .9s cubic-bezier(.7,0,.2,1)}
@@ -438,6 +373,7 @@ button{font:inherit;color:inherit}
   .la-cheia{clip-path:none}
 }
 </style>
+<link rel="stylesheet" href="css/artes.css">
 <script>document.documentElement.classList.add('js','carregando')</script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 </head>
@@ -628,6 +564,7 @@ button{font:inherit;color:inherit}
       <p class="rot" data-r>Instagram</p>
       <h2 data-r>O feed com a mesma cara do site.</h2>
       <p data-r>Uma proposta de como ficam seus posts, stories e destaques com a nova identidade. Os textos saíram das suas legendas e as fotos são as suas.</p>
+      <p data-r><a class="pilula p-linha" href="artes.html" target="_blank" rel="noopener">Ver as artes em tamanho real</a></p>
     </div>
     <div class="insta-grade">
       <div class="fone" data-r>
@@ -653,27 +590,27 @@ button{font:inherit;color:inherit}
       <div>
         <div class="insta-bloco">
           <h3 data-r>Posts</h3>
-          <p data-r>Alternando frase, foto e conteúdo, para o perfil ficar organizado como uma revista.</p>
-          <div class="posts" id="posts">
-            <div class="arte a-frase"><small>Naturalidade</small><span class="t">“Naturalidade sempre será a minha prioridade.”</span><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></div>
-            <div class="arte a-foto"><img src="assets/fotos/proc-labios.webp" loading="lazy" alt="Lábios depois do preenchimento"><small>Preenchimento labial</small><span class="t">A sutileza está na elegância</span></div>
-            <div class="arte a-mito"><small>Ouço muito</small><span class="t"><span class="risco">“Vou ficar com o rosto exagerado.”</span></span><span class="c">Uma harmonização bem planejada não muda quem você é.</span></div>
-            <div class="arte a-capa"><span class="arrasta">Arraste</span><span class="num">5</span><span class="t">dúvidas sobre preenchimento labial</span></div>
-            <div class="arte a-ad"><div class="pares"><div><img src="assets/fotos/antes.webp" loading="lazy" alt="Testa antes do botox"><span>Antes</span></div><div><img src="assets/fotos/depois.webp" loading="lazy" alt="Testa depois do botox"><span>Depois</span></div></div><span class="t">Botox, sem perder as suas expressões</span><span class="c">Resultados variam de pessoa para pessoa.</span></div>
-            <div class="arte a-tecnica"><small>Técnica</small><span class="t">Você não precisa de muito. Precisa da técnica certa para você.</span><svg class="logo" viewBox="0 0 400 400" style="color:var(--bordo)" aria-hidden="true"><use href="#logo"/></svg></div>
-            <div class="arte a-foto"><img src="assets/fotos/bio.webp" loading="lazy" alt="Retrato da Letícia" style="object-position:50% 20%"><small>Prazer, Letícia</small><span class="t">Harmonização é minha paixão desde antes da Odontologia</span></div>
-            <div class="arte a-foto"><img src="assets/fotos/espelho2.webp" loading="lazy" alt="Letícia no espelho do consultório" style="object-position:50% 30%"><small>O consultório</small><span class="t">Você é seu melhor investimento</span></div>
-            <div class="arte a-agenda"><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg><small>São João del Rei/MG</small><span class="t">Agende sua avaliação</span><span class="botao">Link na bio</span></div>
+          <p data-r>Cada post tem cara de capa de revista: você em primeiro plano, o título grande em dourado, a mesma moldura e o mesmo selo. Na grade, claro e escuro se alternam e o seu rosto aparece em diagonal.</p>
+          <div class="posts anima" id="posts">
+            <div class="arte c-capa" data-nome="01-capa"><div class="mast"><span>Nº 01</span><span>Harmonização facial</span></div><span class="dra it" aria-hidden="true">Dra.</span><span class="fundo ouro-t" aria-hidden="true">Letícia</span><img class="recorte" src="assets/fotos/recorte-proc-skin.webp" loading="lazy" alt="Letícia de preto, com as mãos no queixo"><span class="degrade"></span><span class="frase it">Naturalidade sempre será<br>a minha prioridade.</span><span class="selo claro-t"><i><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></i><span>Dra. Letícia Arthuso<small>@leticiaarthuso</small></span></span></div>
+            <div class="arte c-detalhe" data-nome="02-labios"><div class="mast"><span>Preenchimento labial</span><span>Nº 02</span></div><span class="t">Realçar o que<br>já é <span class="it">seu.</span></span><span class="janela"><img src="assets/fotos/proc-labios.webp" loading="lazy" alt="Lábios depois do preenchimento"></span><svg class="notas" viewBox="0 0 100 125" aria-hidden="true"><path pathLength="1" d="M57.5 58.8 L70 50 L92 50"/><circle cx="57.5" cy="58.8" r=".8"/><text x="78.5" y="48.6">contorno</text><path pathLength="1" d="M43.4 73.9 L30 86 L8 86" style="--d:.6s"/><circle cx="43.4" cy="73.9" r=".8"/><text x="8" y="80.5">volume</text><text x="8" y="84.4">na medida</text></svg><span class="selo claro-t"><i><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></i><span>Dra. Letícia Arthuso<small>@leticiaarthuso</small></span></span></div>
+            <div class="arte c-mito" data-nome="03-mito"><div class="mast"><span>Ouço muito</span><span>Nº 03</span></div><span class="topo-f"><img src="assets/fotos/proc-botox.webp" loading="lazy" alt="Letícia segurando um frasco de toxina botulínica"></span><span class="t"><span class="risco">Botox deixa<br>a cara parada.</span></span><span class="resp it">Bem planejado, ele suaviza a marca<br>e mantém a sua expressão.</span><span class="selo"><i><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></i><span>Dra. Letícia Arthuso<small>@leticiaarthuso</small></span></span></div>
+            <div class="arte c-versus" data-nome="04-versus"><div class="mast"><span>O que a sua pele pede?</span><span>Nº 04</span></div><div class="lado lado-a"><b>Skinbooster</b><span class="it">hidrata e devolve o viço</span></div><div class="lado lado-b"><b>Bioestimulador</b><span class="it">estimula o colágeno e a firmeza</span></div><span class="ou it">ou</span><span class="selo claro-t"><i><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></i><span>Dra. Letícia Arthuso<small>@leticiaarthuso</small></span></span></div>
+            <div class="arte c-capa-esc" data-nome="05-capa-botox"><div class="mast"><span>Carrossel</span><span>Nº 05</span></div><span class="fundo ouro-t" aria-hidden="true">Botox</span><img class="recorte" src="assets/fotos/recorte-bio.webp" loading="lazy" alt="Letícia de blazer preto"><span class="sombra-d"></span><span class="pergunta it">tem idade certa para começar?</span><span class="cta">Arraste</span><span class="selo claro-t"><i><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></i><span>Dra. Letícia Arthuso<small>@leticiaarthuso</small></span></span></div>
+            <div class="arte c-depo" data-nome="06-depoimento"><div class="mast"><span>Relato de paciente</span><span>Nº 06</span></div><span class="aspas" aria-hidden="true">“</span><span class="t">Desde a primeira conversa,<br>me senti super à vontade<br>para falar exatamente<br>o que eu queria.</span><span class="quem">Paciente de botox</span><span class="selo"><i><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></i><span>Dra. Letícia Arthuso<small>@leticiaarthuso</small></span></span></div>
+            <div class="arte c-lugar" data-nome="07-consultorio"><span class="arco-f"><img src="assets/fotos/espelho2.webp" loading="lazy" alt="Letícia no espelho do consultório, com o letreiro Você é o seu melhor investimento"></span><div class="mast"><span>O consultório</span><span>Nº 07</span></div><span class="frase it">Atendimento com hora marcada</span><span class="onde">Av. Josué de Queirós, 349 · Matozinhos · São João del Rei</span><span class="selo claro-t"><i><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></i><span>Dra. Letícia Arthuso<small>@leticiaarthuso</small></span></span></div>
+            <div class="arte c-ad" data-nome="08-antes-depois"><div class="mast"><span>Toxina botulínica</span><span>Nº 08</span></div><span class="t">Suave, sem perder<br>a <span class="it">expressão.</span></span><div class="pares"><div><img src="assets/fotos/antes.webp" loading="lazy" alt="Testa antes do botox"><span>Antes</span></div><div><img src="assets/fotos/depois.webp" loading="lazy" alt="Testa depois do botox"><span>Depois</span></div></div><span class="aviso">Resultados variam de pessoa para pessoa.</span><span class="selo"><i><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></i><span>Dra. Letícia Arthuso<small>@leticiaarthuso</small></span></span></div>
+            <div class="arte c-agenda" data-nome="09-agenda"><img class="foto" src="assets/fotos/entrada.webp" loading="lazy" alt="Letícia de terno branco, sentada"><span class="degrade"></span><div class="mast"><span>São João del Rei</span><span>Nº 09</span></div><span class="t">Agenda <span class="it">aberta</span></span><span class="frase it">Vamos montar o seu plano?</span><span class="cta" style="color:#F6E3B0">Chame no direct</span><span class="selo claro-t"><i><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></i><span>Dra. Letícia Arthuso<small>@leticiaarthuso</small></span></span></div>
           </div>
         </div>
 
         <div class="insta-bloco">
           <h3 data-r>Stories</h3>
           <p data-r>Para conversar no dia a dia: caixa de perguntas, bastidores e agenda.</p>
-          <div class="stories" data-r>
-            <div class="story s-perg"><span class="t">Pergunte para a Dra.</span><div class="sticker"><b>O que você quer saber sobre botox?</b><span>Escreva aqui</span></div></div>
-            <div class="story s-bast"><img src="assets/fotos/proc-face.webp" loading="lazy" alt="Letícia aplicando um procedimento numa paciente"><span class="tag">Hoje no consultório</span><span class="t">Cada rosto pede um plano próprio</span></div>
-            <div class="story s-agenda"><small>Agenda aberta</small><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg><span class="t">Vamos montar o seu plano?</span><span class="link">Agendar avaliação</span></div>
+          <div class="stories anima" data-r>
+            <div class="story s-perg" data-nome="story-1-perguntas"><span class="quem"><i><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></i>leticiaarthuso <small>2 h</small></span><span class="fundo ouro-t" aria-hidden="true">Pergunta<br><span class="it">pra mim</span></span><img class="recorte" src="assets/fotos/recorte-proc-skin.webp" loading="lazy" alt="Letícia de preto, com as mãos no queixo"><span class="degrade"></span><div class="sticker"><b>O que você quer saber sobre botox?</b><span>Escreva aqui</span></div></div>
+            <div class="story s-enq" data-nome="story-2-enquete"><img class="foto" src="assets/fotos/proc-pdrn.webp" loading="lazy" alt="Letícia aplicando um procedimento numa paciente"><span class="veu"></span><span class="quem"><i><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></i>leticiaarthuso <small>2 h</small></span><span class="tag">Hoje no consultório</span><div class="enquete"><b>Você já fez botox?</b><span>Já fiz</span><span>Ainda não</span></div></div>
+            <div class="story s-agenda" data-nome="story-3-agenda"><span class="topo-escuro"></span><span class="quem"><i><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></i>leticiaarthuso <small>2 h</small></span><img class="recorte" src="assets/fotos/recorte-blazer.webp" loading="lazy" alt="Letícia de blazer branco"><span class="base"></span><span class="tit">Vamos montar<br>o seu <span class="it">plano?</span></span><span class="link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Agendar avaliação</span><span class="onde">Av. Josué de Queirós, 349 · São João del Rei</span></div>
           </div>
         </div>
 
@@ -681,13 +618,14 @@ button{font:inherit;color:inherit}
           <h3 data-r>Carrossel</h3>
           <p data-r>Conteúdo que ensina e termina no agendamento. Passa sozinho, ou toque nos pontos.</p>
           <div data-r>
-            <div class="carrossel-ig">
+            <div class="carrossel-ig anima">
               <span class="carrossel-num" id="carNum">1/4</span>
               <div class="carrossel-trilho" id="carTrilho">
-                <div class="arte a-capa"><span class="arrasta">Arraste</span><span class="num" style="font-size:22cqw">Botox</span><span class="t">tem idade certa para começar?</span></div>
-                <div class="arte a-frase"><small>Na prática</small><span class="t" style="font-size:8.6cqw">Mais importante do que a idade é entender se ele é indicado para você neste momento.</span><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></div>
-                <div class="arte a-lista"><small>O que ele faz</small><ul><li>Suaviza as marcas que já apareceram</li><li>Ajuda a prevenir que as linhas se aprofundem</li><li>Deixa a aparência mais leve e descansada</li></ul></div>
-                <div class="arte a-agenda"><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg><small>Avaliação individual</small><span class="t">Vamos conversar sobre o que faz sentido para você</span><span class="botao">Agende pelo link</span></div>
+                <div class="arte c-capa-esc" data-nome="carrossel-1"><div class="mast"><span>Carrossel</span><span>1 de 4</span></div><span class="fundo ouro-t" aria-hidden="true">Botox</span><img class="recorte" src="assets/fotos/recorte-bio.webp" loading="lazy" alt="Letícia de blazer preto"><span class="sombra-d"></span><span class="pergunta it">tem idade certa para começar?</span><span class="cta">Arraste</span><span class="selo claro-t"><i><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></i><span>Dra. Letícia Arthuso<small>@leticiaarthuso</small></span></span></div>
+                <div class="arte c-texto" data-nome="carrossel-2"><div class="mast"><span>Na prática</span><span>2 de 4</span></div><span class="fio"></span><span class="t">A idade importa<br>menos do que<br>a <span class="it">indicação.</span></span><span class="selo"><i><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></i><span>Dra. Letícia Arthuso<small>@leticiaarthuso</small></span></span></div>
+                <div class="arte c-lista" data-nome="carrossel-3"><div class="mast"><span>O que ele faz</span><span>3 de 4</span></div><span class="topo-f"><img src="assets/fotos/proc-pdrn.webp" loading="lazy" alt="Letícia aplicando um procedimento numa paciente"></span><ol><li><b>1</b>Suaviza as marcas que já apareceram</li><li><b>2</b>Evita que as linhas fiquem mais fundas</li><li><b>3</b>Deixa o rosto com cara de descansado</li></ol><span class="selo"><i><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></i><span>Dra. Letícia Arthuso<small>@leticiaarthuso</small></span></span></div>
+                <div class="arte c-fim" data-nome="carrossel-4"><span class="topo-f"><img src="assets/fotos/retrato-branco.webp" loading="lazy" alt="Retrato da Letícia de branco"></span><div class="mast"><span>Avaliação individual</span><span>4 de 4</span></div><span class="t">Vamos ver o que faz <span class="it">sentido</span> para você?</span><span class="cta">Agende pelo link da bio</span><span class="selo"><i><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></i><span>Dra. Letícia Arthuso<small>@leticiaarthuso</small></span></span></div>
+                <svg class="fio-ig" viewBox="0 0 400 125" preserveAspectRatio="none" aria-hidden="true"><path d="M0 112 C40 112 60 96 100 96 S160 30 200 30 S260 70 300 70 S360 104 400 104"/></svg>
               </div>
             </div>
             <div class="pontos-ig" id="carPontos"></div>
@@ -873,14 +811,14 @@ button{font:inherit;color:inherit}
 
   /* Entradas ao rolar */
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
-  document.querySelectorAll('[data-r],#assina,#letras').forEach(function(a){io.observe(a)});
+  document.querySelectorAll('[data-r],#assina,#letras,.anima').forEach(function(a){io.observe(a)});
 
   /* Feed do celular: as mesmas artes, em miniatura (duas vezes, para o feed ficar comprido) */
   var gradeIg=document.getElementById('gradeIg');
-  for(var r=0;r<2;r++)document.querySelectorAll('#posts>.arte').forEach(function(a){var c=a.cloneNode(true);c.setAttribute('aria-hidden','true');c.querySelectorAll('img').forEach(function(i){i.alt=''});gradeIg.appendChild(c)});
+  for(var r=0;r<2;r++)document.querySelectorAll('#posts>.arte').forEach(function(a){var c=a.cloneNode(true);c.querySelectorAll('img').forEach(function(i){i.loading='eager'});c.setAttribute('aria-hidden','true');c.querySelectorAll('img').forEach(function(i){i.alt=''});gradeIg.appendChild(c)});
 
   /* Carrossel do Instagram */
-  var trilhoIg=document.getElementById('carTrilho'),nIg=trilhoIg.children.length,atual=0,num=document.getElementById('carNum'),pontosIg=document.getElementById('carPontos'),timer;
+  var trilhoIg=document.getElementById('carTrilho'),nIg=trilhoIg.querySelectorAll('.arte').length,atual=0,num=document.getElementById('carNum'),pontosIg=document.getElementById('carPontos'),timer;
   for(var i=0;i<nIg;i++){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Ver parte '+(i+1)+' do carrossel');b.dataset.i=i;pontosIg.appendChild(b)}
   function vaiPara(i){atual=(i+nIg)%nIg;trilhoIg.style.transform='translateX('+(-100*atual)+'%)';num.textContent=(atual+1)+'/'+nIg;pontosIg.querySelectorAll('button').forEach(function(b,k){b.setAttribute('aria-current',k===atual)})}
   function roda(){clearInterval(timer);if(!reduz)timer=setInterval(function(){vaiPara(atual+1)},3200)}

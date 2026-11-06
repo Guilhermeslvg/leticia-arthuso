@@ -10,10 +10,12 @@ Site de uma página para a Dra. Letícia Arthuso, harmonização facial em São 
 ```
 index.html          a página do site
 apresentacao.html   página de apresentação do projeto (independente do site)
-css/styles.css      todo o estilo, do celular para as telas maiores
+artes.html          artes de Instagram em tamanho real; ?so=<nome> mostra só uma, para exportar em PNG
+css/styles.css      todo o estilo do site, do celular para as telas maiores
+css/artes.css       estilo das artes de Instagram (usado em artes.html e na apresentação)
 js/conteudo.js      textos dos procedimentos e descrições das fotos
 js/site.js          comportamento: animações, mapa do rosto, modal, carrossel, formulário
-assets/fotos/       fotos em .webp
+assets/fotos/       fotos em .webp (recorte-*.webp são as fotos sem fundo usadas nas artes)
 assets/marca/       logo LA e favicon em .svg
 .nojekyll           faz o GitHub Pages servir os arquivos como estão
 ```
