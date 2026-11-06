@@ -358,10 +358,20 @@
     }
   });
 
-  /* Dúvidas: o cartão vira e mostra a resposta */
-  document.getElementById('duvidas').addEventListener('click',function(e){
-    var b=e.target.closest('.duvida');if(b)b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true');
-  });
+  /* Dúvidas: tocar na frase risca o mito em dourado e abre a resposta (uma aberta por vez).
+     A primeira se abre sozinha quando a seção aparece, para mostrar como funciona. */
+  var mitos=document.getElementById('mitos'),mitoBtns=mitos.querySelectorAll('.mito-btn'),mitoMexeu=false;
+  function abreMito(b){
+    mitoBtns.forEach(function(x){var on=x===b&&x.getAttribute('aria-expanded')!=='true';x.setAttribute('aria-expanded',on);x.parentNode.classList.toggle('aberto',on)});
+  }
+  mitos.addEventListener('click',function(e){var b=e.target.closest('.mito-btn');if(b){mitoMexeu=true;abreMito(b)}});
+  if('IntersectionObserver' in window){
+    var ioMito=new IntersectionObserver(function(es){
+      if(!es[0].isIntersecting)return;ioMito.disconnect();
+      setTimeout(function(){if(!mitoMexeu)abreMito(mitoBtns[0])},reduz?0:900);
+    },{threshold:.3});
+    ioMito.observe(mitos);
+  } else abreMito(mitoBtns[0]);
 
   /* Consultório: a foto anda dentro do arco e o fio dourado se desenha */
   var consImg=document.getElementById('consImg'),cons=document.querySelector('.cons');

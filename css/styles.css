@@ -315,22 +315,22 @@ h2{font-size:clamp(2.2rem,6.6vw,3.8rem);color:var(--bordo)}
 .hoje-reel-txt{position:absolute;z-index:1;left:18px;bottom:14px;font-weight:600;font-size:.92rem}
 .hoje-reel-txt small{display:block;font:400 1.4rem/1.1 var(--titulo)}
 .hoje-reel:hover img{transform:scale(1.05)}
-.duvidas{display:grid;gap:12px;margin-top:36px}
-.duvidas li{perspective:1200px}
-.duvida{position:relative;display:block;width:100%;min-height:210px;padding:0;border:0;background:none;color:inherit;text-align:left;cursor:pointer;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.7,0,.2,1)}
-.duvida[aria-pressed=true]{transform:rotateY(180deg)}
-.duvida-face{position:absolute;inset:0;display:flex;flex-direction:column;gap:12px;padding:24px;border-radius:24px;-webkit-backface-visibility:hidden;backface-visibility:hidden}
-.duvida-face small{font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
-.duvida-frente{background:#5E1A20;box-shadow:inset 0 0 0 1px rgba(199,159,88,.35)}
-.duvida-frente small{color:#C79F58}
-.duvida-frente strong{font:400 clamp(1.5rem,5.6vw,2rem)/1.15 var(--titulo);color:var(--creme)}
-.duvida-frente i{display:inline-flex;align-items:center;gap:8px;margin-top:auto;font-style:normal;font-size:.84rem;font-weight:600;color:#E9D2A6}
-.duvida-frente i::after{content:"";width:30px;height:1px;background:currentColor;transform-origin:left;animation:respira 2.2s ease-in-out infinite}
-@keyframes respira{50%{transform:scaleX(.45)}}
-.duvida-verso{transform:rotateY(180deg);background:linear-gradient(150deg,#F6E3B0,#C79F58);color:var(--bordo);font-size:1rem;line-height:1.55;justify-content:center}
-.duvida-verso small{color:#6F3F3A}
-.duvida:hover:not([aria-pressed=true]){transform:rotateY(-8deg) translateY(-4px)}
-.duvida:focus-visible{outline:2px solid #E9D2A6;outline-offset:4px}
+.mitos{margin-top:36px;border-top:1px solid rgba(199,159,88,.3)}
+.mito{border-bottom:1px solid rgba(199,159,88,.3)}
+.mito-btn{position:relative;display:block;width:100%;padding:22px 44px 22px 0;border:0;background:none;color:var(--creme);text-align:left;cursor:pointer}
+.mito-btn small{display:block;margin-bottom:6px;font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#C79F58}
+.mito-btn::after{content:"";position:absolute;right:6px;top:50%;width:12px;height:12px;margin-top:-2px;border-right:1.5px solid #C79F58;border-bottom:1.5px solid #C79F58;transform:translateY(-50%) rotate(45deg);transition:transform .5s var(--saida)}
+.aberto .mito-btn::after{transform:translateY(-20%) rotate(-135deg)}
+.mito-frase{font:400 clamp(1.6rem,6.4vw,2.6rem)/1.2 var(--titulo);background:linear-gradient(#C79F58,#C79F58) 0 62%/0% 2px no-repeat;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:color .6s,background-size .45s cubic-bezier(.65,0,.35,1)}
+.mito-btn:hover .mito-frase{color:#F6E3B0}
+.aberto .mito-frase{color:rgba(238,228,218,.5);background-size:100% 2px;transition:color .6s,background-size 1s cubic-bezier(.65,0,.35,1)}
+.mito-resp{display:grid;grid-template-rows:0fr;transition:grid-template-rows .7s var(--saida)}
+.aberto .mito-resp{grid-template-rows:1fr}
+.mito-resp>div{overflow:hidden}
+.mito-resp p{position:relative;max-width:34em;margin:0 0 24px;padding-left:20px;border-left:2px solid #C79F58;font-size:1.05rem;line-height:1.6;color:#F1E5DC;opacity:0;transform:translateY(12px);transition:opacity .4s,transform .6s var(--saida)}
+.aberto .mito-resp p{opacity:1;transform:none;transition-delay:.45s}
+.mito-resp small{display:block;margin-bottom:4px;font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#C79F58}
+.mito-btn:focus-visible{outline:2px solid #E9D2A6;outline-offset:4px}
 
 /* FIM: CONSULTÓRIO, COMO CHEGAR E AGENDA */
 .fim{background:var(--areia);padding:24px var(--margem) calc(48px + var(--onda))}
@@ -420,9 +420,6 @@ html:not(.js) .letra{opacity:1;transform:none}
   .tile-txt{left:20px;right:20px;bottom:18px}
   .tile-sub{font-size:.86rem}
   .tile-mais{top:14px;right:14px;width:38px;height:38px}
-  .duvidas{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-  .duvida{min-height:240px}
-  .duvida-face{padding:30px}
   .chegar-acoes{grid-template-columns:1fr 1fr}
   .chegar-acoes .copiar{grid-column:1/-1;justify-self:start}
 }
@@ -468,8 +465,8 @@ html:not(.js) .letra{opacity:1;transform:none}
   .hoje>*{max-width:none;margin:0}
   .hoje{padding-left:max(var(--margem),calc((100vw - var(--largura))/2));padding-right:max(var(--margem),calc((100vw - var(--largura))/2))}
   .hoje-cab{position:sticky;top:40px}
-  .duvidas{margin-top:0}
-  .duvidas li:nth-child(even){margin-top:48px}
+  .mitos{margin-top:8px}
+  .mito-btn{padding:28px 56px 28px 0}
   .fim{padding-top:40px}
   .cons{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:88px;align-items:center}
   .cons-fotos{width:auto;margin:0 0 30px}

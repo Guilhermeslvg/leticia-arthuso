@@ -2,236 +2,957 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Apresentação do Projeto | Letícia Arthuso</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Letícia Arthuso | Identidade e site</title>
+<meta name="description" content="Apresentação da identidade visual, das artes do Instagram e do site da Dra. Letícia Arthuso, harmonização facial em São João del Rei/MG.">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#4D0E13">
+<meta name="theme-color" content="#2A0709">
 <link rel="icon" href="assets/marca/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 <style>
-:root{--creme:#EEE4DA;--areia:#D8C4AC;--rosa:#C8A49F;--bordo:#4D0E13;--claro:#F7F1EA;--texto:#3A1416;--apagado:#6E4A47;--bronze:#8E5A54;--titulo:"Italiana",Georgia,serif;--corpo:"DM Sans",system-ui,sans-serif;--saida:cubic-bezier(.16,.84,.3,1);--margem:clamp(20px,5vw,72px)}
+/* Apresentação do projeto (independente do site). Estilo e scripts ficam todos aqui.
+   A LOGO mora num lugar só: o <symbol id="logo"> no começo do <body>. A vinheta, a construção
+   e o 3D da capa leem os traços dele. Ao trocar a logo, troque o symbol e os SVGs de assets/marca/.
+   Ordem: vinheta > capa 3D > ideia > construção > assinatura > versões > variações > cores >
+   letras > instagram > mundo real > site > para fechar > fim. Feita primeiro para o celular. */
+:root{
+  --creme:#EEE4DA;--areia:#D8C4AC;--rosa:#C8A49F;--bordo:#4D0E13;--noite:#2A0709;
+  --claro:#F7F1EA;--texto:#3A1416;--apagado:#6E4A47;--bronze:#8E5A54;
+  --ouro:#C79F58;--ouro-claro:#F6E3B0;--ouro-escuro:#9A6E2B;
+  --titulo:"Italiana",Georgia,serif;--corpo:"DM Sans",system-ui,sans-serif;
+  --saida:cubic-bezier(.16,.84,.3,1);--margem:clamp(20px,5vw,72px);--largura:1240px;
+}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;overflow-x:clip}
-body{background:var(--creme);color:var(--texto);font:400 1rem/1.65 var(--corpo);overflow-x:clip;-webkit-font-smoothing:antialiased}
+body{background:var(--noite);color:var(--creme);font:400 1rem/1.6 var(--corpo);overflow-x:clip;-webkit-font-smoothing:antialiased}
+.carregando body{overflow:hidden}
 img{display:block;max-width:100%}
 ul,ol{list-style:none;padding:0}
-h1,h2{font-family:var(--titulo);font-weight:400;line-height:1.05}
-h2{font-size:clamp(2.3rem,7vw,4.6rem);color:var(--bordo)}
-.rot{font-size:.74rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);margin-bottom:14px}
-section{padding:80px var(--margem)}
-.miolo{max-width:1160px;margin:auto}
-:focus-visible{outline:2px solid currentColor;outline-offset:3px}
-
-.capa{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:72px var(--margem) 40px;background:var(--bordo);color:var(--creme);overflow:hidden}
-.capa-mono{position:absolute;top:50%;right:-8vmin;width:min(92vh,90vw);max-width:none;opacity:.3;transform:translateY(-50%);animation:mono 1.6s var(--saida) both}
-@keyframes mono{from{opacity:0;transform:translate(50px,-50%)}}
-.capa-pre{position:absolute;top:28px;left:var(--margem);right:var(--margem);display:flex;justify-content:space-between;gap:16px;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase}
-.capa h1{position:relative;font-size:clamp(3.2rem,12.5vw,9.2rem);line-height:.96;color:var(--creme);animation:sobe 1.2s var(--saida) .15s both}
-.capa p.sub{position:relative;max-width:34em;margin-top:18px;animation:sobe 1.2s var(--saida) .35s both}
-@keyframes sobe{from{opacity:0;transform:translateY(34px)}}
-.pilula{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:600;text-decoration:none;transition:transform .3s var(--saida),background .3s}
+h1,h2,h3{font-family:var(--titulo);font-weight:400;line-height:1.02}
+h2{font-size:clamp(2.6rem,9vw,6.4rem)}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ouro);outline-offset:3px}
+.miolo{max-width:var(--largura);margin:auto}
+.rot{display:flex;align-items:center;gap:12px;margin-bottom:18px;font-size:.72rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--ouro)}
+.rot::before{content:"";width:28px;height:1px;background:currentColor}
+.sec{position:relative;padding:96px var(--margem)}
+.cab{display:grid;gap:14px;margin-bottom:44px}
+.cab .rot{margin-bottom:4px}
+.cab p:not(.rot){max-width:32em}
+.pilula{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;border:0;font-weight:600;font-size:.92rem;text-decoration:none;cursor:pointer;transition:transform .3s var(--saida),background .3s,color .3s}
 .pilula:hover{transform:translateY(-2px)}
-.p-rosa{background:var(--rosa);color:var(--bordo)}.p-rosa:hover{background:var(--areia)}
+.p-ouro{background:var(--ouro);color:var(--noite)}.p-ouro:hover{background:var(--ouro-claro)}
+.p-linha{background:none;box-shadow:inset 0 0 0 1px currentColor}.p-linha:hover{background:var(--creme);color:var(--noite)}
 .p-bordo{background:var(--bordo);color:var(--creme)}.p-bordo:hover{background:#6A1A20}
-.capa .pilula{position:relative;margin-top:26px;align-self:flex-start;animation:sobe 1.2s var(--saida) .5s both}
+.logo{display:block;color:var(--ouro)}
 
-.conceito{display:grid;gap:28px}
-.conceito q{quotes:none;display:block;font:400 clamp(2.1rem,6.4vw,4.2rem)/1.08 var(--titulo);color:var(--bordo)}
-.conceito p{max-width:36em}
-.conceito p+p{margin-top:12px}
+/* VINHETA (some sozinha em 3,5s mesmo se o script falhar) */
+.vinheta{position:fixed;z-index:60;inset:0;display:grid;place-items:center;background:var(--noite);overflow:hidden;transition:opacity .9s ease,visibility .9s;animation:someVinheta .1s 3.5s forwards}
+@keyframes someVinheta{to{opacity:0;visibility:hidden}}
+.vinheta::after{content:"";position:absolute;left:-10%;right:-10%;bottom:-40vh;height:70vh;border-radius:50%;background:radial-gradient(closest-side,rgba(199,159,88,.55),rgba(154,110,43,.18) 55%,transparent);animation:sobeLuz 1.8s var(--saida) both}
+@keyframes sobeLuz{from{transform:translateY(30%);opacity:0}}
+.vinheta svg{position:relative;z-index:1;width:76px;height:76px;color:var(--ouro)}
+.vinheta path{stroke-dasharray:1 1;stroke-dashoffset:1;animation:traca 1.4s cubic-bezier(.65,0,.35,1) forwards}
+.vinheta.sai{opacity:0;visibility:hidden}
+@keyframes traca{to{stroke-dashoffset:0}}
 
-.marca-nota{max-width:38em;margin:12px 0 30px;color:var(--apagado)}
-.marca-grade{display:grid;gap:10px}
-.marca-grade figure{margin:0;padding:clamp(20px,5vw,44px);border-radius:32px}
-.marca-grade img{display:block;width:min(100%,300px);margin:auto}
-.cores{background:var(--claro)}
-.cores h2{margin-bottom:12px}
-.cores-nota{max-width:38em;margin-bottom:30px;color:var(--apagado)}
-.pil{display:grid;gap:10px}
-.cor{width:100%;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 20px;min-height:92px;padding:16px 30px;border:0;border-radius:999px;font:inherit;text-align:left;cursor:pointer;transition:transform .5s var(--saida)}
-.cor:hover{transform:translateX(10px)}
-.cor b{font:400 clamp(1.6rem,4.6vw,2.6rem)/1.1 var(--titulo)}
-.cor span{font-size:.86rem}
-.cor em{font-style:normal;font-size:.76rem;letter-spacing:.14em;opacity:.8}
+/* BARRA */
+.barra{position:fixed;z-index:30;top:0;left:0;right:0;display:flex;align-items:center;gap:14px;padding:max(12px,env(safe-area-inset-top)) var(--margem) 12px;color:var(--bordo);transition:background .5s,color .5s}
+.barra.escura{color:var(--creme)}
+.barra.cheia{background:rgba(238,228,218,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(77,14,19,.08)}
+.barra.cheia.escura{background:rgba(42,7,9,.78);box-shadow:0 1px 0 rgba(199,159,88,.15)}
+.barra .logo{width:36px;height:36px;flex:none;color:currentColor}
+.barra-nome{font:400 1.2rem/1 var(--titulo)}
+.barra nav{display:none;gap:26px;margin-left:auto;font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.barra nav a{padding:10px 0;text-decoration:none;opacity:.75;transition:opacity .3s}
+.barra nav a:hover{opacity:1}
+.barra .pilula{margin-left:auto;min-height:40px;padding:0 18px;font-size:.82rem}
+.progresso{position:fixed;z-index:31;top:0;left:0;height:2px;width:100%;background:linear-gradient(90deg,var(--ouro-escuro),var(--ouro-claro));transform-origin:0 50%;transform:scaleX(var(--lido,0))}
 
-.letras{background:var(--bordo);color:var(--creme);display:grid;gap:36px}
-.letras h2{color:var(--creme)}
-.letras .rot{color:var(--areia)}
-.ag{font:400 clamp(8rem,32vw,20rem)/.86 var(--titulo);color:var(--rosa)}
-.tipo{display:grid;gap:22px}
-.tipo div{padding-top:16px;border-top:1px solid rgba(238,228,218,.3)}
-.tipo strong{display:block;font-weight:500;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--areia)}
-.t1{font:400 clamp(2rem,5vw,3.2rem)/1.1 var(--titulo)}
-.t2{font-size:1.15rem}
+/* CAPA 3D */
+.capa{position:relative;min-height:100svh;overflow:hidden;background:radial-gradient(ellipse 60% 60% at 64% 44%,#FBF6F0 0%,var(--creme) 55%,#E2D3C3 100%);color:var(--bordo)}
+.capa-3d{position:absolute;inset:0;display:grid;place-items:center}
+.capa-3d canvas{position:absolute;inset:0;width:100%!important;height:100%!important;opacity:0;transition:opacity 1.6s .4s}
+.capa-3d.ok canvas{opacity:1}
+.capa-svg{width:min(66vw,440px);color:var(--ouro);margin-bottom:22vh}
+.capa-3d.ok .capa-svg{display:none}
+.capa-txt{position:relative;z-index:2;min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;padding:92px var(--margem) 30px;pointer-events:none}
+.capa-topo{display:flex;justify-content:space-between;gap:16px;font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze)}
+.capa h1{align-self:end;font-size:clamp(3.4rem,15vw,10.5rem);line-height:.88;letter-spacing:-.01em}
+.capa h1 span{display:block;overflow:hidden;padding-bottom:.05em}
+.capa h1 i{display:block;font-style:normal;transform:translateY(110%);transition:transform 1.4s var(--saida)}
+.capa h1 span:nth-child(2) i{transition-delay:.12s;color:var(--ouro-escuro)}
+.pronta .capa h1 i{transform:none}
+.capa-pe{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:18px 40px;margin-top:22px;opacity:0;transition:opacity 1s .5s}
+.pronta .capa-pe{opacity:1}
+.capa-pe p{max-width:24em;font-size:.95rem;color:var(--apagado)}
+.capa-pe span{display:flex;align-items:center;gap:10px;font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze)}
+.capa-pe span i{width:1px;height:34px;background:linear-gradient(var(--bronze),transparent);animation:desce 2s ease-in-out infinite;transform-origin:top}
+@keyframes desce{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
 
-.ver{background:var(--areia)}
-.ver h2{margin-bottom:12px}
-.ver>.miolo>p{max-width:38em}
-.telas{display:grid;gap:36px;margin-top:40px;align-items:end}
+/* IDEIA */
+.frase{background:var(--noite)}
+.frase #frase{max-width:19em;font:400 clamp(2rem,6.6vw,4.6rem)/1.12 var(--titulo)}
+.frase .pal{color:rgba(238,228,218,.16);transition:color .4s}
+.frase .pal.acesa{color:var(--creme)}
+.frase .pal.ouro.acesa{color:var(--ouro)}
+.frase-nota{margin-top:36px;max-width:34em;color:#D9C5B9}
+
+/* CONSTRUÇÃO */
+.constroi{background:var(--claro);color:var(--texto);padding:0}
+.constroi-trilho{height:300vh}
+.constroi-fixo{position:sticky;top:0;height:100svh;display:grid;grid-template-rows:auto 1fr;gap:10px;padding:80px var(--margem) 24px;overflow:hidden}
+.constroi-txt h2{color:var(--bordo);font-size:clamp(2.3rem,8vw,5.2rem)}
+.constroi-txt p{max-width:30em;margin-top:12px;color:var(--apagado)}
+.constroi-txt .rot{color:var(--bronze)}
+.constroi-svg{width:100%;height:100%;min-height:0;overflow:visible}
+.g-grade line{stroke:rgba(77,14,19,.09);stroke-width:1;vector-effect:non-scaling-stroke}
+.g-guia{fill:none;stroke:var(--bronze);stroke-width:1;stroke-dasharray:5 6;vector-effect:non-scaling-stroke;opacity:.7}
+.g-linha{fill:none;stroke:var(--bordo);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.g-fino{fill:none;stroke:var(--bordo);stroke-width:1.2;vector-effect:non-scaling-stroke;opacity:0}
+.g-ponto{fill:var(--claro);stroke:var(--bronze);stroke-width:1.5;vector-effect:non-scaling-stroke}
+.g-cota{font:600 8.5px var(--corpo);fill:var(--bronze);letter-spacing:.14em}
+.g-nota{opacity:0;transition:opacity .6s}
+.g-nota.on{opacity:1}
+.g-nota line{stroke:var(--bronze);stroke-width:1;vector-effect:non-scaling-stroke}
+.g-nota circle{fill:var(--bronze)}
+.g-nota text{font:600 9px var(--corpo);fill:var(--bordo);letter-spacing:.14em}
+.constroi-etapas{display:none}
+
+/* ASSINATURA */
+.assina{background:radial-gradient(ellipse 70% 60% at 50% 110%,rgba(199,159,88,.28),transparent 60%),var(--noite);display:grid;place-items:center;min-height:100svh;text-align:center;overflow:hidden}
+.assina-bloco{display:grid;justify-items:center;gap:22px;clip-path:inset(0 50% 0 50%);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1)}
+.assina.in .assina-bloco{clip-path:inset(0 0 0 0)}
+.assina .logo{width:clamp(110px,24vw,170px);height:auto}
+.assina strong{font:400 clamp(2.8rem,11vw,7rem)/1 var(--titulo);letter-spacing:.02em}
+.assina small{font-size:.74rem;font-weight:600;letter-spacing:.42em;text-transform:uppercase;color:var(--ouro)}
+.assina-nota{margin-top:36px;max-width:30em;color:#D9C5B9;opacity:0;transform:translateY(20px);transition:opacity 1s 1.2s,transform 1s var(--saida) 1.2s}
+.assina.in .assina-nota{opacity:1;transform:none}
+
+/* VERSÕES E VARIAÇÕES */
+.versoes{background:var(--claro);color:var(--texto)}
+.versoes h2,.variacoes h2{color:var(--bordo)}
+.versoes .rot,.variacoes .rot{color:var(--bronze)}
+.versoes .cab p,.variacoes .cab p{color:var(--apagado)}
+.versoes-lista{display:grid;gap:12px}
+.versao{position:relative;display:grid;place-items:center;min-height:300px;margin:0;border-radius:28px;overflow:hidden;transform:translateY(calc((1 - var(--v,1))*120px));opacity:var(--v,1)}
+.versao img{width:min(56%,220px);transition:transform 1.2s var(--saida)}
+.versao:hover img{transform:scale(1.08) rotate(-4deg)}
+.versao figcaption,.var figcaption{position:absolute;z-index:2;left:20px;right:20px;bottom:16px;display:flex;justify-content:space-between;gap:10px;font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.variacoes{background:var(--claro);color:var(--texto);padding-top:0}
+.var-grade{display:grid;gap:12px}
+.var{position:relative;display:grid;place-items:center;min-height:240px;margin:0;padding:24px 20px 48px;border-radius:24px;overflow:hidden}
+.var-h{display:flex;align-items:center;gap:16px;color:var(--bordo)}
+.var-h .logo{width:64px;height:64px;color:var(--ouro-escuro)}
+.var-h strong{font:400 1.9rem/1 var(--titulo)}
+.var-h small{display:block;margin-top:6px;font-size:.56rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--bronze)}
+.var-v{display:grid;justify-items:center;gap:10px;color:var(--creme);text-align:center}
+.var-v .logo{width:70px;height:70px}
+.var-v strong{font:400 1.7rem/1 var(--titulo)}
+.var-v small{font-size:.54rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--ouro)}
+.var-tam{display:flex;align-items:end;gap:26px}
+.var-tam .logo{color:var(--bordo)}
+.var-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.var-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,7,9,.1),rgba(42,7,9,.6))}
+.var-foto .logo{position:relative;z-index:1;width:96px;height:96px;color:var(--creme)}
+
+/* CORES */
+.cores{background:var(--noite)}
+.cores .cab p{color:#D9C5B9}
+.barras{display:grid;gap:8px}
+.barra-cor{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:2px;min-height:120px;padding:20px 22px;border-radius:22px;transform-origin:bottom;transform:scaleY(var(--s,1));transition:flex-grow .7s var(--saida)}
+.barra-cor b{font:400 clamp(1.7rem,5vw,2.6rem)/1 var(--titulo)}
+.barra-cor span{font-size:.84rem;opacity:.85}
+.barra-cor em{position:absolute;top:18px;right:20px;font-style:normal;font-size:.74rem;font-weight:600;letter-spacing:.12em}
+
+/* LETRAS */
+.letras{background:var(--bordo);overflow:hidden}
+.letras-grade{display:grid;gap:40px}
+.letra-a{width:min(100%,500px);aspect-ratio:1}
+.letra-a svg{width:100%;height:100%;overflow:visible}
+.letra-a text{font-family:var(--titulo);font-size:520px}
+.la-guia{fill:none;stroke:rgba(246,227,176,.35);stroke-width:1;stroke-dasharray:4 6;vector-effect:non-scaling-stroke}
+.la-cheia{fill:var(--ouro);clip-path:inset(0 100% 0 0);transition:clip-path 2.4s cubic-bezier(.7,0,.2,1) 1.4s}
+.letras.in .la-cheia{clip-path:inset(0 0 0 0)}
+.la-contorno{fill:none;stroke:var(--ouro-claro);stroke-width:1.2;vector-effect:non-scaling-stroke;stroke-dasharray:3000;stroke-dashoffset:3000;transition:stroke-dashoffset 3s cubic-bezier(.65,0,.35,1)}
+.letras.in .la-contorno{stroke-dashoffset:0}
+.troca{display:block;height:1.12em;overflow:hidden;font:400 clamp(2.2rem,7vw,4rem)/1.12 var(--titulo);margin-bottom:28px}
+.troca span{display:block;animation:troca 10s var(--saida) infinite}
+@keyframes troca{0%,18%{transform:translateY(0)}25%,43%{transform:translateY(-1.12em)}50%,68%{transform:translateY(-2.24em)}75%,93%{transform:translateY(-3.36em)}100%{transform:translateY(-4.48em)}}
+.troca b{display:block;font-weight:400;height:1.12em}
+.troca b:nth-child(odd){color:var(--ouro-claro)}
+.fonte{padding-top:18px;border-top:1px solid rgba(238,228,218,.25)}
+.fonte+.fonte{margin-top:26px}
+.fonte strong{display:block;margin-bottom:8px;font-size:.74rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ouro)}
+.fonte p{font-size:1.05rem;color:#EADBD0}
+.fonte .set{font:400 clamp(1.4rem,4vw,2rem)/1.3 var(--titulo);word-break:break-all;color:var(--creme)}
+.fonte .set2{word-break:break-all}
+.faixa{margin:72px calc(var(--margem)*-1) 0;overflow:hidden;border-block:1px solid rgba(199,159,88,.35);padding:18px 0}
+.faixa div{display:flex;gap:48px;width:max-content;animation:corre 38s linear infinite;font:400 clamp(1.8rem,5vw,3rem)/1 var(--titulo);white-space:nowrap}
+.faixa i{font-style:normal;color:var(--ouro)}
+@keyframes corre{to{transform:translateX(-50%)}}
+
+/* INSTAGRAM */
+.insta{background:linear-gradient(180deg,var(--noite),#3A0B0F 50%,var(--noite))}
+.insta .cab p{color:#D9C5B9}
+.insta-grade{display:grid;gap:56px}
+.fone{position:relative;justify-self:center;width:300px;padding:10px;border-radius:46px;background:#120304;box-shadow:0 0 0 1px rgba(199,159,88,.25),0 50px 80px -40px #000}
+.fone-tela{position:relative;height:620px;border-radius:36px;overflow:hidden;background:#fff;color:#111}
+.fone-tela::before{content:"";position:absolute;z-index:3;top:9px;left:50%;width:88px;height:24px;margin-left:-44px;border-radius:20px;background:#120304}
+.perfil{position:absolute;inset:0;padding:46px 14px 0;font-size:11px;line-height:1.35;animation:feed 22s ease-in-out infinite}
+@keyframes feed{0%,12%{transform:translateY(0)}45%,62%{transform:translateY(-300px)}90%,100%{transform:translateY(0)}}
+.perfil-topo{display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:13px;margin-bottom:12px}
+.perfil-topo i{display:grid;gap:3px;width:16px}
+.perfil-topo i::before,.perfil-topo i::after{content:"";height:2px;background:#111;border-radius:2px;box-shadow:0 5px 0 #111}
+.perfil-topo i::after{display:none}
+.perfil-cab{display:flex;align-items:center;gap:16px}
+.avatar{flex:none;width:72px;height:72px;padding:3px;border-radius:50%;background:conic-gradient(from 200deg,#F6E3B0,#C79F58,#9A6E2B,#F6E3B0)}
+.avatar span{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;background:var(--bordo);border:2px solid #fff}
+.avatar .logo{width:62%;height:62%}
+.perfil-acoes{display:flex;gap:6px;flex:1}
+.perfil-acoes span{flex:1;padding:7px 0;border-radius:8px;background:#EFEFEF;text-align:center;font-weight:600}
+.perfil-acoes span:first-child{background:var(--bordo);color:#fff}
+.perfil-bio{margin:10px 0 12px}
+.perfil-bio b{display:block;font-size:12px}
+.perfil-bio em{font-style:normal;color:#6b6b6b}
+.destaques{display:flex;gap:12px;margin-bottom:12px}
+.destaque{display:grid;justify-items:center;gap:4px;font-size:9.5px}
+.destaque i{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--creme);box-shadow:0 0 0 1px #ddd,inset 0 0 0 3px #fff}
+.destaque svg{width:24px;height:24px;fill:none;stroke:var(--bordo);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.grade-ig{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:0 -14px}
+.posts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.posts>*{border-radius:14px;box-shadow:0 30px 40px -30px #000;transition:transform .6s var(--saida)}
+.posts>*:hover{transform:translateY(-8px) rotate(-1deg)}
+.insta-bloco h3{font-size:clamp(1.8rem,5vw,2.6rem);margin-bottom:6px}
+.insta-bloco>p{margin-bottom:22px;color:#D9C5B9;max-width:30em}
+.insta-bloco+.insta-bloco{margin-top:64px}
+
+/* ARTES: o mesmo desenho serve no celular (miniatura) e na galeria (grande); o tamanho sai da largura (cqw) */
+.arte{position:relative;overflow:hidden;aspect-ratio:4/5;display:flex;flex-direction:column;padding:9%;container-type:inline-size}
+.arte .logo{position:absolute;right:8%;bottom:6%;width:12%;height:auto}
+.arte small{font-size:3.4cqw;font-weight:700;letter-spacing:.26em;text-transform:uppercase}
+.arte .t{font:400 9cqw/1.06 var(--titulo)}
+.arte .c{font-size:4cqw;line-height:1.4}
+.a-frase{background:var(--bordo);color:var(--creme);justify-content:center;gap:5cqw}
+.a-frase small{color:var(--ouro)}
+.a-frase .t{font-size:10cqw}
+.a-foto{color:var(--creme);justify-content:flex-end;gap:2cqw}
+.a-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.a-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(42,7,9,.88))}
+.a-foto>*:not(img){position:relative;z-index:1}
+.a-foto small{color:var(--ouro-claro)}
+.a-mito{background:var(--creme);color:var(--bordo);justify-content:space-between}
+.a-mito small{color:var(--ouro-escuro)}
+.a-mito .t{font-size:10.5cqw}
+.a-mito .risco{background:linear-gradient(var(--ouro),var(--ouro)) 0 60%/100% .7cqw no-repeat;-webkit-box-decoration-break:clone;box-decoration-break:clone;color:var(--bronze)}
+.a-mito .c{color:var(--apagado)}
+.a-capa{background:var(--areia);color:var(--bordo);justify-content:space-between}
+.a-capa .arrasta{display:flex;align-items:center;gap:3cqw;font-size:3.6cqw;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.a-capa .arrasta::after{content:"";width:14cqw;height:.5cqw;background:currentColor}
+.a-capa .num{font:400 30cqw/.8 var(--titulo);color:var(--ouro-escuro)}
+.a-ad{background:var(--claro);color:var(--bordo);padding:6%;gap:3cqw}
+.a-ad .pares{display:grid;grid-template-columns:1fr 1fr;gap:1.6cqw;flex:1;min-height:0}
+.a-ad .pares div{position:relative;border-radius:2.4cqw;overflow:hidden;background:var(--areia)}
+.a-ad .pares img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.a-ad .pares span{position:absolute;left:4cqw;top:4cqw;padding:1cqw 2.6cqw;border-radius:99px;background:rgba(42,7,9,.7);color:var(--creme);font-size:3cqw;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.a-ad .t{font-size:7.4cqw}
+.a-ad .c{font-size:3.2cqw;color:var(--apagado)}
+.a-agenda{background:radial-gradient(circle at 50% 120%,rgba(199,159,88,.5),transparent 60%),var(--noite);color:var(--creme);justify-content:center;align-items:center;text-align:center;gap:4cqw}
+.a-agenda .logo{position:static;width:22%;margin-bottom:2cqw}
+.a-agenda small{color:var(--ouro)}
+.a-agenda .botao{margin-top:2cqw;padding:2.4cqw 6cqw;border-radius:99px;background:var(--ouro);color:var(--noite);font-size:3.8cqw;font-weight:700}
+.a-tecnica{background:var(--rosa);color:var(--bordo);justify-content:flex-end;gap:4cqw}
+.a-tecnica .t{font-size:11cqw}
+.a-lista{background:var(--claro);color:var(--bordo);justify-content:center;gap:5cqw}
+.a-lista small{color:var(--ouro-escuro)}
+.a-lista ul{display:grid;gap:3.4cqw;font-size:5cqw;line-height:1.35}
+.a-lista li{position:relative;padding-left:6cqw}
+.a-lista li::before{content:"";position:absolute;left:0;top:2cqw;width:2.4cqw;height:2.4cqw;border-radius:50%;background:var(--rosa)}
+
+.stories{display:grid;grid-auto-flow:column;grid-auto-columns:62%;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--margem)*-1);padding:0 var(--margem) 30px;scrollbar-width:none}
+.stories::-webkit-scrollbar{display:none}
+.story{scroll-snap-align:center}
+.story{position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;padding:13% 9% 9%;container-type:inline-size;box-shadow:0 30px 40px -30px #000}
+.story::before{content:"";position:absolute;z-index:3;left:5%;right:5%;top:2.4%;height:1cqw;border-radius:9px;background:rgba(255,255,255,.45)}
+.story::after{content:"";position:absolute;z-index:4;left:5%;top:2.4%;height:1cqw;width:0;border-radius:9px;background:#fff;animation:storyBar 6s linear infinite}
+.story:nth-child(2)::after{animation-delay:2s}.story:nth-child(3)::after{animation-delay:4s}
+@keyframes storyBar{to{width:90%}}
+.s-perg{background:linear-gradient(170deg,var(--rosa),var(--bordo));color:#fff;justify-content:center;gap:6cqw}
+.s-perg .t{font:400 12cqw/1.05 var(--titulo);text-align:center}
+.sticker{border-radius:5cqw;overflow:hidden;background:#fff;color:#222;text-align:center;box-shadow:0 4cqw 8cqw -4cqw rgba(0,0,0,.4)}
+.sticker b{display:block;padding:4cqw 3cqw;background:var(--bordo);color:#fff;font-size:5.4cqw;line-height:1.25}
+.sticker span{display:block;padding:5cqw 3cqw;font-size:4.6cqw;color:#999}
+.s-bast{color:#fff;justify-content:flex-end;gap:3cqw}
+.s-bast img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.s-bast>.tag,.s-bast>.t{position:relative;z-index:1}
+.s-bast .tag{align-self:flex-start;padding:2cqw 4cqw;border-radius:2cqw;background:var(--creme);color:var(--bordo);font-size:5.4cqw;font-weight:700;transform:rotate(-4deg)}
+.s-bast .t{font:400 11cqw/1.05 var(--titulo);text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.s-agenda{background:var(--creme);color:var(--bordo);justify-content:space-between;align-items:center;text-align:center}
+.s-agenda .logo{width:30%;color:var(--ouro-escuro)}
+.s-agenda .t{font:400 13cqw/1 var(--titulo)}
+.s-agenda .link{padding:3cqw 6cqw;border-radius:3cqw;background:#fff;color:#2563eb;font-size:5cqw;font-weight:600;box-shadow:0 2cqw 6cqw -2cqw rgba(0,0,0,.25)}
+.s-agenda small{font-size:4.4cqw;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze);font-weight:700}
+
+.carrossel-ig{position:relative;max-width:420px;border-radius:14px;overflow:hidden;box-shadow:0 30px 40px -30px #000}
+.carrossel-trilho{display:flex;transition:transform .9s cubic-bezier(.7,0,.2,1)}
+.carrossel-trilho>.arte{flex:0 0 100%}
+.carrossel-num{position:absolute;z-index:2;top:12px;right:12px;padding:3px 10px;border-radius:99px;background:rgba(0,0,0,.5);color:#fff;font-size:.72rem;font-weight:600}
+.pontos-ig{display:flex;gap:6px;margin-top:14px;max-width:420px;justify-content:center}
+.pontos-ig button{width:28px;height:28px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
+.pontos-ig button::before{content:"";width:8px;height:8px;border-radius:9px;background:rgba(238,228,218,.3);transition:background .3s,width .3s}
+.pontos-ig button[aria-current=true]::before{width:22px;background:var(--ouro)}
+.destaques-g{display:flex;flex-wrap:wrap;gap:22px}
+.destaques-g .destaque{font-size:.78rem;color:#EADBD0}
+.destaques-g .destaque i{width:76px;height:76px;background:var(--creme);box-shadow:0 0 0 2px var(--ouro),inset 0 0 0 4px var(--noite)}
+.destaques-g svg{width:32px;height:32px}
+
+/* NO MUNDO REAL */
+.mundo{background:var(--areia);color:var(--texto)}
+.mundo h2{color:var(--bordo)}
+.mundo .rot{color:var(--bordo)}
+.bento{display:grid;gap:12px}
+.peca{position:relative;border-radius:28px;overflow:hidden;background:var(--claro);min-height:340px}
+.peca-leg{position:absolute;z-index:2;left:20px;bottom:16px;padding:6px 14px;border-radius:999px;background:rgba(42,7,9,.72);color:var(--creme);font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.p-cartao{display:grid;place-items:center;perspective:1200px;background:linear-gradient(160deg,#E7D9CA,#CDB59B)}
+.cartao{position:relative;width:min(78%,340px);aspect-ratio:85/55;padding:0;border:0;background:none;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.7,0,.2,1);animation:paira 6s ease-in-out infinite;cursor:pointer}
+@keyframes paira{50%{translate:0 -10px}}
+.cartao.vira{transform:rotateY(180deg)}
+.cartao>span{position:absolute;inset:0;border-radius:12px;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 30px 50px -22px rgba(42,7,9,.6)}
+.cartao-f{display:grid;place-items:center;background:var(--bordo)}
+.cartao-f .logo{width:34%;height:auto}
+.cartao-v{transform:rotateY(180deg);display:flex;flex-direction:column;justify-content:center;gap:4px;padding:0 9%;background:var(--claro);color:var(--bordo);text-align:left}
+.cartao-v strong{font:400 clamp(1.2rem,3.4vw,1.6rem)/1.1 var(--titulo)}
+.cartao-v em{font-style:normal;font-size:clamp(.56rem,1.5vw,.7rem);line-height:1.5;color:var(--apagado)}
+.cartao-v small{margin-bottom:6px;font-size:clamp(.5rem,1.3vw,.6rem);font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--ouro-escuro)}
+.p-receita{display:grid;place-items:center;padding:30px 0 60px;background:linear-gradient(160deg,#5A1419,var(--noite))}
+.folha{position:relative;width:min(58%,240px);aspect-ratio:1/1.414;padding:9% 9% 7%;display:flex;flex-direction:column;overflow:hidden;background:#FBF8F4;color:var(--bordo);border-radius:4px;box-shadow:0 40px 60px -30px #000;transform:rotate(-5deg);transition:transform .8s var(--saida);container-type:inline-size}
+.p-receita:hover .folha{transform:rotate(0) scale(1.03)}
+.folha-cab{position:relative;display:flex;align-items:center;gap:4cqw;padding-bottom:4cqw;border-bottom:.4cqw solid var(--ouro)}
+.folha-cab .logo{width:14cqw;height:14cqw;color:var(--ouro-escuro)}
+.folha-cab b{display:block;font:400 6.4cqw/1 var(--titulo)}
+.folha-cab small{font-size:2.8cqw;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze)}
+.folha-linhas{position:relative;flex:1;margin:8cqw 0;background:repeating-linear-gradient(transparent 0 9cqw,rgba(77,14,19,.14) 9cqw calc(9cqw + 1px))}
+.folha-pe{position:relative;font-size:2.6cqw;line-height:1.5;color:var(--apagado);text-align:center}
+.folha .marca-agua{position:absolute;left:50%;top:54%;width:60cqw;height:60cqw;margin:-30cqw;color:rgba(199,159,88,.12)}
+.p-sacola{display:grid;place-items:center;padding:40px 0 60px;background:linear-gradient(160deg,#EFE4D8,#D9C3AE)}
+.sacola{position:relative;width:min(46%,180px);aspect-ratio:.82;margin-top:40px;background:linear-gradient(100deg,#3E0A0E,var(--bordo) 30%,#5E1A20 70%,#3E0A0E);border-radius:4px 4px 8px 8px;box-shadow:0 40px 50px -26px rgba(42,7,9,.7);display:grid;place-items:center;animation:paira 7s ease-in-out .6s infinite}
+.sacola::before{content:"";position:absolute;left:28%;right:28%;top:-30%;height:38%;border:4px solid var(--ouro);border-bottom:0;border-radius:60px 60px 0 0}
+.sacola .logo{width:44%;height:auto}
+.sacola small{position:absolute;bottom:12%;font-size:.5rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--ouro)}
+.p-espelho img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%;transform:scale(1.15) translateY(calc(var(--py,0)*1px))}
+
+/* O SITE FUNCIONANDO */
+.ver{background:var(--creme);color:var(--texto)}
+.ver h2{color:var(--bordo)}
+.ver .rot{color:var(--bronze)}
+.ver .cab p{color:var(--apagado)}
+.telas{display:grid;gap:40px;align-items:end}
 .note{display:none}
-.note-tela{position:relative;border:10px solid #1F1214;border-bottom-width:12px;border-radius:14px 14px 0 0;overflow:hidden;background:#1F1214;aspect-ratio:16/10}
+.note-tela{position:relative;border:10px solid #1F1214;border-bottom-width:12px;border-radius:16px 16px 0 0;overflow:hidden;background:#1F1214;aspect-ratio:16/10}
 .note-tela iframe{position:absolute;left:0;top:0;width:1280px;height:800px;border:0;transform-origin:0 0}
 .note-base{height:14px;margin:0 -5%;background:linear-gradient(#B9A898,#8B7A6C);border-radius:0 0 14px 14px}
-.cel{justify-self:center;width:300px;padding:10px;border-radius:40px;background:#1F1214;box-shadow:0 30px 50px -30px rgba(58,20,22,.8)}
-.cel-tela{position:relative;height:600px;border-radius:30px;overflow:hidden;background:#fff}
-.cel iframe{position:absolute;left:0;top:0;width:390px;height:836px;border:0;transform:scale(.7179);transform-origin:0 0}
+.cel{justify-self:center;width:300px;padding:10px;border-radius:44px;background:#1F1214;box-shadow:0 40px 60px -30px rgba(42,7,9,.8)}
+.cel-tela{position:relative;height:610px;border-radius:34px;overflow:hidden;background:var(--creme)}
+.cel iframe{position:absolute;left:0;top:0;width:390px;height:850px;border:0;transform:scale(.7179);transform-origin:0 0}
+.ver-acao{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
 
-.caminho ol{display:grid;gap:0;margin-top:30px}
-.caminho li{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;padding:18px 0;border-top:1px solid var(--areia)}
-.caminho li b{grid-row:1/3;font:400 2.4rem/1 var(--titulo);color:var(--bronze);min-width:1.1em}
-.caminho li strong{color:var(--bordo);font-weight:600}
-.caminho li p{color:var(--apagado)}
+/* PARA FECHAR E FIM */
+.fechar{background:var(--rosa);color:var(--bordo)}
+.fechar .rot{color:var(--bordo)}
+.fechar h2{color:var(--bordo)}
+.fechar ol{border-top:1px solid rgba(77,14,19,.3)}
+.fechar li{display:grid;gap:4px 28px;padding:20px 0;border-bottom:1px solid rgba(77,14,19,.3)}
+.fechar li strong{font:400 clamp(1.5rem,4.6vw,2.2rem)/1.1 var(--titulo)}
+.fim{min-height:80svh;display:grid;place-items:center;text-align:center;background:radial-gradient(ellipse 70% 60% at 50% 60%,#5A1419,var(--noite) 70%)}
+.fim .logo{width:96px;height:96px;margin:0 auto 26px}
+.fim h2{font-size:clamp(3rem,12vw,8rem)}
+.fim h2 span{color:var(--ouro)}
+.fim p{max-width:28em;margin:20px auto 30px;color:#D9C5B9}
+.fim-acoes{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.rodape{padding:22px var(--margem) 28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:.78rem;color:#BFA89D;background:var(--noite);border-top:1px solid rgba(199,159,88,.2)}
 
-.pede{background:var(--rosa);color:var(--bordo)}
-.pede .rot{color:var(--bordo)}
-.pede ul{display:grid;gap:10px;margin:28px 0 32px}
-.pede li{padding:14px 22px;border-radius:26px;background:var(--creme);line-height:1.4}
-.pede li strong{display:block}
-
-.js [data-r]{opacity:0;transition:opacity .9s var(--saida) var(--d,0s),transform 1s var(--saida) var(--d,0s)}
-.js [data-r=e]{transform:translateX(-60px)}
-.js [data-r=d]{transform:translateX(60px)}
-.js [data-r=b]{transform:translateY(30px)}
+/* ENTRADA AO ROLAR */
+.js [data-r]{opacity:0;transform:translateY(40px);transition:opacity 1s var(--saida) var(--d,0s),transform 1.1s var(--saida) var(--d,0s)}
 .js [data-r].in{opacity:1;transform:none}
 
+@media (min-width:760px){
+  .barra .pilula{margin-left:28px}
+  .barra nav{display:flex}
+  .versoes-lista{grid-template-columns:repeat(3,1fr)}
+  .versao{min-height:440px}
+  .var-grade{grid-template-columns:repeat(6,1fr);grid-auto-rows:260px}
+  .var-grade .var:nth-child(1){grid-column:span 4}
+  .var-grade .var:nth-child(2){grid-column:span 2;grid-row:span 2}
+  .var-grade .var:nth-child(3),.var-grade .var:nth-child(4){grid-column:span 2}
+  .var-h .logo{width:92px;height:92px}
+  .var-h strong{font-size:3rem}
+  .barras{display:flex;height:64vh;min-height:420px;gap:10px}
+  .barra-cor{flex:1;min-height:0}
+  .barra-cor:nth-child(1){flex-grow:2.4}
+  .barra-cor:nth-child(4){flex-grow:1.6}
+  .barras:hover .barra-cor{flex-grow:1}
+  .barras .barra-cor:hover{flex-grow:3.2}
+  .posts{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stories{grid-auto-flow:row;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;padding:0;overflow:visible}
+  .bento{grid-template-columns:repeat(6,1fr);grid-auto-rows:250px}
+  .p-cartao{grid-column:span 4;grid-row:span 2}
+  .p-espelho{grid-column:span 2;grid-row:span 2}
+  .p-receita,.p-sacola{grid-column:span 3;grid-row:span 2}
+  .fechar li{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:baseline}
+}
 @media (min-width:1000px){
-  section{padding:120px var(--margem)}
-  .marca-grade{grid-template-columns:repeat(3,1fr)}
-  .conceito{grid-template-columns:1.2fr .8fr;gap:72px;align-items:end}
-  .letras{grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding-left:max(var(--margem),calc((100vw - 1160px)/2));padding-right:max(var(--margem),calc((100vw - 1160px)/2))}
-  .telas{grid-template-columns:1fr 300px;gap:48px}
+  .sec{padding:140px var(--margem)}
+  .cab{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:end;gap:14px 64px}
+  .cab .rot{grid-column:1/-1}
+  .capa-txt{padding-top:110px}
+  .capa-svg{margin:0 0 6vh 34vw}
+  .constroi{padding:0}
+  .constroi-fixo{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);grid-template-rows:1fr;align-items:center;gap:48px;padding:90px max(var(--margem),calc((100vw - var(--largura))/2)) 40px}
+  .constroi-etapas{display:grid;gap:10px;margin-top:30px}
+  .constroi-etapas li{display:flex;align-items:center;gap:12px;font-size:.9rem;color:var(--apagado);opacity:.4;transition:opacity .4s,color .4s}
+  .constroi-etapas li::before{content:"";width:8px;height:8px;border-radius:50%;border:1px solid var(--bronze);transition:background .4s}
+  .constroi-etapas li.on{opacity:1;color:var(--bordo)}
+  .constroi-etapas li.on::before{background:var(--bronze)}
+  .letras-grade{grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+  .insta-grade{grid-template-columns:320px minmax(0,1fr);gap:72px;align-items:start}
+  .fone{position:sticky;top:110px;justify-self:start}
+  .telas{grid-template-columns:1fr 300px;gap:56px}
   .note{display:block}
-  .pede ul{grid-template-columns:1fr 1fr}
+}
+@media (max-height:700px) and (max-width:759px){
+  .capa-pe span{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  *{animation:none!important;transition:none!important}
+  *,*::before,*::after{animation:none!important;transition:none!important}
   .js [data-r]{opacity:1!important;transform:none!important}
+  .vinheta{display:none}
+  .capa h1 i{transform:none}
+  .capa-pe{opacity:1}
+  .assina-bloco{clip-path:none}
+  .assina-nota{opacity:1;transform:none}
+  .la-contorno{stroke-dashoffset:0}
+  .la-cheia{clip-path:none}
 }
 </style>
-<script>document.documentElement.classList.add('js')</script>
+<script>document.documentElement.classList.add('js','carregando')</script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 </head>
 <body>
 
-<header class="capa">
-  <img class="capa-mono" src="assets/marca/logo-la-creme.svg" alt="">
-  <div class="capa-pre"><span>Apresentação do projeto</span><span>Prévia</span></div>
-  <h1>Letícia<br>Arthuso</h1>
-  <p class="sub">Letícia, esta é a proposta do seu site. Em vez de um PDF, você vê aqui a ideia, as cores, as letras e o próprio site funcionando.</p>
-  <a class="pilula p-rosa" href="#ver">Ver o site funcionando</a>
+<!-- A LOGO: troque só este symbol quando chegar o arquivo original (traços numa caixa de 400 x 400) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 400 400"><g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="M230 53A150 150 0 0 0 95.500 307.500"/><path d="M137 336.500A150 150 0 0 0 265.900 65.300"/><path d="M137 336.500L223.200 168.300L268.600 287.600"/><path d="M91 133C115 153 150 170 186 163C215 155 238 115 236 92C235 78 225 80 215 98C195 135 165 190 120 232C105 247 88 245 88 255C89 263 110 258 130 252C160 244 195 256 225 258C245 259 260 257 271 252"/></g></symbol>
+  <symbol id="i-proc" viewBox="0 0 32 32"><path d="M4 16c4-4 8-6 10-6 1 0 1.500 1.500 2 1.500s1-1.500 2-1.500c2 0 6 2 10 6-3.500 5.500-7.500 8-12 8S7.500 21.500 4 16Z"/></symbol>
+  <symbol id="i-res" viewBox="0 0 32 32"><path d="M5 6h9v20H5zM18 6h9v20h-9z"/><path d="M8 20l3-4 3 4M21 20l3-4 3 4"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 32 32"><path d="M6 7h20v14H14l-6 5v-5H6z"/><path d="M11 13h10M11 17h6"/></symbol>
+  <symbol id="i-cons" viewBox="0 0 32 32"><path d="M9 27V12a7 7 0 0 1 14 0v15"/><path d="M5 27h22"/></symbol>
+  <symbol id="i-duv" viewBox="0 0 32 32"><circle cx="16" cy="16" r="11"/><path d="M12.500 12.500a3.500 3.500 0 1 1 5 3.200c-1 .5-1.500 1.300-1.500 2.300M16 22v.1"/></symbol>
+</svg>
+
+<div class="vinheta" id="vinheta" aria-hidden="true">
+  <svg viewBox="0 0 400 400"><g fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" id="vinhetaTracos"></g></svg>
+</div>
+
+<div class="progresso" id="progresso" aria-hidden="true"></div>
+<header class="barra" id="barra">
+  <svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg>
+  <span class="barra-nome">Letícia Arthuso</span>
+  <nav aria-label="Seções"><a href="#constroi">Marca</a><a href="#cores">Cores</a><a href="#insta">Instagram</a><a href="#ver">Site</a></nav>
+  <a class="pilula p-ouro" href="index.html" target="_blank" rel="noopener">Ver o site</a>
 </header>
 
-<section>
-  <div class="miolo conceito">
-    <div data-r="e">
-      <p class="rot">A ideia</p>
-      <q>Realço sua beleza com naturalidade nos detalhes.</q>
-    </div>
-    <div data-r="d" style="--d:.15s">
-      <p>A frase é da sua bio e virou o centro do projeto. O site precisa passar o que suas pacientes já dizem: atendimento atencioso, resultado natural e nenhum exagero.</p>
-      <p>Por isso a entrada abre com o seu LA se desenhando em dourado, como o da parede do consultório, e ele desliza para trás da sua foto.</p>
+<main>
+<!-- CAPA COM A LOGO EM 3D -->
+<section class="capa" id="capa" data-tema="claro">
+  <div class="capa-3d" id="capa3d" aria-hidden="true">
+    <svg class="capa-svg" viewBox="0 0 400 400"><use href="#logo"/></svg>
+  </div>
+  <div class="capa-txt">
+    <div class="capa-topo"><span>Identidade visual e site</span><span>Novembro de 2026</span></div>
+    <h1 aria-label="Letícia Arthuso"><span><i>Letícia</i></span><span><i>Arthuso</i></span></h1>
+    <div class="capa-pe">
+      <p>Harmonização facial em São João del Rei/MG. A marca, as artes e o site, apresentados do jeito que vão ser vistos: em movimento.</p>
+      <span>Role<i></i></span>
     </div>
   </div>
 </section>
 
-<section class="marca">
+<!-- A IDEIA -->
+<section class="sec frase" data-tema="escuro">
   <div class="miolo">
-    <p class="rot" data-r="e">A logo</p>
-    <h2 data-r="e">O seu LA, redesenhado em vetor</h2>
-    <p class="marca-nota" data-r="e" style="--d:.1s">Parti do monograma que já está nos seus posts e no consultório: o L cursivo com laço, o A atravessado e o círculo aberto. Agora ele fica nítido em qualquer tamanho, de um ícone a uma fachada.</p>
-    <div class="marca-grade">
-      <figure data-r="e" style="background:#EEE4DA"><img src="assets/marca/logo-la-dourado.svg" alt="Logo em dourado sobre creme"></figure>
-      <figure data-r="b" style="--d:.1s;background:#C8A49F"><img src="assets/marca/logo-la-bordo.svg" alt="Logo em bordô sobre rosa queimado"></figure>
-      <figure data-r="d" style="--d:.2s;background:#4D0E13"><img src="assets/marca/logo-la-creme.svg" alt="Logo em creme sobre bordô"></figure>
+    <p class="rot">A ideia</p>
+    <p id="frase" aria-label="Realço sua beleza com naturalidade nos detalhes. A frase da sua bio virou o centro do projeto.">Realço sua beleza com <span class="ouro">naturalidade</span> nos detalhes. A frase da sua bio virou o centro do projeto.</p>
+    <p class="frase-nota" data-r>O que suas pacientes já dizem precisa aparecer em tudo: atendimento atencioso, resultado natural e nenhum exagero. Cada escolha a seguir parte disso.</p>
+  </div>
+</section>
+
+<!-- CONSTRUÇÃO DO SÍMBOLO -->
+<section class="constroi" id="constroi" data-tema="claro">
+  <div class="constroi-trilho">
+    <div class="constroi-fixo">
+      <div class="constroi-txt">
+        <p class="rot">O símbolo</p>
+        <h2>O seu LA, redesenhado em vetor.</h2>
+        <p>Parti do monograma que já está nos seus posts e na parede do consultório. Agora ele tem regra: grade, círculo-guia e a mesma espessura em todos os traços.</p>
+        <ol class="constroi-etapas" id="etapas">
+          <li>Grade de 400 × 400</li>
+          <li>Círculo-guia de raio 150</li>
+          <li>Os dois arcos abertos</li>
+          <li>O A, com a travessa inclinada</li>
+          <li>O L em uma linha só, com o laço</li>
+        </ol>
+      </div>
+      <svg class="constroi-svg" viewBox="-40 -14 480 424" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Construção do símbolo LA: grade, círculo-guia e traços das letras">
+        <g class="g-grade" id="gGrade"></g>
+        <circle class="g-guia" id="gCirc" cx="200" cy="200" r="150" pathLength="1"/>
+        <line class="g-guia" id="gEixoH" x1="20" y1="200" x2="380" y2="200" pathLength="1"/>
+        <line class="g-guia" id="gEixoV" x1="200" y1="20" x2="200" y2="380" pathLength="1"/>
+        <text class="g-cota" x="206" y="44">R 150</text>
+        <g id="gTracos"></g>
+        <g id="gFinos"></g>
+        <g id="gPontos"></g>
+        <g class="g-nota" id="nota1"><circle cx="160" cy="187" r="3"/><line x1="160" y1="187" x2="40" y2="110"/><line x1="40" y1="110" x2="-30" y2="110"/><text x="-30" y="102">LAÇO DO L</text></g>
+        <g class="g-nota" id="nota2"><circle cx="246" cy="228" r="3"/><line x1="246" y1="228" x2="372" y2="190"/><line x1="372" y1="190" x2="440" y2="190"/><text x="364" y="182">TRAVESSA DO A</text></g>
+        <g class="g-nota" id="nota3"><circle cx="248" cy="58" r="3"/><line x1="248" y1="58" x2="330" y2="6"/><line x1="330" y1="6" x2="440" y2="6"/><text x="332" y="-2">CÍRCULO ABERTO</text></g>
+      </svg>
     </div>
   </div>
 </section>
 
-<section class="cores">
+<!-- ASSINATURA -->
+<section class="sec assina" id="assina" data-tema="escuro">
+  <div>
+    <div class="assina-bloco">
+      <svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg>
+      <strong>Letícia Arthuso</strong>
+      <small>Harmonização facial</small>
+    </div>
+    <p class="assina-nota">A assinatura completa: o símbolo em cima, o nome em Italiana e a função em letras espaçadas. É a versão do topo do site, do cartão e da fachada.</p>
+  </div>
+</section>
+
+<!-- VERSÕES -->
+<section class="sec versoes" id="versoes" data-tema="claro">
   <div class="miolo">
-    <p class="rot" data-r="e">As cores</p>
-    <h2 data-r="e">Quatro tons, cada um com função</h2>
-    <p class="cores-nota" data-r="e" style="--d:.1s">Hoje seu Instagram usa dourado, off-white e preto. Esta paleta é uma evolução mais quente, com o bordô no lugar do preto. O dourado continua na logo.</p>
-    <div class="pil">
-      <div class="cor" data-r="e" style="background:#EEE4DA;color:#4D0E13"><b>Creme</b><span>Fundo da página, leve para a leitura</span><em>#EEE4DA</em></div>
-      <div class="cor" data-r="d" style="--d:.08s;background:#D8C4AC;color:#4D0E13"><b>Areia</b><span>Áreas de contato e linhas</span><em>#D8C4AC</em></div>
-      <div class="cor" data-r="e" style="--d:.16s;background:#C8A49F;color:#4D0E13"><b>Rosa queimado</b><span>Depoimentos e destaques</span><em>#C8A49F</em></div>
-      <div class="cor" data-r="d" style="--d:.24s;background:#4D0E13;color:#EEE4DA"><b>Bordô</b><span>Botões, títulos e rodapé</span><em>#4D0E13</em></div>
+    <div class="cab">
+      <p class="rot" data-r>Versões</p>
+      <h2 data-r>Três cores, uma marca.</h2>
+      <p data-r>O mesmo desenho em três combinações da paleta, para fundos claros, médios e escuros.</p>
+    </div>
+    <div class="versoes-lista" id="versoesLista">
+      <figure class="versao" style="background:#EEE4DA;color:#4D0E13"><img src="assets/marca/logo-la-dourado.svg" alt="Logo em dourado sobre creme"><figcaption><span>Dourado</span><span>Fundos claros</span></figcaption></figure>
+      <figure class="versao" style="background:#C8A49F;color:#4D0E13"><img src="assets/marca/logo-la-bordo.svg" alt="Logo em bordô sobre rosa queimado"><figcaption><span>Bordô</span><span>Fundos médios</span></figcaption></figure>
+      <figure class="versao" style="background:#4D0E13;color:#EEE4DA"><img src="assets/marca/logo-la-creme.svg" alt="Logo em creme sobre bordô"><figcaption><span>Creme</span><span>Fundos escuros</span></figcaption></figure>
     </div>
   </div>
 </section>
 
-<section class="letras">
-  <div data-r="e">
-    <p class="rot">As letras</p>
-    <div class="ag" aria-hidden="true">Ag</div>
-  </div>
-  <div class="tipo" data-r="d" style="--d:.15s">
-    <div><strong>Italiana, para os títulos</strong><p class="t1">Elegante, fina e feminina, sem exagero.</p></div>
-    <div><strong>DM Sans, para os textos</strong><p class="t2">Simples e fácil de ler, inclusive em uma tela pequena de celular.</p></div>
+<!-- VARIAÇÕES -->
+<section class="sec variacoes" data-tema="claro">
+  <div class="miolo">
+    <div class="cab">
+      <p class="rot" data-r>Variações</p>
+      <h2 data-r>Um jeito para cada espaço.</h2>
+      <p data-r>Horizontal para o topo do site, vertical para a fachada, só o símbolo para o perfil e o ícone da aba.</p>
+    </div>
+    <div class="var-grade">
+      <figure class="var" data-r style="background:var(--creme)">
+        <div class="var-h"><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg><div><strong>Letícia Arthuso</strong><small>Harmonização facial</small></div></div>
+        <figcaption style="color:var(--bronze)"><span>Horizontal</span><span>Site e receituário</span></figcaption>
+      </figure>
+      <figure class="var var-foto" data-r style="--d:.1s">
+        <img src="assets/fotos/bio.webp" width="900" height="825" loading="lazy" alt="Letícia de blazer preto, com o símbolo LA em creme por cima">
+        <svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg>
+        <figcaption style="color:var(--creme)"><span>Sobre foto</span><span>Capas e stories</span></figcaption>
+      </figure>
+      <figure class="var" data-r style="background:var(--bordo)">
+        <div class="var-v"><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg><strong>Letícia Arthuso</strong><small>Harmonização facial</small></div>
+        <figcaption style="color:var(--rosa)"><span>Vertical</span><span>Fachada</span></figcaption>
+      </figure>
+      <figure class="var" data-r style="--d:.1s;background:var(--rosa)">
+        <div class="var-tam"><svg class="logo" viewBox="0 0 400 400" style="width:88px;height:88px" aria-hidden="true"><use href="#logo"/></svg><svg class="logo" viewBox="0 0 400 400" style="width:48px;height:48px" aria-hidden="true"><use href="#logo"/></svg><svg class="logo" viewBox="0 0 400 400" style="width:26px;height:26px" aria-hidden="true"><use href="#logo"/></svg></div>
+        <figcaption style="color:var(--bordo)"><span>Símbolo</span><span>Do perfil ao ícone</span></figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
-<section class="ver" id="ver">
+<!-- CORES -->
+<section class="sec cores" id="cores" data-tema="escuro">
   <div class="miolo">
-    <p class="rot" data-r="e">O site</p>
-    <h2 data-r="e">Pode mexer, está funcionando</h2>
-    <p data-r="e" style="--d:.1s">Role dentro das telas, toque nos pontos do rosto e arraste o antes e depois. Pensado primeiro para o celular.</p>
+    <div class="cab">
+      <p class="rot" data-r>Cores</p>
+      <h2 data-r>Quatro tons e um dourado.</h2>
+      <p data-r>Seu Instagram hoje usa dourado, off-white e preto. Esta paleta é uma evolução mais quente: o bordô no lugar do preto e o dourado guardado para a logo e os detalhes.</p>
+    </div>
+    <div class="barras" id="barras">
+      <div class="barra-cor" style="background:#EEE4DA;color:#4D0E13"><em>#EEE4DA</em><b>Creme</b><span>Fundo, leve para a leitura</span></div>
+      <div class="barra-cor" style="background:#D8C4AC;color:#4D0E13"><em>#D8C4AC</em><b>Areia</b><span>Áreas de contato e linhas</span></div>
+      <div class="barra-cor" style="background:#C8A49F;color:#4D0E13"><em>#C8A49F</em><b>Rosa queimado</b><span>Depoimentos e destaques</span></div>
+      <div class="barra-cor" style="background:#4D0E13;color:#EEE4DA;box-shadow:inset 0 0 0 1px rgba(199,159,88,.35)"><em>#4D0E13</em><b>Bordô</b><span>Botões, títulos e rodapé</span></div>
+      <div class="barra-cor" style="background:linear-gradient(160deg,#F6E3B0,#C79F58 55%,#9A6E2B);color:#2A0709"><em>#C79F58</em><b>Dourado</b><span>Só na logo e nos detalhes</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LETRAS -->
+<section class="sec letras" id="letras" data-tema="escuro">
+  <div class="miolo">
+    <p class="rot">Letras</p>
+    <div class="letras-grade">
+      <div class="letra-a" aria-hidden="true">
+        <svg viewBox="0 0 520 520">
+          <circle class="la-guia" cx="260" cy="300" r="180"/><line class="la-guia" x1="0" y1="470" x2="520" y2="470"/><line class="la-guia" x1="0" y1="140" x2="520" y2="140"/><line class="la-guia" x1="260" y1="0" x2="260" y2="520"/>
+          <text class="la-cheia" x="260" y="470" text-anchor="middle">A</text>
+          <text class="la-contorno" x="260" y="470" text-anchor="middle">A</text>
+        </svg>
+      </div>
+      <div data-r>
+        <span class="troca" aria-label="naturalidade, cuidado, equilíbrio, essência"><span aria-hidden="true"><b>naturalidade</b><b>cuidado</b><b>equilíbrio</b><b>essência</b><b>naturalidade</b></span></span>
+        <div class="fonte"><strong>Italiana · títulos</strong><p class="set">AaBbCcDdEeFfGgHhIiJjKkLlMm NnOoPpQqRrSsTtUuVvWwXxYyZz 0123456789</p><p style="margin-top:10px">Elegante, fina e feminina, sem exagero.</p></div>
+        <div class="fonte"><strong>DM Sans · textos</strong><p class="set2">AaBbCcDdEeFfGgHhIiJjKkLlMm NnOoPpQqRrSsTtUuVvWwXxYyZz 0123456789</p><p style="margin-top:10px">Simples e fácil de ler, até numa tela pequena de celular.</p></div>
+      </div>
+    </div>
+    <div class="faixa" aria-hidden="true"><div><span>Naturalidade <i>·</i> Planejamento <i>·</i> Segurança <i>·</i> Avaliação individual <i>·</i> Essência <i>·</i></span><span>Naturalidade <i>·</i> Planejamento <i>·</i> Segurança <i>·</i> Avaliação individual <i>·</i> Essência <i>·</i></span></div></div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="sec insta" id="insta" data-tema="escuro">
+  <div class="miolo">
+    <div class="cab">
+      <p class="rot" data-r>Instagram</p>
+      <h2 data-r>O feed com a mesma cara do site.</h2>
+      <p data-r>Uma proposta de como ficam seus posts, stories e destaques com a nova identidade. Os textos saíram das suas legendas e as fotos são as suas.</p>
+    </div>
+    <div class="insta-grade">
+      <div class="fone" data-r>
+        <div class="fone-tela">
+          <div class="perfil">
+            <div class="perfil-topo"><span>leticiaarthuso</span><i aria-hidden="true"></i></div>
+            <div class="perfil-cab">
+              <div class="avatar"><span><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></span></div>
+              <div class="perfil-acoes"><span>Seguir</span><span>Mensagem</span></div>
+            </div>
+            <div class="perfil-bio"><b>Dra. Letícia Arthuso | Harmonização Facial</b>Realço sua beleza com naturalidade nos detalhes<br>CRO-MG 70325 · São João del Rei/MG<br><em>Agende sua avaliação pelo link</em></div>
+            <div class="destaques">
+              <div class="destaque"><i><svg><use href="#i-proc"/></svg></i>Procedim.</div>
+              <div class="destaque"><i><svg><use href="#i-res"/></svg></i>Resultados</div>
+              <div class="destaque"><i><svg><use href="#i-fb"/></svg></i>Feedbacks</div>
+              <div class="destaque"><i><svg><use href="#i-cons"/></svg></i>Consultório</div>
+            </div>
+            <div class="grade-ig" id="gradeIg"></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="insta-bloco">
+          <h3 data-r>Posts</h3>
+          <p data-r>Alternando frase, foto e conteúdo, para o perfil ficar organizado como uma revista.</p>
+          <div class="posts" id="posts">
+            <div class="arte a-frase"><small>Naturalidade</small><span class="t">“Naturalidade sempre será a minha prioridade.”</span><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></div>
+            <div class="arte a-foto"><img src="assets/fotos/proc-labios.webp" loading="lazy" alt="Lábios depois do preenchimento"><small>Preenchimento labial</small><span class="t">A sutileza está na elegância</span></div>
+            <div class="arte a-mito"><small>Ouço muito</small><span class="t"><span class="risco">“Vou ficar com o rosto exagerado.”</span></span><span class="c">Uma harmonização bem planejada não muda quem você é.</span></div>
+            <div class="arte a-capa"><span class="arrasta">Arraste</span><span class="num">5</span><span class="t">dúvidas sobre preenchimento labial</span></div>
+            <div class="arte a-ad"><div class="pares"><div><img src="assets/fotos/antes.webp" loading="lazy" alt="Testa antes do botox"><span>Antes</span></div><div><img src="assets/fotos/depois.webp" loading="lazy" alt="Testa depois do botox"><span>Depois</span></div></div><span class="t">Botox, sem perder as suas expressões</span><span class="c">Resultados variam de pessoa para pessoa.</span></div>
+            <div class="arte a-tecnica"><small>Técnica</small><span class="t">Você não precisa de muito. Precisa da técnica certa para você.</span><svg class="logo" viewBox="0 0 400 400" style="color:var(--bordo)" aria-hidden="true"><use href="#logo"/></svg></div>
+            <div class="arte a-foto"><img src="assets/fotos/bio.webp" loading="lazy" alt="Retrato da Letícia" style="object-position:50% 20%"><small>Prazer, Letícia</small><span class="t">Harmonização é minha paixão desde antes da Odontologia</span></div>
+            <div class="arte a-foto"><img src="assets/fotos/espelho2.webp" loading="lazy" alt="Letícia no espelho do consultório" style="object-position:50% 30%"><small>O consultório</small><span class="t">Você é seu melhor investimento</span></div>
+            <div class="arte a-agenda"><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg><small>São João del Rei/MG</small><span class="t">Agende sua avaliação</span><span class="botao">Link na bio</span></div>
+          </div>
+        </div>
+
+        <div class="insta-bloco">
+          <h3 data-r>Stories</h3>
+          <p data-r>Para conversar no dia a dia: caixa de perguntas, bastidores e agenda.</p>
+          <div class="stories" data-r>
+            <div class="story s-perg"><span class="t">Pergunte para a Dra.</span><div class="sticker"><b>O que você quer saber sobre botox?</b><span>Escreva aqui</span></div></div>
+            <div class="story s-bast"><img src="assets/fotos/proc-face.webp" loading="lazy" alt="Letícia aplicando um procedimento numa paciente"><span class="tag">Hoje no consultório</span><span class="t">Cada rosto pede um plano próprio</span></div>
+            <div class="story s-agenda"><small>Agenda aberta</small><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg><span class="t">Vamos montar o seu plano?</span><span class="link">Agendar avaliação</span></div>
+          </div>
+        </div>
+
+        <div class="insta-bloco">
+          <h3 data-r>Carrossel</h3>
+          <p data-r>Conteúdo que ensina e termina no agendamento. Passa sozinho, ou toque nos pontos.</p>
+          <div data-r>
+            <div class="carrossel-ig">
+              <span class="carrossel-num" id="carNum">1/4</span>
+              <div class="carrossel-trilho" id="carTrilho">
+                <div class="arte a-capa"><span class="arrasta">Arraste</span><span class="num" style="font-size:22cqw">Botox</span><span class="t">tem idade certa para começar?</span></div>
+                <div class="arte a-frase"><small>Na prática</small><span class="t" style="font-size:8.6cqw">Mais importante do que a idade é entender se ele é indicado para você neste momento.</span><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></div>
+                <div class="arte a-lista"><small>O que ele faz</small><ul><li>Suaviza as marcas que já apareceram</li><li>Ajuda a prevenir que as linhas se aprofundem</li><li>Deixa a aparência mais leve e descansada</li></ul></div>
+                <div class="arte a-agenda"><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg><small>Avaliação individual</small><span class="t">Vamos conversar sobre o que faz sentido para você</span><span class="botao">Agende pelo link</span></div>
+              </div>
+            </div>
+            <div class="pontos-ig" id="carPontos"></div>
+          </div>
+        </div>
+
+        <div class="insta-bloco">
+          <h3 data-r>Destaques</h3>
+          <p data-r>Ícones em traço fino, no mesmo desenho da logo.</p>
+          <div class="destaques-g" data-r>
+            <div class="destaque"><i><svg><use href="#i-proc"/></svg></i>Procedimentos</div>
+            <div class="destaque"><i><svg><use href="#i-res"/></svg></i>Resultados</div>
+            <div class="destaque"><i><svg><use href="#i-fb"/></svg></i>Feedbacks</div>
+            <div class="destaque"><i><svg><use href="#i-cons"/></svg></i>Consultório</div>
+            <div class="destaque"><i><svg><use href="#i-duv"/></svg></i>Dúvidas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NO MUNDO REAL -->
+<section class="sec mundo" id="mundo" data-tema="claro">
+  <div class="miolo">
+    <div class="cab">
+      <p class="rot" data-r>No mundo real</p>
+      <h2 data-r>Do cartão à sacola.</h2>
+      <p data-r>A identidade nas peças do consultório. Toque no cartão para virar.</p>
+    </div>
+    <div class="bento">
+      <div class="peca p-cartao" data-r>
+        <button class="cartao" id="cartao" type="button" aria-label="Cartão de visita. Toque para ver o verso" aria-pressed="false">
+          <span class="cartao-f"><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></span>
+          <span class="cartao-v"><small>Harmonização facial</small><strong>Dra. Letícia Arthuso</strong><em>CRO-MG 70325<br>Av. Josué de Queirós, 349, Matozinhos<br>São João del Rei/MG · @leticiaarthuso</em></span>
+        </button>
+        <span class="peca-leg">Cartão de visita</span>
+      </div>
+      <div class="peca p-espelho" id="espelho" data-r style="--d:.1s">
+        <img src="assets/fotos/espelho2.webp" width="900" height="1280" loading="lazy" alt="Letícia em frente ao espelho em arco do consultório, com a frase em dourado: Você é seu melhor investimento">
+        <span class="peca-leg">O consultório</span>
+      </div>
+      <div class="peca p-receita" data-r>
+        <div class="folha">
+          <svg class="logo marca-agua" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg>
+          <div class="folha-cab"><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg><div><b>Dra. Letícia Arthuso</b><small>Harmonização facial</small></div></div>
+          <div class="folha-linhas"></div>
+          <p class="folha-pe">CRO-MG 70325 · Av. Josué de Queirós, 349, Matozinhos · São João del Rei/MG</p>
+        </div>
+        <span class="peca-leg">Receituário</span>
+      </div>
+      <div class="peca p-sacola" data-r style="--d:.1s">
+        <div class="sacola"><svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg><small>Letícia Arthuso</small></div>
+        <span class="peca-leg">Sacola</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O SITE FUNCIONANDO -->
+<section class="sec ver" id="ver" data-tema="claro">
+  <div class="miolo">
+    <div class="cab">
+      <p class="rot" data-r>O site</p>
+      <h2 data-r>Pode mexer, está funcionando.</h2>
+      <p data-r>Role dentro das telas, toque nos pontos do rosto e arraste o antes e depois. Pensado primeiro para o celular.</p>
+    </div>
     <div class="telas">
-      <div class="note" data-r="e">
+      <div class="note" data-r>
         <div class="note-tela" id="noteTela"><iframe id="noteFrame" title="Site no computador" data-src="index.html" tabindex="-1"></iframe></div>
         <div class="note-base" aria-hidden="true"></div>
       </div>
-      <div class="cel" data-r="d" style="--d:.15s">
+      <div class="cel" data-r style="--d:.15s">
         <div class="cel-tela"><iframe title="Site no celular" data-src="index.html"></iframe></div>
       </div>
     </div>
-    <p style="margin-top:32px" data-r="b"><a class="pilula p-bordo" href="index.html" target="_blank" rel="noopener">Abrir o site em tela cheia</a></p>
+    <div class="ver-acao" data-r><a class="pilula p-bordo" href="index.html" target="_blank" rel="noopener">Abrir o site em tela cheia</a></div>
   </div>
 </section>
 
-<section class="caminho">
+<!-- PARA FECHAR -->
+<section class="sec fechar" id="fechar" data-tema="claro">
   <div class="miolo">
-    <p class="rot" data-r="e">O caminho da paciente</p>
-    <h2 data-r="e">Como o site conduz até o agendamento</h2>
+    <div class="cab">
+      <p class="rot" data-r>Para fechar</p>
+      <h2 data-r>O que eu preciso de você.</h2>
+    </div>
     <ol>
-      <li data-r="e"><b>1</b><strong>Entrada</strong><p>Primeira impressão: sua logo, seu rosto e sua frase.</p></li>
-      <li data-r="d"><b>2</b><strong>Quem é você e o que faz</strong><p>Sua história e os procedimentos em fotos. Cada foto abre um modal com a explicação.</p></li>
-      <li data-r="e"><b>3</b><strong>Depoimentos e resultados</strong><p>Relatos, antes e depois para arrastar e vídeos que abrem na lateral.</p></li>
-      <li data-r="d"><b>4</b><strong>Cada procedimento explicado</strong><p>A paciente toca no rosto e entende cada um, com as respostas para as dúvidas que você mais recebe.</p></li>
-      <li data-r="e"><b>5</b><strong>WhatsApp</strong><p>Em qualquer ponto, um toque abre a conversa com a mensagem pronta.</p></li>
+      <li data-r><strong>A logo original</strong><p>Com o arquivo, o desenho fica idêntico ao seu e é aplicado em tudo desta página.</p></li>
+      <li data-r><strong>Autorização das pacientes</strong><p>Confirmar quais fotos e vídeos de resultado podem ser usados no site e nos posts.</p></li>
+      <li data-r><strong>Revisar os textos</strong><p>Vieram das suas legendas. Veja se as informações técnicas e as respostas estão do seu jeito.</p></li>
+      <li data-r><strong>WhatsApp e agenda</strong><p>O (31) 99116-9590 é o número certo? Como fica a agenda durante a gestação?</p></li>
+      <li data-r><strong>Fotos e vídeos originais</strong><p>Os arquivos do ensaio e dos reels deixam o site e as artes bem mais nítidos.</p></li>
     </ol>
   </div>
 </section>
 
-<section class="pede">
-  <div class="miolo">
-    <p class="rot" data-r="e">O que falta</p>
-    <h2 style="color:inherit" data-r="e">Preciso de você para fechar</h2>
-    <ul>
-      <li data-r="e"><strong>Autorização das pacientes</strong>Confirmar quais fotos e vídeos podem ficar no site.</li>
-      <li data-r="d"><strong>Revisar os textos</strong>Vieram das suas legendas. Veja se as informações técnicas e a lista de procedimentos estão certas.</li>
-      <li data-r="e"><strong>WhatsApp e agenda</strong>O (31) 99116-9590 é o número certo? Como fica a agenda durante a gestação?</li>
-      <li data-r="d"><strong>Fotos e vídeos originais</strong>Os arquivos do seu ensaio deixam o site bem mais nítido. Se tiver o arquivo original da logo, ele serve para conferir o desenho novo.</li>
-      <li data-r="e"><strong>Mais depoimentos</strong>Quais dos seus feedbacks podemos usar?</li>
-      <li data-r="d"><strong>Clube do Botox</strong>Se fizer sentido, conte como funciona para ganhar um espaço no site.</li>
-    </ul>
-    <a class="pilula p-bordo" href="index.html" target="_blank" rel="noopener" data-r="b">Abrir o site</a>
+<!-- FIM -->
+<section class="sec fim" data-tema="escuro">
+  <div data-r>
+    <svg class="logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg>
+    <h2>Pronto para <span>ir ao ar</span>.</h2>
+    <p>Com as suas respostas, o site é ajustado e publicado no seu endereço, e as artes ficam prontas para o seu Instagram.</p>
+    <div class="fim-acoes"><a class="pilula p-ouro" href="index.html" target="_blank" rel="noopener">Abrir o site</a><a class="pilula p-linha" href="#capa">Voltar ao início</a></div>
   </div>
 </section>
+</main>
+<footer class="rodape"><span>Dra. Letícia Arthuso · Harmonização facial · CRO-MG 70325</span><span>Apresentação do projeto · Novembro de 2026</span></footer>
 
 <script>
 (function(){
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
-  document.querySelectorAll('[data-r]').forEach(function(a){io.observe(a)});
-  var fr=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.src=e.target.dataset.src;fr.unobserve(e.target)}})},{rootMargin:'300px'});
-  document.querySelectorAll('iframe[data-src]').forEach(function(f){fr.observe(f)});
+  var reduz=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var NS='http://www.w3.org/2000/svg';
+  /* Os traços da logo saem do symbol: trocar o symbol atualiza a vinheta, a construção e o 3D */
+  var TRACOS=Array.prototype.map.call(document.querySelectorAll('#logo path'),function(p){return p.getAttribute('d')});
+  window.LA_TRACOS=TRACOS;
+  function caminhos(g,cls){TRACOS.forEach(function(d){var p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.setAttribute('pathLength','1');if(cls)p.setAttribute('class',cls);g.appendChild(p)});return g.querySelectorAll('path')}
+  function faixa(p,a,b){return Math.max(0,Math.min(1,(p-a)/(b-a)))}
+
+  /* Vinheta: o LA se desenha e a página aparece */
+  var vin=document.getElementById('vinheta');
+  caminhos(document.getElementById('vinhetaTracos')).forEach(function(p,i){p.style.animationDelay=(i*.15)+'s'});
+  function abre(){vin.classList.add('sai');document.documentElement.classList.remove('carregando');document.documentElement.classList.add('pronta')}
+  if(reduz||scrollY>40)abre();else setTimeout(abre,1900);
+
+  /* Frase: cada palavra acende conforme a rolagem */
+  var fr=document.getElementById('frase');
+  Array.prototype.slice.call(fr.childNodes).forEach(function(n){
+    var ouro=n.nodeType===1,f=document.createDocumentFragment();
+    n.textContent.split(/(\s+)/).forEach(function(w){if(!w)return;if(/^\s+$/.test(w)){f.appendChild(document.createTextNode(' '));return}var s=document.createElement('span');s.className='pal'+(ouro?' ouro':'');s.setAttribute('aria-hidden','true');s.textContent=w;f.appendChild(s)});
+    fr.replaceChild(f,n);
+  });
+  var pals=fr.querySelectorAll('.pal');
+
+  /* Construção: grade, traços, contorno fino e pontos de ancoragem */
+  var grade=document.getElementById('gGrade');
+  for(var k=0;k<=400;k+=25){
+    [[k,0,k,400],[0,k,400,k]].forEach(function(c){var l=document.createElementNS(NS,'line');l.setAttribute('x1',c[0]);l.setAttribute('y1',c[1]);l.setAttribute('x2',c[2]);l.setAttribute('y2',c[3]);grade.appendChild(l)});
+  }
+  var tracos=caminhos(document.getElementById('gTracos'),'g-linha'),finos=caminhos(document.getElementById('gFinos'),'g-fino');
+  var pts=document.getElementById('gPontos');
+  TRACOS.forEach(function(d){
+    var m=d.match(/-?\d*\.?\d+/g).map(Number);
+    [[m[0],m[1]],[m[m.length-2],m[m.length-1]]].forEach(function(p){var c=document.createElementNS(NS,'circle');c.setAttribute('class','g-ponto');c.setAttribute('cx',p[0]);c.setAttribute('cy',p[1]);c.setAttribute('r',5);pts.appendChild(c)});
+  });
+  var linhasGrade=grade.querySelectorAll('line'),circ=document.getElementById('gCirc'),eixos=[document.getElementById('gEixoH'),document.getElementById('gEixoV')],pontos=pts.querySelectorAll('circle'),etapas=document.querySelectorAll('#etapas li'),notas=[1,2,3].map(function(i){return document.getElementById('nota'+i)});
+  [circ].concat(eixos).forEach(function(el){el.style.strokeDasharray='1 1'});
+  tracos.forEach(function(t){t.style.strokeDasharray='1 1'});
+  var janelas=[[.3,.46],[.36,.52],[.52,.66],[.64,.8]];
+  function desenha(p){
+    var gg=faixa(p,0,.12);linhasGrade.forEach(function(l){l.style.opacity=gg});
+    var g=faixa(p,.1,.28);circ.style.strokeDashoffset=1-g;eixos.forEach(function(e){e.style.strokeDashoffset=1-g});
+    tracos.forEach(function(t,i){var j=janelas[Math.min(i,janelas.length-1)];t.style.strokeDashoffset=1-faixa(p,j[0],j[1])});
+    /* no fim, metade da logo vira contorno fino, como numa prancha de construção */
+    var c=faixa(p,.82,.92);tracos.forEach(function(t,i){t.style.opacity=i%2?1-c*.85:1});finos.forEach(function(f,i){f.style.opacity=i%2?c:0});
+    pontos.forEach(function(el,i){el.style.opacity=faixa(p,.3+i*.05,.35+i*.05)});
+    notas.forEach(function(n,i){n.classList.toggle('on',p>.84+i*.04)});
+    var lim=[0,.1,.3,.52,.64];etapas.forEach(function(e,i){e.classList.toggle('on',p>=lim[i])});
+  }
+
+  /* Rolagem */
+  var barra=document.getElementById('barra'),prog=document.getElementById('progresso'),secs=document.querySelectorAll('[data-tema]');
+  var trilho=document.querySelector('.constroi-trilho'),versoes=document.querySelectorAll('.versao'),vBox=document.getElementById('versoesLista'),barras=document.querySelectorAll('.barra-cor'),bBox=document.getElementById('barras'),esp=document.getElementById('espelho'),espImg=esp.querySelector('img');
+  var pend=false;
+  function rola(){
+    pend=false;var h=innerHeight,y=scrollY,doc=document.documentElement.scrollHeight-h;
+    prog.style.setProperty('--lido',doc>0?y/doc:0);
+    barra.classList.toggle('cheia',y>h*.5);
+    var tema='claro';secs.forEach(function(s){var r=s.getBoundingClientRect();if(r.top<=40&&r.bottom>40)tema=s.dataset.tema});
+    barra.classList.toggle('escura',tema==='escuro');
+    if(reduz){desenha(1);pals.forEach(function(s){s.classList.add('acesa')});return}
+    var rf=fr.getBoundingClientRect(),n=Math.round(faixa((h*.85-rf.top)/(rf.height+h*.35),0,1)*pals.length);
+    pals.forEach(function(s,i){s.classList.toggle('acesa',i<n)});
+    var rt=trilho.getBoundingClientRect();desenha(faixa(-rt.top/(rt.height-h),0,1));
+    var pv=faixa((h-vBox.getBoundingClientRect().top)/(h*.7),0,1);
+    versoes.forEach(function(v,i){v.style.setProperty('--v',faixa(pv*1.4-i*.18,0,1).toFixed(3))});
+    var pb=faixa((h-bBox.getBoundingClientRect().top)/(h*.8),0,1);
+    barras.forEach(function(b,i){b.style.setProperty('--s',(.25+.75*faixa(pb*1.5-i*.12,0,1)).toFixed(3))});
+    var re=esp.getBoundingClientRect();espImg.style.setProperty('--py',(((h-re.top)/(h+re.height))-.5)*-60);
+  }
+  addEventListener('scroll',function(){if(!pend){pend=true;requestAnimationFrame(rola)}},{passive:true});
+  addEventListener('resize',rola);rola();
+
+  /* Entradas ao rolar */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+  document.querySelectorAll('[data-r],#assina,#letras').forEach(function(a){io.observe(a)});
+
+  /* Feed do celular: as mesmas artes, em miniatura (duas vezes, para o feed ficar comprido) */
+  var gradeIg=document.getElementById('gradeIg');
+  for(var r=0;r<2;r++)document.querySelectorAll('#posts>.arte').forEach(function(a){var c=a.cloneNode(true);c.setAttribute('aria-hidden','true');c.querySelectorAll('img').forEach(function(i){i.alt=''});gradeIg.appendChild(c)});
+
+  /* Carrossel do Instagram */
+  var trilhoIg=document.getElementById('carTrilho'),nIg=trilhoIg.children.length,atual=0,num=document.getElementById('carNum'),pontosIg=document.getElementById('carPontos'),timer;
+  for(var i=0;i<nIg;i++){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Ver parte '+(i+1)+' do carrossel');b.dataset.i=i;pontosIg.appendChild(b)}
+  function vaiPara(i){atual=(i+nIg)%nIg;trilhoIg.style.transform='translateX('+(-100*atual)+'%)';num.textContent=(atual+1)+'/'+nIg;pontosIg.querySelectorAll('button').forEach(function(b,k){b.setAttribute('aria-current',k===atual)})}
+  function roda(){clearInterval(timer);if(!reduz)timer=setInterval(function(){vaiPara(atual+1)},3200)}
+  pontosIg.addEventListener('click',function(e){var b=e.target.closest('button');if(b){vaiPara(+b.dataset.i);roda()}});
+  vaiPara(0);roda();
+
+  /* Cartão de visita vira */
+  var cartao=document.getElementById('cartao');
+  cartao.addEventListener('click',function(){var v=!cartao.classList.contains('vira');cartao.classList.toggle('vira',v);cartao.setAttribute('aria-pressed',v)});
+
+  /* Telas com o site: só carregam perto da tela */
+  var fio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.src=e.target.dataset.src;fio.unobserve(e.target)}})},{rootMargin:'400px'});
+  document.querySelectorAll('iframe[data-src]').forEach(function(f){fio.observe(f)});
   var nt=document.getElementById('noteTela'),nf=document.getElementById('noteFrame');
   function escala(){if(nt.clientWidth)nf.style.transform='scale('+(nt.clientWidth/1280)+')'}
   addEventListener('resize',escala);escala();
 })();
+</script>
+
+<!-- Capa: o LA em 3D, como fios de ouro. Se o 3D não carregar, fica a logo em SVG. -->
+<script type="module">
+import * as THREE from 'three';
+import {SVGLoader} from 'three/addons/loaders/SVGLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+const caixa=document.getElementById('capa3d'),reduz=matchMedia('(prefers-reduced-motion:reduce)').matches;
+try{
+  const render=new THREE.WebGLRenderer({antialias:true,alpha:true});
+  render.setPixelRatio(Math.min(devicePixelRatio,2));
+  render.toneMapping=THREE.ACESFilmicToneMapping;render.toneMappingExposure=1.35;
+  caixa.appendChild(render.domElement);
+  const cena=new THREE.Scene(),pm=new THREE.PMREMGenerator(render);
+  cena.environment=pm.fromScene(new RoomEnvironment(),.04).texture;
+  const cam=new THREE.PerspectiveCamera(32,1,1,6000);
+  const ouro=new THREE.MeshPhysicalMaterial({color:0xE9C47C,metalness:1,roughness:.2,clearcoat:.6,clearcoatRoughness:.2});
+  const grupo=new THREE.Group(),giro=new THREE.Group();grupo.add(giro);cena.add(grupo);
+  const svg='<svg xmlns="http://www.w3.org/2000/svg">'+window.LA_TRACOS.map(d=>'<path d="'+d+'"/>').join('')+'</svg>';
+  new SVGLoader().parse(svg).paths.forEach(p=>p.subPaths.forEach(sp=>{
+    const bruto=sp.getPoints(60),pts=[];
+    bruto.forEach(v=>{const q=new THREE.Vector3(v.x-200,-(v.y-200),0);if(!pts.length||q.distanceTo(pts[pts.length-1])>.5)pts.push(q)});
+    if(pts.length<2)return;
+    const curva=new THREE.CatmullRomCurve3(pts,false,'centripetal');
+    giro.add(new THREE.Mesh(new THREE.TubeGeometry(curva,Math.min(900,pts.length*3),6.4,18,false),ouro));
+    [pts[0],pts[pts.length-1]].forEach(v=>{const b=new THREE.Mesh(new THREE.SphereGeometry(6.4,20,14),ouro);b.position.copy(v);giro.add(b)});
+  }));
+  const luz=new THREE.DirectionalLight(0xfff1d6,1.8);luz.position.set(300,500,600);cena.add(luz);
+  let alvoX=0,alvoY=0,rx=0,ry=0,meia=280;
+  addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;alvoY=(e.clientX/innerWidth-.5)*.9;alvoX=(e.clientY/innerHeight-.5)*.5});
+  function tam(){
+    const w=caixa.clientWidth,h=caixa.clientHeight,asp=w/h,t=Math.tan(THREE.MathUtils.degToRad(16));
+    render.setSize(w,h,false);cam.aspect=asp;
+    /* distância para a logo (400 unidades) ocupar ~62% da altura ou ~78% da largura, o que couber */
+    const z=Math.max(400/(.62*2*t),400/(.78*2*t*asp));cam.position.set(0,0,z);cam.updateProjectionMatrix();
+    const largura=2*z*t*asp;meia=largura/2;
+    grupo.position.x=asp>1.25?largura*.2:0;
+    grupo.position.y=asp>1.25?z*t*.08:z*t*.32;
+  }
+  addEventListener('resize',tam);tam();
+  const relogio=new THREE.Clock();let feito=false;
+  (function anda(){
+    requestAnimationFrame(anda);
+    const t=relogio.getElapsedTime(),k=Math.min(1,scrollY/innerHeight);
+    if(scrollY>innerHeight*1.2&&feito)return;
+    rx+=(alvoX-rx)*.05;ry+=(alvoY-ry)*.05;
+    const entra=reduz?1:Math.min(1,Math.max(0,(t-1.6)/1.6)),e=1-Math.pow(1-entra,3);
+    giro.rotation.y=(reduz?0:Math.sin(t*.45)*.42+(1-e)*-2.4)+ry+k*1.3;
+    giro.rotation.x=(reduz?0:Math.sin(t*.3)*.08)+rx;
+    giro.scale.setScalar(.7+.3*e);
+    grupo.position.z=-k*400;
+    render.render(cena,cam);feito=true;
+  })();
+  caixa.classList.add('ok');
+}catch(err){console.warn('3D indisponível, usando a logo em SVG',err)}
 </script>
 </body>
 </html>
