@@ -1,97 +1,146 @@
-/* ARTES DE INSTAGRAM da Dra. Letícia Arthuso, estilo "posicionamento"
-   Referência: posts de designers brasileiros de 2026 (ex.: @caiqueperezdesigner). Foto real e escura sangrando a
-   arte, a assinatura (foto de perfil + nome) logo acima de um título em sans pesada, alinhado à esquerda, com 2 a
-   4 palavras em destaque dourado. Posts claros intercalados: fundo branco quente, título no alto e objeto embaixo.
-   O mesmo desenho serve na miniatura do celular, na galeria da apresentação e no PNG final (artes.html?so=nome).
+/* ARTES DE INSTAGRAM da Dra. Letícia Arthuso (versão 3, sistema editorial)
+   Todo post tem a mesma moldura: no alto, o símbolo LA + "Harmonização facial" + a série do post; embaixo,
+   um fio fino com o @ e a ação. Entre os dois, um de sete layouts. Isso é o que faz o feed parecer de marca.
+   Cores: escuro = bordô da marca bem fundo; claro = creme da marca. Destaque em ouro.
+   Título: DM Sans com contraste de peso (700 contra 300), palavras-chave em ouro.
    Medidas em cqw: 100cqw = largura da arte (1080px no arquivo final).
    Atenção: o próprio .arte/.story não usa cqw nem padding lateral (cqw mede a largura interna do container);
    a margem lateral fica nos filhos. */
 
-.arte,.story{--esc:#140506;--dest:#E9B96A;--linha:rgba(255,255,255,.22);
+.arte,.story{--esc:#1A0507;--esc2:#2E0A0E;--dest:#DDB574;--txt:#F6EDE4;--apag:rgba(246,237,228,.62);--linha:rgba(246,237,228,.2);
   position:relative;overflow:hidden;isolation:isolate;container-type:inline-size;display:flex;flex-direction:column;
-  justify-content:flex-end;background:var(--esc);color:#fff;font-family:var(--corpo)}
-.arte{aspect-ratio:4/5;padding:0 0 8.4%}
+  justify-content:flex-end;background:var(--esc);color:var(--txt);font-family:var(--corpo)}
+.arte{aspect-ratio:4/5;padding:0 0 15%}
 .arte>*,.story>*{position:relative;z-index:3;margin-left:7.4cqw;margin-right:7.4cqw}
 
-/* foto no alto, dissolvendo no fundo */
-.arte .foto,.story .foto{position:absolute;z-index:0;left:0;top:0;width:100%;height:var(--fh,70%);margin:0;
-  object-fit:cover;object-position:var(--fp,50% 30%);filter:saturate(.88) contrast(1.06) brightness(.94)}
+/* moldura: topo e pé */
+.ig-topo{position:absolute!important;z-index:5!important;top:6.6cqw;left:0;right:0;display:flex;align-items:center;gap:2cqw;
+  font:600 2.25cqw/1 var(--corpo);letter-spacing:.16em;text-transform:uppercase}
+.ig-topo .logo{width:6.2cqw;height:6.2cqw;color:var(--dest);flex:none}
+.ig-topo span{opacity:.9}
+.ig-topo i{margin-left:auto;font-style:normal;color:var(--dest);display:flex;align-items:center;gap:1.6cqw}
+.ig-topo i::before{content:"";width:1.3cqw;height:1.3cqw;border-radius:50%;background:currentColor}
+.ig-pe{position:absolute!important;z-index:5!important;bottom:6.6cqw;left:0;right:0;display:flex;align-items:center;gap:2.4cqw;
+  padding-top:3cqw;border-top:1px solid var(--linha);font:600 2.25cqw/1 var(--corpo);letter-spacing:.14em;text-transform:uppercase}
+.ig-pe span{opacity:.75}
+.ig-pe i{margin-left:auto;font-style:normal;display:flex;align-items:center;gap:1.8cqw}
+.ig-pe i::after{content:"";width:5cqw;height:1px;background:currentColor}
+.ig-pe i.cta{color:var(--esc);background:var(--dest);padding:2cqw 3.2cqw;margin:-2cqw 0;border-radius:1cqw}
+.ig-pe i.cta::after{display:none}
+
+/* foto */
+.arte .foto,.story .foto{position:absolute;z-index:0;left:0;top:0;width:100%;height:var(--fh,100%);margin:0;
+  object-fit:cover;object-position:var(--fp,50% 30%);filter:saturate(.84) contrast(1.08) brightness(.92) sepia(.08)}
 .veu{position:absolute!important;z-index:1!important;inset:0;margin:0!important;pointer-events:none;
-  background:linear-gradient(180deg,rgba(20,5,6,.45) 0%,rgba(20,5,6,0) 16%,rgba(20,5,6,0) calc(var(--fh,70%) - 34%),
-  rgba(20,5,6,.72) calc(var(--fh,70%) - 14%),var(--esc) var(--fh,70%))}
-/* grão leve para tirar a cara de vetor */
-.arte::after,.story .grao{content:"";position:absolute;inset:0;z-index:6;pointer-events:none;opacity:.06;margin:0;
+  background:linear-gradient(180deg,rgba(26,5,7,.62) 0%,rgba(26,5,7,0) 20%,rgba(26,5,7,0) var(--v1,42%),rgba(26,5,7,.82) var(--v2,68%),var(--esc) var(--v3,84%))}
+/* grão */
+.arte::after,.story .grao{content:"";position:absolute;inset:0;z-index:6;pointer-events:none;opacity:.07;margin:0;
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
-/* assinatura: foto de perfil + nome */
-.ig-ass{display:flex;align-items:center;gap:2.2cqw}
-.ig-ass img{width:7.6cqw;height:7.6cqw;border-radius:50%;object-fit:cover;box-shadow:0 0 0 .35cqw var(--dest)}
-.ig-ass b{display:block;font:700 3.2cqw/1.15 var(--corpo);letter-spacing:-.01em}
-.ig-ass small{display:block;font:500 2.5cqw/1.3 var(--corpo);opacity:.66}
+/* assinatura (só nos posts em formato de "opinião") */
+.ig-ass{display:flex;align-items:center;gap:2.4cqw}
+.ig-ass img{width:9cqw;height:9cqw;border-radius:50%;object-fit:cover;box-shadow:0 0 0 .3cqw var(--esc),0 0 0 .6cqw var(--dest)}
+.ig-ass b{display:block;font:700 3.5cqw/1.15 var(--corpo);letter-spacing:-.01em}
+.ig-ass small{display:block;font:400 2.8cqw/1.3 var(--corpo);color:var(--apag)}
 
-/* título */
-.t{margin-top:3.6cqw;font:700 8.4cqw/1.02 var(--corpo);letter-spacing:-.03em;font-optical-sizing:auto}
-.t.g{font-size:11cqw;line-height:.98}
+/* texto */
+.t{font:700 9cqw/1 var(--corpo);letter-spacing:-.035em}
+.t .l{font-weight:300;letter-spacing:-.03em}
+.t.g{font-size:12cqw;line-height:.94}
 .d{color:var(--dest)}
-.s{text-decoration:underline;text-decoration-thickness:.5cqw;text-underline-offset:.16em;text-decoration-color:var(--dest);text-decoration-skip-ink:auto}
-.sub{margin-top:3.4cqw;font:500 3.5cqw/1.38 var(--corpo);opacity:.8;max-width:74cqw}
+.s{text-decoration:underline;text-decoration-thickness:.45cqw;text-underline-offset:.14em;text-decoration-color:var(--dest);text-decoration-skip-ink:auto}
+.sub{margin-top:3.6cqw;font:400 3.4cqw/1.42 var(--corpo);color:var(--apag);max-width:72cqw}
+.sub b{font-weight:600;color:var(--txt)}
+.rot{font:600 2.25cqw/1 var(--corpo);letter-spacing:.16em;text-transform:uppercase;color:var(--dest);margin-bottom:3.4cqw}
 
-/* rodapé: fio + etiqueta */
-.ig-pe{margin-top:5.4cqw;display:flex;align-items:center;gap:3cqw}
-.ig-pe::before{content:"";flex:1;height:1px;background:var(--linha);order:2}
-.ig-pe span{order:1;padding:1.3cqw 3cqw;border:1px solid var(--linha);border-radius:99px;font:600 2.5cqw var(--corpo);letter-spacing:.02em;white-space:nowrap}
-.ig-pe span.cheia{background:var(--dest);border-color:var(--dest);color:var(--esc)}
-.ig-pe i{order:3;font:500 2.5cqw var(--corpo);font-style:normal;opacity:.6;white-space:nowrap}
+/* versão clara: creme da marca */
+.claro{--esc:#EEE4DA;--dest:#9A6E2B;--txt:#3A0C10;--apag:rgba(58,12,16,.66);--linha:rgba(77,14,19,.22);
+  background:#EEE4DA;justify-content:flex-start;padding:21% 0 0}
+.claro .ig-topo .logo{color:#4D0E13}
+.claro .ig-pe i.cta{color:#fff}
+.quadro{position:relative;overflow:hidden;border-radius:1.4cqw;margin-top:6cqw}
+.quadro img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.86) contrast(1.05) sepia(.06)}
+.quadro figcaption{position:absolute;left:2.4cqw;bottom:2.4cqw;font:600 2.1cqw/1 var(--corpo);letter-spacing:.16em;text-transform:uppercase;color:#fff;
+  padding:1.4cqw 2.2cqw;background:rgba(26,5,7,.6);border-radius:.8cqw}
 
-/* versão clara */
-.claro{--dest:#A06A1F;--linha:rgba(42,7,9,.18);color:#1C0809;justify-content:flex-start;padding-top:8.4%;
-  background:radial-gradient(130% 75% at 50% 8%,#FFFFFF 0%,#F4EFEA 55%,#E6DDD4 100%)}
-.claro .ig-ass small{opacity:.6}
-.claro .sub{opacity:.72}
-.claro .ig-pe span.cheia{color:#fff}
-.claro .objeto{position:absolute;z-index:2;margin:0;left:50%;bottom:0;transform:translateX(-50%);width:auto;max-width:none}
-.claro .t-centro{margin-top:auto}
-.claro .foto{top:auto;bottom:0;height:var(--bh,46%);filter:saturate(.9) contrast(1.03)}
-.claro .veu{background:linear-gradient(180deg,#EAE2D9 calc(100% - var(--bh,46%)),rgba(234,226,217,0) calc(100% - var(--bh,46%) + 16%))}
-.claro .ig-pe{position:absolute;left:0;right:0;bottom:6%;z-index:4}
-.claro .ig-pe span{background:rgba(255,255,255,.85);color:#1C0809}
-.claro .ig-pe::before{background:rgba(255,255,255,.5)}
+/* 01 capa: retrato sangrando, uma palavra enorme */
+.p-capa{--fp:62% 30%;--v1:40%;--v2:64%;--v3:80%}
+.p-capa .t .grande{display:block;font-size:15.4cqw;letter-spacing:-.055em;line-height:.9;color:var(--dest);margin-bottom:1.6cqw}
+.p-capa .t{font-size:7.4cqw;line-height:1.04}
 
-/* peças */
-.p-capa{--fh:74%;--fp:62% 40%}
-.p-capa .t{font-size:9cqw}
-.p-mito{--bh:52%;--fp:50% 30%}
-.p-mito .t{font-size:9.4cqw}
-.p-mito-x::before{content:"";position:absolute;z-index:1;left:50%;bottom:-30cqw;width:120cqw;height:80cqw;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(160,106,31,.16),rgba(160,106,31,0))}
-.p-paixao{--fh:80%;--fp:100% 30%}
-.p-paixao .foto{width:115%;left:auto;right:0;filter:saturate(.7) contrast(1.05) brightness(.72) sepia(.18)}
-.p-versus{--bh:50%;--fp:50% 30%}
-.p-botox{--fh:68%;--fp:50% 24%}
-.p-depo{--bh:38%;--fp:50% 25%}
-.p-depo .aspas{font:700 14cqw/1 var(--corpo);color:var(--dest);height:9cqw}
-.p-depo .t{font-size:7.4cqw;line-height:1.08}
-.p-lugar{--fh:84%;--fp:50% 26%}
-.p-lugar .foto{filter:saturate(.8) contrast(1.05) brightness(.86)}
-.p-lugar .veu{background:linear-gradient(270deg,rgba(20,5,6,.55),rgba(20,5,6,0) 30%),linear-gradient(180deg,rgba(20,5,6,.45) 0%,rgba(20,5,6,0) 16%,rgba(20,5,6,0) 50%,rgba(20,5,6,.72) 70%,var(--esc) 84%)}
-.p-ad .pares{margin-top:5cqw;display:grid;gap:1.6cqw}
-.p-ad .pares div{position:relative;border-radius:2.4cqw;overflow:hidden;aspect-ratio:961/400}
-.p-ad .pares img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
-.p-ad .pares span{display:none;position:absolute;left:2.4cqw;top:2.4cqw;padding:.9cqw 2.4cqw;border-radius:99px;background:rgba(255,255,255,.9);color:#1C0809;font:700 2.3cqw var(--corpo);letter-spacing:.06em;text-transform:uppercase}
-.p-ad .aviso{margin-top:2.6cqw;font:500 2.4cqw var(--corpo);opacity:.6}
-.p-agenda{--fh:80%;--fp:50% 20%}
-.p-texto{justify-content:center;padding-bottom:12%;background:radial-gradient(120% 70% at 85% 0%,#3A0D11 0%,var(--esc) 60%)}
-.p-texto .ig-ass{position:absolute;top:8.4%;left:0}
-.p-texto .ig-pe{position:absolute;bottom:8.4%;left:0;right:0}
-.p-lista .t{font-size:10cqw}
-.p-lista ol{list-style:none;margin-top:7cqw}
-.p-lista li{display:flex;gap:4cqw;align-items:baseline;padding:4cqw 0;border-top:1px solid var(--linha);font:600 5cqw/1.22 var(--corpo);letter-spacing:-.02em}
+/* 02 mito: creme, pergunta, veredito e foto emoldurada */
+.p-mito .t{font-size:10.4cqw;line-height:.96}
+.veredito{margin-top:5cqw;display:grid;grid-template-columns:auto 1fr;gap:4cqw;align-items:start;padding-top:4cqw;border-top:1px solid var(--linha)}
+.veredito b{font:700 6.4cqw/1 var(--corpo);letter-spacing:-.03em;color:var(--dest)}
+.veredito span{font:400 3.3cqw/1.4 var(--corpo);color:var(--apag);padding-top:.6cqw}
+.p-mito .quadro{height:44cqw}
+.p-mito .quadro img{object-position:50% 34%}
+
+/* 03 paixão: formato "opinião" */
+.p-paixao{justify-content:flex-start;padding-top:21%;background:radial-gradient(110% 60% at 100% 0%,var(--esc2),var(--esc) 70%)}
+.p-paixao .t{margin-top:5cqw;font-size:7.6cqw;line-height:1.06}
+.p-paixao .quadro{height:46cqw;margin-top:6cqw}
+.p-paixao .quadro img{object-position:60% 22%;filter:saturate(.75) contrast(1.06) brightness(.9) sepia(.12)}
+
+/* 04 versus: duas fotos, um "ou" no meio */
+.p-versus .t{font-size:9.6cqw;line-height:.98}
+.duas{margin-top:6cqw;display:grid;grid-template-columns:1fr 1fr;gap:1.4cqw;position:relative}
+.duas .quadro{margin:0;height:56cqw}
+.duas .quadro:first-child img{object-position:30% 40%}
+.duas .quadro:nth-child(2) img{object-position:20% 50%}
+.duas .ou{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);width:13cqw;height:13cqw;border-radius:50%;
+  display:grid;place-items:center;background:#EEE4DA;color:#4D0E13;font:300 5.4cqw/1 var(--corpo);letter-spacing:-.03em}
+.p-versus .sub{margin-top:4cqw}
+
+/* 05 / carrossel 1: capa de carrossel */
+.p-botox{--fp:50% 22%;--v1:34%;--v2:60%;--v3:76%}
+.p-botox .t{font-size:10.6cqw;line-height:.96}
+
+/* 06 depoimento */
+.p-depo .aspas{font:400 26cqw/.7 Georgia,serif;color:var(--dest);height:13cqw;margin-top:2cqw}
+.p-depo .t{font-size:7.2cqw;line-height:1.1;font-weight:500;letter-spacing:-.03em}
+.p-depo .t b{font-weight:700}
+.quem{margin-top:5cqw;display:flex;align-items:center;gap:3cqw;font:600 2.25cqw/1 var(--corpo);letter-spacing:.16em;text-transform:uppercase;color:var(--apag)}
+.quem::before{content:"";width:7cqw;height:1px;background:var(--dest)}
+.p-depo .quadro{position:absolute;left:0;right:0;bottom:17cqw;height:30cqw;margin:0 7.4cqw}
+.p-depo .quadro img{object-position:30% 50%}
+
+/* 07 consultório: foto + ficha */
+.p-lugar{--fp:50% 24%;--v1:30%;--v2:54%;--v3:70%}
+.p-lugar .t{font-size:9.4cqw;line-height:.98}
+.ficha{margin-top:5cqw;display:grid;grid-template-columns:1fr 1fr;gap:4cqw;padding-top:3.6cqw;border-top:1px solid var(--linha)}
+.ficha small{display:block;font:600 2.1cqw/1 var(--corpo);letter-spacing:.16em;text-transform:uppercase;color:var(--dest);margin-bottom:1.8cqw}
+.ficha span{display:block;font:400 3.2cqw/1.36 var(--corpo)}
+
+/* 08 antes e depois */
+.p-ad .t{font-size:9cqw;line-height:1}
+.p-ad .pares{margin-top:5.4cqw;display:grid;gap:1.4cqw}
+.p-ad .pares .quadro{margin:0;aspect-ratio:961/405}
+.p-ad .pares img{object-position:50% 40%}
+.p-ad .aviso{margin-top:3cqw;font:400 2.5cqw/1.3 var(--corpo);color:var(--apag)}
+
+/* 09 agenda */
+.p-agenda{--fp:50% 18%;--v1:36%;--v2:60%;--v3:76%}
+.p-agenda .t{font-size:9.4cqw;line-height:.98}
+
+/* carrossel 2: só tipografia */
+.p-texto{justify-content:center;padding-bottom:0;background:radial-gradient(120% 70% at 85% 0%,var(--esc2) 0%,var(--esc) 62%)}
+.p-texto .num{position:absolute;right:-4cqw;bottom:-14cqw;margin:0;font:700 78cqw/1 var(--corpo);letter-spacing:-.08em;color:transparent;-webkit-text-stroke:1px rgba(221,181,116,.22);z-index:2}
+.p-texto .t.g{font-size:12.4cqw}
+
+/* carrossel 3: lista */
+.p-lista .t{font-size:10.4cqw;line-height:.96}
+.p-lista ol{list-style:none;padding:0;margin-top:7cqw}
+.p-lista li{display:grid;grid-template-columns:12cqw 1fr;align-items:baseline;padding:4.4cqw 0;border-top:1px solid var(--linha);font:500 5.2cqw/1.2 var(--corpo);letter-spacing:-.025em}
 .p-lista li:last-child{border-bottom:1px solid var(--linha)}
-.p-lista li b{font:700 5cqw var(--corpo);color:var(--dest);min-width:6cqw}
-.p-lista .ig-pe{margin-top:auto}
-.p-fim{--fh:76%;--fp:40% 40%}
+.p-lista li b{font:300 5.2cqw var(--corpo);color:var(--dest)}
+
+/* carrossel 4 */
+.p-fim{--fp:40% 30%;--v1:34%;--v2:58%;--v3:74%}
+.p-fim .t{font-size:10cqw;line-height:.98}
 
 .fio-ig{position:absolute;z-index:7;left:0;top:0;width:400%;height:100%;pointer-events:none;overflow:visible}
-.fio-ig path{fill:none;stroke:var(--ouro);stroke-width:1.2;stroke-linecap:round;vector-effect:non-scaling-stroke;opacity:.0}
+.fio-ig path{fill:none;stroke:var(--ouro);stroke-width:1.2;stroke-linecap:round;vector-effect:non-scaling-stroke;opacity:0}
 .carrossel-trilho{position:relative}
 
 /* STORIES (9:16). Faixas livres: 13% em cima e 16% embaixo */
@@ -100,21 +149,20 @@
 .story::after{content:"";position:absolute;z-index:9;left:5%;top:2.4%;height:3px;width:0;border-radius:9px;background:#fff;animation:storyBar 6s linear infinite}
 .story:nth-child(2)::after{animation-delay:2s}.story:nth-child(3)::after{animation-delay:4s}
 @keyframes storyBar{to{width:90%}}
-.story .t{font-size:10cqw}
-.story .tag{align-self:flex-start;padding:1.6cqw 3.6cqw;border-radius:99px;background:var(--dest);color:var(--esc);font:700 3.4cqw var(--corpo);letter-spacing:-.01em;margin-bottom:4cqw}
-.story .ig-ass{margin-bottom:0}
-.s-perg{--fh:62%;--fp:62% 40%}
-.s-enq{--fh:62%;--fp:50% 30%}
-.s-enq .tag{margin:4cqw 7.4cqw 0;background:none;border:1px solid var(--linha);color:#fff;font-weight:600;font-size:3cqw}
-.s-agenda{--fh:66%;--fp:50% 20%}
-.sticker,.enquete{margin-top:6cqw}
+.story .ig-topo{top:24cqw}
+.story .t{font-size:11cqw;line-height:.98}
+.story .rot{margin-bottom:4cqw}
+.s-perg{--fp:62% 30%;--v1:30%;--v2:52%;--v3:66%}
+.s-enq{--fp:50% 26%;--v1:30%;--v2:52%;--v3:66%}
+.s-agenda{--fp:50% 18%;--v1:34%;--v2:58%;--v3:72%}
+.sticker,.enquete{margin-top:7cqw}
 .sticker{border-radius:5cqw;overflow:hidden;background:#fff;color:#222;text-align:center;box-shadow:0 4cqw 8cqw -4cqw rgba(0,0,0,.6)}
 .sticker b{display:block;padding:4.4cqw 4cqw;background:linear-gradient(90deg,#4D0E13,#8E3A3E);color:#fff;font:600 4.6cqw/1.25 var(--corpo)}
 .sticker span{display:block;padding:4.6cqw 3cqw;font-size:4.4cqw;color:#9a9a9a}
 .enquete{border-radius:5cqw;background:#fff;color:#222;padding:5cqw 4cqw 4cqw;box-shadow:0 4cqw 8cqw -4cqw rgba(0,0,0,.5)}
 .enquete b{display:block;margin-bottom:3.4cqw;text-align:center;font:700 5.4cqw/1.2 var(--corpo)}
 .enquete span{display:block;margin-top:2.4cqw;padding:3.4cqw 4cqw;border-radius:3cqw;background:#F1EDEA;text-align:center;font:600 4.6cqw var(--corpo);color:#4D0E13}
-.s-agenda .link{margin-top:6cqw;align-self:flex-start;display:flex;align-items:center;gap:2.4cqw;padding:3.2cqw 5cqw;border-radius:3cqw;background:#fff;color:#2563eb;font:700 4.6cqw var(--corpo);box-shadow:0 2cqw 6cqw -2cqw rgba(0,0,0,.3)}
+.s-agenda .link{margin-top:7cqw;align-self:flex-start;display:flex;align-items:center;gap:2.4cqw;padding:3.2cqw 5cqw;border-radius:3cqw;background:#fff;color:#2563eb;font:700 4.6cqw var(--corpo);box-shadow:0 2cqw 6cqw -2cqw rgba(0,0,0,.3)}
 .s-agenda .link svg{width:5cqw;height:5cqw;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round}
 
 /* miniaturas do celular: sem grão, para a página continuar leve */
@@ -123,12 +171,49 @@
 /* no PNG final a barra de progresso some (o Instagram põe a dele) */
 .exporta .story::before,.exporta .story::after{display:none}
 
-/* rodada 3 do diretor de arte */
-.p-mito .foto{filter:sepia(.28) saturate(.95) contrast(1.04) brightness(1.02)}
-.p-mito .veu{background:linear-gradient(180deg,#EAE2D9 calc(100% - var(--bh)),rgba(234,226,217,0) calc(100% - var(--bh) + 8%))}
-.p-paixao .veu{background:linear-gradient(180deg,rgba(20,5,6,.5) 0%,rgba(20,5,6,.18) 33%,rgba(20,5,6,0) 46%,rgba(20,5,6,.72) 66%,var(--esc) 80%)}
-.p-versus .foto{height:calc(var(--bh) + 5%);bottom:-5%}
-.p-versus .ig-pe{bottom:11%}
-.p-depo{--bh:36%;--fp:50% 60%}
-.p-agenda .t{font-size:8cqw}
-.p-texto .t.g{font-size:12cqw}
+/* ajustes da primeira exportação */
+.p-ad .pares .quadro{aspect-ratio:10/3}
+.p-ad .pares img{object-position:50% 46%}
+.duas .quadro:nth-child(2) img{object-position:0% 45%;width:200%;max-width:none}
+.p-paixao .quadro img{object-position:50% 62%}
+.p-lugar .veu{background:linear-gradient(180deg,rgba(26,5,7,.8) 0%,rgba(26,5,7,.2) 18%,rgba(26,5,7,0) 30%,rgba(26,5,7,.82) 54%,var(--esc) 70%)}
+.p-fim{--fp:24% 30%}
+
+/* rodada 1 do diretor (v3) */
+.ig-topo span{display:none}
+.ig-pe i.cta{margin:-2cqw 0 -2cqw auto}
+.veu{background:linear-gradient(180deg,rgba(26,5,7,.8) 0%,rgba(26,5,7,.35) 12%,rgba(26,5,7,0) 24%,rgba(26,5,7,0) var(--v1,42%),rgba(26,5,7,.82) var(--v2,68%),var(--esc) var(--v3,84%))}
+.arte .foto,.story .foto{filter:saturate(.8) contrast(1.08) brightness(.9) sepia(.14)}
+.quadro{border-radius:.3cqw}
+.quadro img{filter:saturate(.84) contrast(1.05) sepia(.14)}
+.quadro figcaption{background:none;padding:0;left:2.4cqw;bottom:2.4cqw;text-shadow:0 0 2cqw rgba(0,0,0,.6)}
+.p-capa{--fp:35% 30%}
+.p-mito .quadro{height:39cqw}
+.p-paixao{justify-content:flex-end;padding-top:0;--fp:50% 40%;--v1:30%;--v2:54%;--v3:70%}
+.p-paixao .t{margin-top:0;font-size:8.6cqw;line-height:1}
+.duas .lado{height:52cqw;padding:5cqw 4.4cqw;display:flex;flex-direction:column;background:#4D0E13;color:#F6EDE4;border-radius:.3cqw}
+.duas .lado.b{background:#E2D3C2;color:#3A0C10}
+.duas .lado small{font:600 2.25cqw/1 var(--corpo);letter-spacing:.16em;color:#DDB574}
+.duas .lado.b small{color:#9A6E2B}
+.duas .lado b{margin-top:auto;font:700 5.6cqw/1 var(--corpo);letter-spacing:-.035em}
+.duas .lado span{margin-top:2.4cqw;font:400 2.9cqw/1.4 var(--corpo);opacity:.8}
+.duas .ou{width:12cqw;height:12cqw;font-size:4.4cqw;box-shadow:0 0 0 1.2cqw #EEE4DA}
+.p-depo{justify-content:center;padding:0 0 4%}
+.p-depo .aspas{font-size:30cqw;height:15cqw}
+.p-depo .t{font-size:7.4cqw}
+.p-lugar .foto{width:116%;left:-8%;height:108%;top:-2%}
+.p-lugar .veu{background:linear-gradient(180deg,rgba(26,5,7,.9) 0%,rgba(26,5,7,.6) 14%,rgba(26,5,7,0) 28%,rgba(26,5,7,0) 34%,rgba(26,5,7,.82) 56%,var(--esc) 70%)}
+.p-ad .pares .quadro{aspect-ratio:10/3.4}
+.p-ad .pares img{object-position:50% 80%}
+.p-agenda .foto,.p-botox .foto{top:5%;height:95%}
+.p-texto .t.g .l{font-weight:300}
+.p-lista ol{margin-top:9cqw}
+.p-lista li{padding:5.6cqw 0}
+.p-fim{--fp:50% 30%}
+.s-perg{--fp:50% 20%}
+.s-enq{padding-bottom:64%}
+.s-enq .foto{filter:saturate(.62) contrast(1.05) brightness(.72) sepia(.14)}
+.s-enq .veu,.s-agenda .veu{background:linear-gradient(180deg,rgba(26,5,7,.85) 0%,rgba(26,5,7,.5) 12%,rgba(26,5,7,0) 22%,rgba(26,5,7,0) var(--v1),rgba(26,5,7,.82) var(--v2),var(--esc) var(--v3))}
+.s-agenda .foto{top:6%;height:94%}
+.p-botox .foto,.s-agenda .foto{top:0;height:100%}
+.p-ad .pares .quadro:first-child img{object-position:50% 100%}
