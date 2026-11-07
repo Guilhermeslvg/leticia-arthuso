@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Italiana&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=20261107b">
+<link rel="stylesheet" href="css/styles.css?v=20261107c">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -293,21 +293,49 @@
     </div>
   </div>
 
-  <div class="agenda">
-    <div class="agenda-txt">
-      <p class="rotulo" data-r="down">Agende</p>
-      <h2 data-split>Sua avaliação começa com uma <span class="ac">conversa</span></h2>
-      <p data-r="up" style="--d:.15s">Conte seu nome e o que você quer avaliar. A mensagem abre pronta no WhatsApp da Letícia.</p>
+  <div class="agenda" id="agenda">
+    <figure class="agenda-foto" data-r="left">
+      <img src="assets/fotos/agenda.webp" width="900" height="1200" loading="lazy" alt="Dra. Letícia Arthuso de blazer branco, com a mão estendida">
+      <figcaption><b>Dra. Letícia Arthuso</b>CRO-MG 70325 · Atendimento com hora marcada</figcaption>
+    </figure>
+    <div class="agenda-corpo">
+      <div class="agenda-txt">
+        <p class="rotulo" data-r="down">Agende</p>
+        <h2 data-split>Sua avaliação começa com uma <span class="ac">conversa</span></h2>
+        <ol class="agenda-passos" data-r="up" style="--d:.15s">
+          <li><b>Você manda a mensagem</b>Ela já sai pronta daqui, com o seu nome.</li>
+          <li><b>A Letícia responde</b>E combina com você o melhor horário.</li>
+          <li><b>A avaliação é no consultório</b>Av. Josué de Queirós, 349, Matozinhos.</li>
+        </ol>
+      </div>
+      <form class="form" id="form" novalidate data-r="up" style="--d:.2s">
+        <div class="form-campos">
+        <label for="f-nome">Seu nome</label>
+        <input id="f-nome" type="text" autocomplete="name" placeholder="Como a Letícia pode te chamar?" required>
+        <p class="erro" id="f-erro" role="alert" hidden>Escreva seu nome para a Letícia saber com quem está falando.</p>
+        <fieldset class="opcoes">
+          <legend>O que você quer avaliar?</legend>
+          <div class="op-lista" id="f-int"><label class="op"><input type="radio" name="int" value="" checked><span>Ainda não sei</span></label></div>
+        </fieldset>
+        <fieldset class="opcoes">
+          <legend>Prefere qual período?</legend>
+          <div class="op-lista" id="f-per">
+            <label class="op"><input type="radio" name="per" value="" checked><span>Tanto faz</span></label>
+            <label class="op"><input type="radio" name="per" value="de manhã"><span>Manhã</span></label>
+            <label class="op"><input type="radio" name="per" value="à tarde"><span>Tarde</span></label>
+          </div>
+        </fieldset>
+        </div>
+        <div class="form-envio">
+        <div class="previa" aria-live="polite">
+          <small>A mensagem que vai chegar para ela</small>
+          <p id="f-previa"></p>
+        </div>
+        <button class="btn btn-bordo" type="submit"><svg><use href="#i-wa"/></svg>Enviar pelo WhatsApp</button>
+        <p class="form-nota">O WhatsApp abre com a mensagem pronta. É só tocar em enviar.</p>
+        </div>
+      </form>
     </div>
-    <form class="form" id="form" novalidate data-r="up" style="--d:.2s">
-      <label for="f-nome">Seu nome</label>
-      <input id="f-nome" type="text" autocomplete="name" required>
-      <p class="erro" id="f-erro" role="alert" hidden>Escreva seu nome para a Letícia saber com quem está falando.</p>
-      <label for="f-int">O que você quer avaliar?</label>
-      <select id="f-int"><option value="">Ainda não sei, quero orientação</option></select>
-      <button class="btn btn-bordo" type="submit"><svg><use href="#i-wa"/></svg>Enviar pelo WhatsApp</button>
-      <p class="form-nota">É só tocar em enviar quando o WhatsApp abrir.</p>
-    </form>
   </div>
 </section>
 
@@ -351,7 +379,7 @@
   <a class="btn btn-bordo" data-wa href="https://wa.me/5531991169590"><svg><use href="#i-wa"/></svg>Agendar avaliação</a>
 </aside>
 
-<script src="js/conteudo.js?v=20261107b"></script>
-<script src="js/site.js?v=20261107b"></script>
+<script src="js/conteudo.js?v=20261107c"></script>
+<script src="js/site.js?v=20261107c"></script>
 </body>
 </html>
