@@ -50,7 +50,7 @@ window.LA=window.LA||{};
   ];
 
   /* Descrição de cada foto do mosaico (texto alternativo, para leitores de tela) */
-  var FOTO={"labios": {"a": "Lábios depois do preenchimento, com a mão de luva da Letícia ajustando o rosto da paciente"}, "botox": {"a": "Letícia segurando um frasco de toxina botulínica, com a logo LA dourada na parede"}, "bio": {"a": "Antes e depois de bioestimulador de colágeno em uma paciente"}, "skin": {"a": "Retrato da Letícia com a pele iluminada"}, "face": {"a": "Letícia aplicando um procedimento no rosto de uma paciente"}, "rino": {"a": "Nariz de paciente logo após o procedimento, com gaze"}, "pdrn": {"a": "Letícia aplicando PDRN no rosto de uma paciente"}, "pele": {"a": "Letícia cuidando da pele em frente ao espelho de mão com a logo LA"}};
+  var FOTO={"labios": {"a": "Lábios depois do preenchimento, com a mão de luva da Letícia ajustando o rosto da paciente"}, "botox": {"a": "Letícia segurando um frasco de toxina botulínica, com a logo LA dourada na parede"}, "bio": {"a": "Antes e depois de bioestimulador de colágeno em uma paciente"}, "skin": {"a": "Close do rosto da Letícia, com a pele hidratada e iluminada"}, "face": {"a": "Letícia aplicando um procedimento no rosto de uma paciente"}, "rino": {"a": "Nariz de paciente logo após o procedimento, com gaze"}, "pdrn": {"a": "Letícia aplicando PDRN no rosto de uma paciente"}, "pele": {"a": "Letícia com a mão no rosto, em close, mostrando a pele"}};
   var ORDEM=["labios", "botox", "bio", "skin", "face", "rino", "pdrn", "pele"];
 
   window.LA.P=P;window.LA.FOTO=FOTO;window.LA.ORDEM=ORDEM;

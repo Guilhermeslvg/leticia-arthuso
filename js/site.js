@@ -3,7 +3,7 @@
    mosaico "O que eu faço" > mapa do rosto e tour automático > modal dos procedimentos >
    ondas entre as seções > títulos letra por letra e entrada ao rolar > abertura com a logo >
    antes e depois > carrossel em onda > gaveta de vídeo > dúvidas que viram >
-   consultório > como chegar (Google Maps) > formulário do WhatsApp.
+   vídeo de "Harmonização hoje" > consultório > como chegar (mapa Leaflet) > formulário do WhatsApp.
    Quem pede menos movimento no sistema (reduz) recebe tudo parado. */
 (function(){
   if('scrollRestoration' in history)history.scrollRestoration='manual';
@@ -35,7 +35,7 @@
         var id=t[0],n=porId(id),p=P[n],f=FOTO[id],li=document.createElement('li');
         li.className='tile '+t[1].split(' ').map(function(x){return 't-'+x}).join(' ');
         li.dataset.r='cortina';li.style.setProperty('--d',(c*.08+k*.12)+'s');if(!primeira)li.classList.add('in');
-        li.innerHTML='<button class="tile-btn" type="button" data-vai="'+n+'" aria-label="Ver detalhes de '+p.t+'"><img src="assets/fotos/proc-'+id+'.webp" loading="lazy" alt="'+f.a+'"><span class="tile-mais" aria-hidden="true"></span><span class="tile-txt"><span class="tile-nome">'+p.t+'</span><span class="tile-sub">'+p.c+'</span><span class="tile-ver">Ver detalhes<svg><use href="#i-seta"/></svg></span></span></button>';
+        li.innerHTML='<button class="tile-btn" type="button" data-vai="'+n+'" aria-label="Ver detalhes de '+p.t+'"><img src="assets/fotos/faz-'+id+'.webp" loading="lazy" alt="'+f.a+'"><span class="tile-mais" aria-hidden="true"></span><span class="tile-txt"><span class="tile-nome">'+p.t+'</span><span class="tile-sub">'+p.c+'</span><span class="tile-ver">Ver detalhes<svg><use href="#i-seta"/></svg></span></span></button>';
         dentro.appendChild(li);
       });
       lista.appendChild(ul);colunas.push(ul);
@@ -162,7 +162,7 @@
   var modal=document.getElementById('modal'),mImg=document.getElementById('mod-img'),mTxt=document.getElementById('mod-txt'),mCta=document.getElementById('mod-cta'),mProx=document.getElementById('mod-prox'),mFec=modal.querySelector('.modal-fechar'),mOrigem=null,mAberto=false,mPos=0;
   function preenche(k,volta){
     mPos=k;var n=porId(ORDEM[k]),p=P[n],f=FOTO[ORDEM[k]],prox=P[porId(ORDEM[(k+1)%ORDEM.length])];
-    mImg.src='assets/fotos/proc-'+ORDEM[k]+'.webp';mImg.alt=f.a;
+    mImg.src='assets/fotos/faz-'+ORDEM[k]+'.webp';mImg.alt=f.a;
     var novo=mTxt.cloneNode(false);novo.className='modal-txt'+(volta?' volta':'');
     novo.innerHTML='<h2 id="mod-tit">'+p.t+'</h2><p>'+p.r+'</p><ul>'+p.l.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'+(p.n?'<p class="modal-nota">'+p.n+'</p>':'');
     mTxt.parentNode.replaceChild(novo,mTxt);mTxt=novo;
@@ -332,17 +332,24 @@
   }
 
   /* Gaveta lateral com o vídeo do Instagram */
-  var gav=document.getElementById('gaveta'),box=document.getElementById('gavVideo'),tit=document.getElementById('gav-tit'),fec=gav.querySelector('.fechar'),origem=null,aberta=false;
+  var gav=document.getElementById('gaveta'),box=document.getElementById('gavVideo'),tit=document.getElementById('gav-tit'),fec=gav.querySelector('.fechar'),origem=null,aberta=false,vidTok=0;
   function abreVideo(b){
     if(moveu>6)return;
     origem=b;aberta=true;tit.textContent=b.dataset.tit;
-    box.innerHTML='<img src="'+b.querySelector('img').getAttribute('src')+'" alt=""><a class="btn btn-rosa" target="_blank" rel="noopener" href="https://www.instagram.com/reel/'+b.dataset.reel+'/">Assistir no Instagram</a>';
+    var capa=b.querySelector('img').getAttribute('src'),ig='https://www.instagram.com/reel/'+b.dataset.reel+'/';
+    box.innerHTML='<img src="'+capa+'" alt="">';
+    /* Se o vídeo estiver em assets/videos/<código do reel>.mp4, ele toca aqui. Senão, vai para o Instagram. */
+    var v=document.createElement('video');v.src='assets/videos/'+b.dataset.reel+'.mp4';v.poster=capa;v.controls=true;v.playsInline=true;v.setAttribute('playsinline','');v.preload='auto';
+    var tok=++vidTok;
+    v.addEventListener('loadeddata',function(){if(!aberta||tok!==vidTok)return;box.innerHTML='';box.appendChild(v);var p=v.play();if(p&&p.catch)p.catch(function(){})},{once:true});
+    v.addEventListener('error',function(){if(!aberta||tok!==vidTok)return;box.insertAdjacentHTML('beforeend','<a class="btn btn-rosa" target="_blank" rel="noopener" href="'+ig+'">Assistir no Instagram</a>')},{once:true});
     gav.hidden=false;veu.hidden=false;document.body.classList.add('travado');
     requestAnimationFrame(function(){requestAnimationFrame(function(){gav.classList.add('on');veu.classList.add('on');fec.focus()})});
   }
   function fecha(){
     if(!aberta)return;aberta=false;
     gav.classList.remove('on');veu.classList.remove('on');document.body.classList.remove('travado');
+    vidTok++;var vv=box.querySelector('video');if(vv)vv.pause();
     setTimeout(function(){gav.hidden=true;veu.hidden=true;box.innerHTML=''},reduz?0:620);
     if(origem)origem.focus({preventScroll:true});
   }
@@ -373,6 +380,21 @@
     ioMito.observe(mitos);
   } else abreMito(mitoBtns[0]);
 
+  /* Vídeo de "Harmonização hoje": toca sem som quando aparece na tela; o botão liga o som
+     e tocar no vídeo pausa ou continua. Sai da tela, pausa. */
+  var hv=document.getElementById('hojeVideo');
+  if(hv){
+    var hvV=hv.querySelector('video'),hvB=hv.querySelector('.hv-som'),hvR=hv.querySelector('.hv-rot'),hvP=hv.querySelector('.hv-barra i');
+    function hvToca(){var p=hvV.play();if(p&&p.catch)p.catch(function(){})}
+    function hvSom(on){hvV.muted=!on;hvB.setAttribute('aria-pressed',on);hvR.textContent=on?'Pausar':'Ouvir';if(on)hvToca()}
+    hvB.addEventListener('click',function(e){e.stopPropagation();if(hvV.muted){hvV.currentTime=0;hvSom(true)}else if(hvV.paused){hvToca();hvR.textContent='Pausar';hvB.setAttribute('aria-pressed','true')}else{hvV.pause();hvR.textContent='Continuar';hvB.setAttribute('aria-pressed','false')}});
+    hv.querySelector('.hv-tela').addEventListener('click',function(){hvB.click()});
+    hvV.addEventListener('timeupdate',function(){hvP.style.transform='scaleX('+(hvV.currentTime/(hvV.duration||1)).toFixed(3)+')'});
+    if('IntersectionObserver' in window&&!reduz){
+      new IntersectionObserver(function(es){if(es[0].isIntersecting){hvV.preload='auto';hvToca()}else if(!hvV.paused){hvV.pause();if(!hvV.muted){hvR.textContent='Continuar';hvB.setAttribute('aria-pressed','false')}}},{threshold:.5}).observe(hv);
+    } else hvV.preload='metadata';
+  }
+
   /* Consultório: a foto anda dentro do arco e o fio dourado se desenha */
   var consImg=document.getElementById('consImg'),cons=document.querySelector('.cons');
   if('IntersectionObserver' in window){
@@ -384,17 +406,68 @@
     consImg.style.transform='translateY('+(((innerHeight-r.top)/(innerHeight+r.height)-.5)*-60).toFixed(1)+'px) scale(1.12)';
   },{passive:true});
 
-  /* Como chegar: o mapa só carrega perto da tela e abre num círculo a partir do pino */
-  var cMapa=document.getElementById('chegarMapa'),gMapa=document.getElementById('mapaGoogle');
-  function carregaMapa(){if(!gMapa.src)gMapa.src=gMapa.dataset.src}
-  gMapa.addEventListener('load',function(){if(gMapa.src)cMapa.classList.add('pronto')});
+  /* Como chegar: mapa Leaflet com as cores da marca. Carrega perto da tela, voa da cidade até o
+     consultório e só aceita arrastar/zoom depois de um toque, para não prender a rolagem da página. */
+  var CONS=[-21.1293609,-44.2385126],cMapa=document.getElementById('chegarMapa'),tela=document.getElementById('mapaTela'),
+      ativa=document.getElementById('mapaAtiva'),dist=document.getElementById('mapaDist'),mapa=null,pino=null,voce=null,linha=null,voou=false;
+  function css(h){var l=document.createElement('link');l.rel='stylesheet';l.href=h;document.head.appendChild(l)}
+  function js(h,cb){var e=document.createElement('script');e.src=h;e.onload=cb;e.onerror=falhou;document.head.appendChild(e)}
+  function falhou(){cMapa.classList.add('sem-mapa');tela.innerHTML='<a class="btn btn-bordo" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+CONS.join('%2C')+'">Abrir o mapa</a>'}
+  function montaMapa(){
+    if(mapa||!window.L)return;
+    mapa=L.map(tela,{center:[-21.1355,-44.2600],zoom:13,zoomControl:false,scrollWheelZoom:false,dragging:false,touchZoom:false,doubleClickZoom:false,boxZoom:false,keyboard:false,tap:false,attributionControl:true});
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'}).addTo(mapa);
+    mapa.attributionControl.setPrefix(false);
+    var icone=L.divIcon({className:'',html:'<div class="pino pino-cai"><span class="pino-onda"></span><span class="pino-ponto"><svg viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg></span></div>',iconSize:[64,72],iconAnchor:[32,66]});
+    pino=L.marker(CONS,{icon:icone,keyboard:false,title:'Consultório da Dra. Letícia Arthuso'});
+    if(reduz)voa();
+  }
+  function voa(){
+    if(!mapa||voou)return;voou=true;
+    if(reduz){mapa.setView(CONS,17);pino.addTo(mapa);return}
+    mapa.flyTo(CONS,17,{duration:2.6,easeLinearity:.2});
+    mapa.once('moveend',function(){pino.addTo(mapa)});
+  }
+  function libera(){
+    if(!mapa)return;cMapa.classList.add('mapa-livre');
+    ['dragging','touchZoom','doubleClickZoom','scrollWheelZoom','keyboard'].forEach(function(h){mapa[h].enable()});
+  }
+  ativa.addEventListener('click',libera);
+  cMapa.querySelector('.mapa-ctrl').addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b||!mapa)return;var z=+b.dataset.z;
+    if(z)mapa.setZoom(mapa.getZoom()+z);else if(linha)mapa.flyToBounds(linha.getBounds(),{padding:[60,60],duration:1.2});else mapa.flyTo(CONS,17,{duration:1.2});
+  });
+  function carrega(){
+    if(window.L){montaMapa();return}
+    css('https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css');
+    js('https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js',function(){montaMapa();if(perto)voa()});
+  }
+  var perto=false;
   if('IntersectionObserver' in window){
-    var ioPre=new IntersectionObserver(function(es){if(es[0].isIntersecting){carregaMapa();ioPre.disconnect()}},{rootMargin:'600px'});
+    var ioPre=new IntersectionObserver(function(es){if(es[0].isIntersecting){carrega();ioPre.disconnect()}},{rootMargin:'700px'});
     ioPre.observe(cMapa);
-    var ioMapa=new IntersectionObserver(function(es){if(es[0].isIntersecting){cMapa.classList.add('abre');ioMapa.disconnect()}},{threshold:.3});
-    ioMapa.observe(document.getElementById('chegar'));
-  } else {carregaMapa();cMapa.classList.add('abre')}
-  setTimeout(function(){cMapa.classList.add('pronto')},8000);
+    var ioVoa=new IntersectionObserver(function(es){if(es[0].isIntersecting){perto=true;voa();if(mapa)ioVoa.disconnect()}},{threshold:.45});
+    ioVoa.observe(cMapa);
+  } else {perto=true;carrega()}
+  /* distância em linha reta até quem está vendo (só se a pessoa permitir a localização) */
+  var bDist=document.getElementById('distancia');
+  bDist.addEventListener('click',function(){
+    if(!navigator.geolocation){bDist.textContent='Seu navegador não informa a localização';return}
+    bDist.textContent='Procurando você…';
+    navigator.geolocation.getCurrentPosition(function(p){
+      var eu=[p.coords.latitude,p.coords.longitude];
+      bDist.textContent='Ver a distância até você';
+      if(!mapa)return;
+      var km=mapa.distance(eu,CONS)/1000;
+      if(voce)voce.remove();if(linha)linha.remove();
+      voce=L.marker(eu,{icon:L.divIcon({className:'',html:'<span class="voce"></span>',iconSize:[18,18],iconAnchor:[9,9]}),keyboard:false}).addTo(mapa);
+      linha=L.polyline([eu,CONS],{color:'#9A6E2B',weight:2.5,dashArray:'2 8',lineCap:'round'}).addTo(mapa);
+      if(!pino._map)pino.addTo(mapa);voou=true;
+      mapa.flyToBounds(linha.getBounds(),{padding:[70,70],maxZoom:17,duration:1.6});
+      dist.innerHTML=(km<1?Math.round(km*1000)+' m':km.toLocaleString('pt-BR',{maximumFractionDigits:1})+' km')+' até o consultório<small>em linha reta, a partir de onde você está</small>';
+      dist.hidden=false;
+    },function(){bDist.textContent='Não consegui sua localização'},{enableHighAccuracy:true,timeout:10000});
+  });
   var copiar=document.getElementById('copiar');
   copiar.addEventListener('click',function(){
     var t='Av. Josué de Queirós, 349, Matozinhos, São João del Rei/MG';

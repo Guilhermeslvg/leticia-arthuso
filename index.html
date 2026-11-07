@@ -130,7 +130,7 @@
   <div class="carrossel-cab">
     <div>
       <h3 data-r="left">Fotos e vídeos do consultório</h3>
-      <p data-r="left" style="--d:.1s">Toque nos vídeos para assistir no Instagram.</p>
+      <p data-r="left" style="--d:.1s">Toque nos vídeos para assistir.</p>
     </div>
     <span class="pilula-arraste" data-r="right">Arraste para o lado<svg><use href="#i-seta"/></svg></span>
   </div>
@@ -189,42 +189,49 @@
     <p class="rotulo" data-r="down">Harmonização hoje</p>
     <h2 data-split>Harmonização não é sinônimo de <span class="ouro">exagero</span></h2>
     <p data-r="up" style="--d:.15s">Com tanta tendência e tanto filtro nas redes, é normal chegar com medo de ficar artificial. Algumas coisas eu explico quase todos os dias. Toque em cada frase para ver a resposta.</p>
-    <button class="hoje-reel" type="button" data-reel="DZs_fitB19G" data-tit="Coisas que eu preciso explicar" data-r="up" style="--d:.25s">
-      <img src="assets/fotos/vid-rotina.webp" width="640" height="1136" loading="lazy" alt="">
-      <span class="play" aria-hidden="true"></span>
-      <span class="hoje-reel-txt">Assista ao vídeo<small>Coisas que eu preciso explicar</small></span>
-    </button>
   </div>
-  <ul class="mitos" id="mitos">
-    <li class="mito" data-r="up" style="--d:0.0s">
+  <figure class="hoje-video" id="hojeVideo" data-r="up" style="--d:.2s">
+    <div class="hv-tela">
+      <video src="assets/videos/DZs_fitB19G.mp4" poster="assets/fotos/vid-rotina.webp" muted loop playsinline preload="none" aria-label="Vídeo da Letícia: coisas que eu preciso explicar trabalhando com harmonização facial"></video>
+      <span class="hv-barra" aria-hidden="true"><i></i></span>
+      <button class="hv-som" type="button" aria-pressed="false"><span class="hv-ico" aria-hidden="true"></span><span class="hv-rot">Ouvir</span></button>
+    </div>
+    <figcaption><small>Em vídeo</small>Coisas que eu preciso explicar</figcaption>
+  </figure>
+  <ol class="mitos" id="mitos">
+    <li class="mito" data-r="up" style="--d:0.00s">
       <button class="mito-btn" type="button" aria-expanded="false" aria-controls="mito0">
-        <small>Ouço muito</small>
-        <span class="mito-frase">“Vou ficar com o rosto exagerado.”</span>
+        <span class="mito-num" aria-hidden="true">01</span>
+        <span class="mito-txt"><small>Ouço muito</small><span class="mito-frase">“Vou ficar com o rosto exagerado.”</span></span>
+        <span class="mito-sinal" aria-hidden="true"></span>
       </button>
       <div class="mito-resp" id="mito0"><div><p><small>Na prática</small>Uma harmonização bem planejada não muda quem você é. Ela valoriza seus traços, respeita sua anatomia e mantém a sua essência.</p></div></div>
     </li>
-    <li class="mito" data-r="up" style="--d:0.1s">
+    <li class="mito" data-r="up" style="--d:0.08s">
       <button class="mito-btn" type="button" aria-expanded="false" aria-controls="mito1">
-        <small>Ouço muito</small>
-        <span class="mito-frase">“Esse procedimento serve para todo mundo.”</span>
+        <span class="mito-num" aria-hidden="true">02</span>
+        <span class="mito-txt"><small>Ouço muito</small><span class="mito-frase">“Esse procedimento serve para todo mundo.”</span></span>
+        <span class="mito-sinal" aria-hidden="true"></span>
       </button>
       <div class="mito-resp" id="mito1"><div><p><small>Na prática</small>Cada rosto tem suas proporções e necessidades. Por isso um bom tratamento começa com avaliação, planejamento e expectativas alinhadas.</p></div></div>
     </li>
-    <li class="mito" data-r="up" style="--d:0.2s">
+    <li class="mito" data-r="up" style="--d:0.16s">
       <button class="mito-btn" type="button" aria-expanded="false" aria-controls="mito2">
-        <small>Ouço muito</small>
-        <span class="mito-frase">“Botox tem idade certa para começar.”</span>
+        <span class="mito-num" aria-hidden="true">03</span>
+        <span class="mito-txt"><small>Ouço muito</small><span class="mito-frase">“Botox tem idade certa para começar.”</span></span>
+        <span class="mito-sinal" aria-hidden="true"></span>
       </button>
       <div class="mito-resp" id="mito2"><div><p><small>Na prática</small>Mais importante do que a idade é entender se ele é indicado para você neste momento.</p></div></div>
     </li>
-    <li class="mito" data-r="up" style="--d:0.3s">
+    <li class="mito" data-r="up" style="--d:0.24s">
       <button class="mito-btn" type="button" aria-expanded="false" aria-controls="mito3">
-        <small>Ouço muito</small>
-        <span class="mito-frase">“Cuidar da aparência é vaidade.”</span>
+        <span class="mito-num" aria-hidden="true">04</span>
+        <span class="mito-txt"><small>Ouço muito</small><span class="mito-frase">“Cuidar da aparência é vaidade.”</span></span>
+        <span class="mito-sinal" aria-hidden="true"></span>
       </button>
       <div class="mito-resp" id="mito3"><div><p><small>Na prática</small>É sobre autoestima, confiança e se sentir bem com a própria imagem. O resultado mais bonito é aquele que ninguém aponta, só percebe que você está ainda mais bonita.</p></div></div>
     </li>
-  </ul>
+  </ol>
 </section>
 
 <div class="onda" data-onda="areia"></div>
@@ -254,17 +261,33 @@
       <h2 data-split>O caminho até o <span class="ac">consultório</span></h2>
       <p data-r="up" style="--d:.15s">Fica no bairro Matozinhos, em São João del Rei. Escolha o aplicativo e a rota já sai traçada de onde você estiver.</p>
     </div>
-    <div class="chegar-mapa" id="chegarMapa">
-      <iframe id="mapaGoogle" title="Mapa com a localização do consultório da Dra. Letícia Arthuso" data-src="https://maps.google.com/maps?q=Av.%20Josu%C3%A9%20de%20Queiroz%2C%20349%20-%20Matozinhos%2C%20S%C3%A3o%20Jo%C3%A3o%20del-Rei%20-%20MG&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      <span class="chegar-radar" aria-hidden="true"><i></i><i></i><i></i></span>
-      <div class="chegar-cartao">
+    <div class="chegar-corpo" id="chegarCorpo">
+      <div class="chegar-mapa" id="chegarMapa">
+        <div class="mapa-tela" id="mapaTela" role="region" aria-label="Mapa com a localização do consultório da Dra. Letícia Arthuso"></div>
+        <button class="mapa-ativa" id="mapaAtiva" type="button"><span>Toque para explorar o mapa</span></button>
+        <div class="mapa-ctrl" aria-label="Controles do mapa">
+          <button type="button" data-z="1" aria-label="Aproximar">+</button>
+          <button type="button" data-z="-1" aria-label="Afastar">−</button>
+          <button type="button" data-z="0" aria-label="Voltar ao consultório"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></button>
+        </div>
+        <p class="mapa-dist" id="mapaDist" hidden></p>
+        <noscript><a class="btn btn-bordo" href="https://www.google.com/maps/search/?api=1&amp;query=-21.1293609%2C-44.2385126">Abrir o mapa</a></noscript>
+      </div>
+      <div class="chegar-cartao" data-r="up">
         <svg class="chegar-logo" viewBox="0 0 400 400" aria-hidden="true"><use href="#logo"/></svg>
         <strong>Dra. Letícia Arthuso</strong>
-        <address>Av. Josué de Queirós, 349<br>Matozinhos, São João del Rei/MG</address>
+        <address>Av. Josué de Queirós, 349<br>Matozinhos, São João del Rei/MG<br><span>CEP 36305-144</span></address>
+        <ul class="chegar-info">
+          <li><b>Atendimento</b>Com hora marcada</li>
+          <li><b>Bairro</b>Matozinhos</li>
+        </ul>
         <div class="chegar-acoes">
-          <a class="btn btn-bordo" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Av.+Josu%C3%A9+de+Queiroz%2C+349+-+Matozinhos%2C+S%C3%A3o+Jo%C3%A3o+del-Rei+-+MG">Traçar rota no Google Maps</a>
-          <a class="btn btn-linha" target="_blank" rel="noopener" href="https://waze.com/ul?q=Av.%20Josu%C3%A9%20de%20Queiroz%20349%20S%C3%A3o%20Jo%C3%A3o%20del-Rei&navigate=yes">Abrir no Waze</a>
-          <button class="copiar" id="copiar" type="button">Copiar endereço</button>
+          <a class="btn btn-bordo" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Av.+Josu%C3%A9+de+Queir%C3%B3s%2C+349+-+Matozinhos%2C+S%C3%A3o+Jo%C3%A3o+del+Rei+-+MG%2C+36305-144">Traçar rota no Google Maps</a>
+          <a class="btn btn-linha" target="_blank" rel="noopener" href="https://waze.com/ul?ll=-21.1293609%2C-44.2385126&amp;navigate=yes">Abrir no Waze</a>
+          <div class="chegar-mini">
+            <button class="copiar" id="copiar" type="button">Copiar endereço</button>
+            <button class="copiar" id="distancia" type="button">Ver a distância até você</button>
+          </div>
         </div>
       </div>
     </div>
