@@ -57,6 +57,11 @@ h2{font-size:clamp(2.2rem,6.6vw,3.8rem);color:var(--bordo)}
 .mini{display:flex;gap:clamp(12px,3.4vw,40px);margin-left:auto}
 .mini a{padding:12px 0;font-size:.66rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--bordo);background:linear-gradient(currentColor,currentColor) 0 calc(100% - 8px)/0 1px no-repeat;transition:background-size .4s var(--saida)}
 .mini a:hover{background-size:100% 1px}
+.barra-ig{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:50%;color:var(--bordo);transition:background .3s,color .3s}
+.barra-ig svg{width:21px;height:21px}
+.barra-ig:hover{background:var(--bordo);color:var(--creme)}
+.barra-ig:focus-visible{outline:2px solid var(--bordo);outline-offset:2px}
+@media (max-width:759px){.barra{gap:8px}.mini{gap:12px}.barra-marca svg{width:46px;height:46px}.barra-ig{width:36px;height:36px;margin-right:-6px}.barra-ig svg{width:19px;height:19px}}
 .barra-cta{display:none;align-items:center;gap:8px;min-height:44px;padding:0 18px;border:1px solid var(--bordo);border-radius:999px;font-size:.84rem;font-weight:600;color:var(--bordo);text-decoration:none;transition:background .3s,color .3s}
 .barra-cta svg{width:18px;height:18px}
 .barra-cta:hover{background:var(--bordo);color:var(--creme)}
