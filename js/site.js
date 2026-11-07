@@ -56,7 +56,7 @@
       var b=document.createElement('button');b.className='ponto';b.type='button';b.dataset.p=n;b.style.left=p.x+'%';b.style.top=p.y+'%';
       b.setAttribute('aria-label',p.z+': '+p.t);b.innerHTML='<i>'+p.z+'</i>';foto.appendChild(b);
     }
-    var o=document.createElement('label');o.className='op';o.innerHTML='<input type="radio" name="int" value="'+p.t+'"><span>'+p.t+'</span>';sel.appendChild(o);
+    var o=document.createElement('option');o.value=p.t;o.textContent=p.t;sel.appendChild(o);
   });
 
   var veu=document.getElementById('veu');
@@ -475,22 +475,14 @@
     if(navigator.clipboard)navigator.clipboard.writeText(t).then(ok,function(){copiar.textContent=t});else copiar.textContent=t;
   });
 
-  /* Formulário: a mensagem se monta ao vivo na prévia e abre pronta no WhatsApp */
-  var form=document.getElementById('form'),nome=document.getElementById('f-nome'),erro=document.getElementById('f-erro'),previa=document.getElementById('f-previa');
-  function escolha(n){var r=form.querySelector('input[name='+n+']:checked');return r?r.value:''}
-  function mensagem(){
-    var n=nome.value.trim(),i=escolha('int'),p=escolha('per');
-    return 'Olá, Dra. Letícia! '+(n?'Meu nome é '+n+'. ':'')+(i?'Gostaria de agendar uma avaliação de '+i.toLowerCase():'Gostaria de orientação para agendar uma avaliação')+(p?', se possível '+p:'')+'.';
-  }
-  function atualiza(){previa.textContent=mensagem()}
-  form.addEventListener('input',atualiza);form.addEventListener('change',atualiza);atualiza();
+  /* Formulário abre o WhatsApp com a mensagem pronta */
+  var form=document.getElementById('form'),nome=document.getElementById('f-nome'),erro=document.getElementById('f-erro');
   nome.addEventListener('input',function(){erro.hidden=true;nome.removeAttribute('aria-invalid')});
   form.addEventListener('submit',function(e){
-    e.preventDefault();
-    if(!nome.value.trim()){erro.hidden=false;nome.setAttribute('aria-invalid','true');nome.focus();return}
-    var url=linkWa(mensagem()),janela=window.open(url,'_blank');
+    e.preventDefault();var n=nome.value.trim();
+    if(!n){erro.hidden=false;nome.setAttribute('aria-invalid','true');nome.focus();return}
+    var t='Olá, Dra. Letícia! Meu nome é '+n+'. '+(sel.value?'Gostaria de agendar uma avaliação sobre '+sel.value.toLowerCase()+'.':'Gostaria de orientação para agendar uma avaliação.');
+    var url=linkWa(t),janela=window.open(url,'_blank');
     if(janela)janela.opener=null;else location.href=url;
   });
-  /* Quem toca em "Agendar" dentro de um procedimento chega aqui com ele já marcado */
-  window.LA.marca=function(t){var r=form.querySelector('input[name=int][value="'+t+'"]');if(r){r.checked=true;atualiza()}};
 })();
