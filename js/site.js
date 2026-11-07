@@ -35,7 +35,7 @@
         var id=t[0],n=porId(id),p=P[n],f=FOTO[id],li=document.createElement('li');
         li.className='tile '+t[1].split(' ').map(function(x){return 't-'+x}).join(' ');
         li.dataset.r='cortina';li.style.setProperty('--d',(c*.08+k*.12)+'s');if(!primeira)li.classList.add('in');
-        li.innerHTML='<button class="tile-btn" type="button" data-vai="'+n+'" aria-label="Ver detalhes de '+p.t+'"><img src="assets/fotos/faz-'+id+'.webp" loading="lazy" alt="'+f.a+'"><span class="tile-mais" aria-hidden="true"></span><span class="tile-txt"><span class="tile-nome">'+p.t+'</span><span class="tile-sub">'+p.c+'</span><span class="tile-ver">Ver detalhes<svg><use href="#i-seta"/></svg></span></span></button>';
+        li.innerHTML='<button class="tile-btn" type="button" data-vai="'+n+'" aria-label="Ver detalhes de '+p.t+'"><img src="assets/fotos/faz-'+id+'.webp" loading="lazy" alt="'+f.a+'"><span class="tile-mais" aria-hidden="true"></span><span class="tile-txt"><span class="tile-nome">'+p.t.replace('microagulhamento','micro&shy;agulhamento')+'</span><span class="tile-sub">'+p.c+'</span><span class="tile-ver">Ver detalhes<svg><use href="#i-seta"/></svg></span></span></button>';
         dentro.appendChild(li);
       });
       lista.appendChild(ul);colunas.push(ul);
@@ -258,8 +258,10 @@
   }
   function abrir(){
     if(reduz||scrollY>40){solta();return}
+    /* quem já viu a abertura nesta visita não espera de novo */
+    try{if(sessionStorage.getItem('la-viu')){solta();return}sessionStorage.setItem('la-viu','1')}catch(e){}
     centraLogo();
-    requestAnimationFrame(function(){requestAnimationFrame(function(){ent.classList.add('desenha');setTimeout(solta,1500)})});
+    requestAnimationFrame(function(){requestAnimationFrame(function(){ent.classList.add('desenha');setTimeout(solta,1000)})});
   }
   if(reduz){var br=document.getElementById('brilho');if(br)br.remove()}
   abrir();
@@ -311,6 +313,7 @@
   addEventListener('pointermove',function(e){if(!desc)return;var d=e.clientX-ini;moveu=Math.abs(d);if(moveu>6)car.classList.add('puxando');car.scrollLeft=sc-d;dobra()});
   addEventListener('pointerup',function(){if(desc)parado=Date.now()+1500;desc=false;setTimeout(function(){car.classList.remove('puxando')},0)});
   car.addEventListener('dragstart',function(e){e.preventDefault()});
+  document.addEventListener('dragstart',function(e){if(e.target.tagName==='IMG')e.preventDefault()});
   car.addEventListener('touchmove',function(){parado=Date.now()+2500},{passive:true});
   car.addEventListener('scroll',function(){if(!desc)dobra()},{passive:true});
   var carHover=false;car.addEventListener('mouseenter',function(){carHover=true});car.addEventListener('mouseleave',function(){carHover=false});
@@ -359,7 +362,7 @@
     if(!aberta)return;
     if(e.key==='Escape')return fecha();
     if(e.key==='Tab'){
-      var a=gav.querySelector('.btn');
+      var a=gav.querySelector(':scope > .btn');
       if(e.shiftKey&&document.activeElement===fec){e.preventDefault();a.focus()}
       else if(!e.shiftKey&&document.activeElement===a){e.preventDefault();fec.focus()}
     }
@@ -412,7 +415,7 @@
       ativa=document.getElementById('mapaAtiva'),dist=document.getElementById('mapaDist'),mapa=null,pino=null,voce=null,linha=null,voou=false;
   function css(h){var l=document.createElement('link');l.rel='stylesheet';l.href=h;document.head.appendChild(l)}
   function js(h,cb){var e=document.createElement('script');e.src=h;e.onload=cb;e.onerror=falhou;document.head.appendChild(e)}
-  function falhou(){cMapa.classList.add('sem-mapa');tela.innerHTML='<a class="btn btn-bordo" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+CONS.join('%2C')+'">Abrir o mapa</a>'}
+  function falhou(){var bd=document.getElementById('distancia');if(bd)bd.hidden=true;cMapa.classList.add('sem-mapa');tela.innerHTML='<a class="btn btn-bordo" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+CONS.join('%2C')+'">Abrir o mapa</a>'}
   function montaMapa(){
     if(mapa||!window.L)return;
     mapa=L.map(tela,{center:[-21.1355,-44.2600],zoom:13,zoomControl:false,scrollWheelZoom:false,dragging:false,touchZoom:false,doubleClickZoom:false,boxZoom:false,keyboard:false,tap:false,attributionControl:true});
@@ -466,7 +469,7 @@
       mapa.flyToBounds(linha.getBounds(),{padding:[70,70],maxZoom:17,duration:1.6});
       dist.innerHTML=(km<1?Math.round(km*1000)+' m':km.toLocaleString('pt-BR',{maximumFractionDigits:1})+' km')+' até o consultório<small>em linha reta, a partir de onde você está</small>';
       dist.hidden=false;
-    },function(){bDist.textContent='Não consegui sua localização'},{enableHighAccuracy:true,timeout:10000});
+    },function(){bDist.textContent='Não consegui sua localização';setTimeout(function(){bDist.textContent='Ver a distância até você'},3000)},{enableHighAccuracy:true,timeout:10000});
   });
   var copiar=document.getElementById('copiar');
   copiar.addEventListener('click',function(){
