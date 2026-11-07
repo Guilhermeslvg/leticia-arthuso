@@ -16,7 +16,7 @@
 /* moldura: topo e pé */
 .ig-topo{position:absolute!important;z-index:5!important;top:6.6cqw;left:0;right:0;display:flex;align-items:center;gap:2cqw;
   font:600 2.25cqw/1 var(--corpo);letter-spacing:.16em;text-transform:uppercase}
-.ig-topo .logo{width:6.2cqw;height:6.2cqw;color:var(--dest);flex:none}
+.ig-topo .logo{--peso:2.4;width:6.2cqw;height:6.2cqw;color:var(--dest);flex:none}
 .ig-topo span{opacity:.9}
 .ig-topo i{margin-left:auto;font-style:normal;color:var(--dest);display:flex;align-items:center;gap:1.6cqw}
 .ig-topo i::before{content:"";width:1.3cqw;height:1.3cqw;border-radius:50%;background:currentColor}

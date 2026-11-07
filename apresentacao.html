@@ -48,6 +48,8 @@ button{font:inherit;color:inherit}
 .p-linha{background:none;box-shadow:inset 0 0 0 1px currentColor}.p-linha:hover{background:var(--creme);color:var(--noite)}
 .p-bordo{background:var(--bordo);color:var(--creme)}.p-bordo:hover{background:#6A1A20}
 .logo{display:block;color:var(--ouro)}
+/* --peso engrossa a logo quando ela fica pequena (1 = espessura do arquivo original) */
+.barra .logo,.vinheta svg,.avatar .logo,.var-tam .logo{--peso:2.6}.folha-cab .logo{--peso:2.2}.var-h .logo,.var-v .logo{--peso:1.9}.constroi-svg{--peso:1.4}.var-foto .logo,.fim .logo{--peso:1.7}.assina .logo,.cartao-f .logo,.sacola .logo{--peso:1.4}
 
 /* VINHETA (some sozinha em 3,5s mesmo se o script falhar) */
 .vinheta{position:fixed;z-index:60;inset:0;display:grid;place-items:center;background:var(--noite);overflow:hidden;transition:opacity .9s ease,visibility .9s;animation:someVinheta .1s 3.5s forwards}
@@ -382,7 +384,7 @@ button{font:inherit;color:inherit}
 
 <!-- A LOGO: troque só este symbol quando chegar o arquivo original (traços numa caixa de 400 x 400) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="logo" viewBox="0 0 400 400"><g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="M230 53A150 150 0 0 0 95.500 307.500"/><path d="M137 336.500A150 150 0 0 0 265.900 65.300"/><path d="M137 336.500L223.200 168.300L268.600 287.600"/><path d="M91 133C115 153 150 170 186 163C215 155 238 115 236 92C235 78 225 80 215 98C195 135 165 190 120 232C105 247 88 245 88 255C89 263 110 258 130 252C160 244 195 256 225 258C245 259 260 257 271 252"/></g></symbol>
+  <symbol id="logo" viewBox="0 0 400 400"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path data-w="3.9" style="stroke-width:calc(var(--peso,1)*3.9px)" d="M231.1 53.3A150 150 0 0 0 94.1 306.3"/><path data-w="3.9" style="stroke-width:calc(var(--peso,1)*3.9px)" d="M133.3 334.3A150 150 0 1 0 263.8 64.3"/><path data-w="3.4" style="stroke-width:calc(var(--peso,1)*3.4px)" d="M133.3 334.3L221.3 164.1L270.6 286.5"/><path data-w="1.8" style="stroke-width:calc(var(--peso,1)*1.8px)" d="M92.5 130.4C114.4 144.9 139.1 158.1 166 158.9C204.5 162 234.9 126.2 236.4 89.9C236.6 85 234.6 79.2 230 79.5"/><path data-w="4.6" style="stroke-width:calc(var(--peso,1)*4.6px)" d="M230 79.5C175.2 118.2 153.4 186.3 112 236.7C106.3 243.7 87 261 87 249C87 238 105.2 237.1 115 236.4C153.8 238.8 190.9 254.1 230 253.5C244.9 253.5 261.5 249.6 270.8 236.9"/></g></symbol>
   <symbol id="i-proc" viewBox="0 0 32 32"><path d="M4 16c4-4 8-6 10-6 1 0 1.500 1.500 2 1.500s1-1.500 2-1.500c2 0 6 2 10 6-3.500 5.500-7.500 8-12 8S7.500 21.500 4 16Z"/></symbol>
   <symbol id="i-res" viewBox="0 0 32 32"><path d="M5 6h9v20H5zM18 6h9v20h-9z"/><path d="M8 20l3-4 3 4M21 20l3-4 3 4"/></symbol>
   <symbol id="i-fb" viewBox="0 0 32 32"><path d="M6 7h20v14H14l-6 5v-5H6z"/><path d="M11 13h10M11 17h6"/></symbol>
@@ -434,13 +436,13 @@ button{font:inherit;color:inherit}
       <div class="constroi-txt">
         <p class="rot">O símbolo</p>
         <h2>O seu LA, redesenhado em vetor.</h2>
-        <p>Parti do monograma que já está nos seus posts e na parede do consultório. Agora ele tem regra: grade, círculo-guia e a mesma espessura em todos os traços.</p>
+        <p>Parti do arquivo original da sua marca. Cada traço foi refeito em vetor sobre uma grade e um círculo-guia, com a espessura de cada linha medida no desenho que você já usa.</p>
         <ol class="constroi-etapas" id="etapas">
           <li>Grade de 400 × 400</li>
           <li>Círculo-guia de raio 150</li>
           <li>Os dois arcos abertos</li>
           <li>O A, com a travessa inclinada</li>
-          <li>O L em uma linha só, com o laço</li>
+          <li>O L, do fio fino de cima ao laço</li>
         </ol>
       </div>
       <svg class="constroi-svg" viewBox="-40 -14 480 424" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Construção do símbolo LA: grade, círculo-guia e traços das letras">
@@ -452,8 +454,8 @@ button{font:inherit;color:inherit}
         <g id="gTracos"></g>
         <g id="gFinos"></g>
         <g id="gPontos"></g>
-        <g class="g-nota" id="nota1"><circle cx="160" cy="187" r="3"/><line x1="160" y1="187" x2="40" y2="110"/><line x1="40" y1="110" x2="-30" y2="110"/><text x="-30" y="102">LAÇO DO L</text></g>
-        <g class="g-nota" id="nota2"><circle cx="246" cy="228" r="3"/><line x1="246" y1="228" x2="372" y2="190"/><line x1="372" y1="190" x2="440" y2="190"/><text x="364" y="182">TRAVESSA DO A</text></g>
+        <g class="g-nota" id="nota1"><circle cx="87" cy="249" r="3"/><line x1="87" y1="249" x2="30" y2="300"/><line x1="30" y1="300" x2="-30" y2="300"/><text x="-30" y="292">LAÇO DO L</text></g>
+        <g class="g-nota" id="nota2"><circle cx="255" cy="249.5" r="3"/><line x1="255" y1="249.5" x2="372" y2="190"/><line x1="372" y1="190" x2="440" y2="190"/><text x="364" y="182">TRAVESSA DO A</text></g>
         <g class="g-nota" id="nota3"><circle cx="248" cy="58" r="3"/><line x1="248" y1="58" x2="330" y2="6"/><line x1="330" y1="6" x2="440" y2="6"/><text x="332" y="-2">CÍRCULO ABERTO</text></g>
       </svg>
     </div>
@@ -742,8 +744,10 @@ button{font:inherit;color:inherit}
   var NS='http://www.w3.org/2000/svg';
   /* Os traços da logo saem do symbol: trocar o symbol atualiza a vinheta, a construção e o 3D */
   var TRACOS=Array.prototype.map.call(document.querySelectorAll('#logo path'),function(p){return p.getAttribute('d')});
-  window.LA_TRACOS=TRACOS;
-  function caminhos(g,cls){TRACOS.forEach(function(d){var p=document.createElementNS(NS,'path');p.setAttribute('d',d);p.setAttribute('pathLength','1');if(cls)p.setAttribute('class',cls);g.appendChild(p)});return g.querySelectorAll('path')}
+  /* espessura de cada traço, medida no arquivo original da logo (multiplicada por --peso em cada uso) */
+  var PESOS=Array.prototype.map.call(document.querySelectorAll('#logo path'),function(p){return +p.getAttribute('data-w')||4});
+  window.LA_TRACOS=TRACOS;window.LA_PESOS=PESOS;
+  function caminhos(g,cls){TRACOS.forEach(function(d,i){var p=document.createElementNS(NS,'path');p.setAttribute('d',d);if(cls!=='g-fino')p.style.strokeWidth='calc(var(--peso,1)*'+PESOS[i]+'px)';p.setAttribute('pathLength','1');if(cls)p.setAttribute('class',cls);g.appendChild(p)});return g.querySelectorAll('path')}
   function faixa(p,a,b){return Math.max(0,Math.min(1,(p-a)/(b-a)))}
 
   /* Vinheta: o LA se desenha e a página aparece */
@@ -775,7 +779,7 @@ button{font:inherit;color:inherit}
   var linhasGrade=grade.querySelectorAll('line'),circ=document.getElementById('gCirc'),eixos=[document.getElementById('gEixoH'),document.getElementById('gEixoV')],pontos=pts.querySelectorAll('circle'),etapas=document.querySelectorAll('#etapas li'),notas=[1,2,3].map(function(i){return document.getElementById('nota'+i)});
   [circ].concat(eixos).forEach(function(el){el.style.strokeDasharray='1 1'});
   tracos.forEach(function(t){t.style.strokeDasharray='1 1'});
-  var janelas=[[.3,.46],[.36,.52],[.52,.66],[.64,.8]];
+  var janelas=[[.3,.46],[.36,.52],[.52,.66],[.64,.72],[.7,.8]];
   function desenha(p){
     var gg=faixa(p,0,.12);linhasGrade.forEach(function(l){l.style.opacity=gg});
     var g=faixa(p,.1,.28);circ.style.strokeDashoffset=1-g;eixos.forEach(function(e){e.style.strokeDashoffset=1-g});
@@ -856,13 +860,13 @@ try{
   const ouro=new THREE.MeshPhysicalMaterial({color:0xE9C47C,metalness:1,roughness:.2,clearcoat:.6,clearcoatRoughness:.2});
   const grupo=new THREE.Group(),giro=new THREE.Group();grupo.add(giro);cena.add(grupo);
   const svg='<svg xmlns="http://www.w3.org/2000/svg">'+window.LA_TRACOS.map(d=>'<path d="'+d+'"/>').join('')+'</svg>';
-  new SVGLoader().parse(svg).paths.forEach(p=>p.subPaths.forEach(sp=>{
+  new SVGLoader().parse(svg).paths.forEach((p,ip)=>p.subPaths.forEach(sp=>{const raio=Math.max(2.2,(window.LA_PESOS[ip]||4.3)*1.5);
     const bruto=sp.getPoints(60),pts=[];
     bruto.forEach(v=>{const q=new THREE.Vector3(v.x-200,-(v.y-200),0);if(!pts.length||q.distanceTo(pts[pts.length-1])>.5)pts.push(q)});
     if(pts.length<2)return;
     const curva=new THREE.CatmullRomCurve3(pts,false,'centripetal');
-    giro.add(new THREE.Mesh(new THREE.TubeGeometry(curva,Math.min(900,pts.length*3),6.4,18,false),ouro));
-    [pts[0],pts[pts.length-1]].forEach(v=>{const b=new THREE.Mesh(new THREE.SphereGeometry(6.4,20,14),ouro);b.position.copy(v);giro.add(b)});
+    giro.add(new THREE.Mesh(new THREE.TubeGeometry(curva,Math.min(900,pts.length*3),raio,18,false),ouro));
+    [pts[0],pts[pts.length-1]].forEach(v=>{const b=new THREE.Mesh(new THREE.SphereGeometry(raio,20,14),ouro);b.position.copy(v);giro.add(b)});
   }));
   const luz=new THREE.DirectionalLight(0xfff1d6,1.8);luz.position.set(300,500,600);cena.add(luz);
   let alvoX=0,alvoY=0,rx=0,ry=0,meia=280;
