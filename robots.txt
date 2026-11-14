@@ -1,9 +1,6 @@
 # Site da Dra. Letícia Arthuso
-# Enquanto o site estiver em prévia, as páginas levam <meta name="robots" content="noindex">.
-# Os robôs precisam poder ler as páginas para enxergar esse aviso, por isso nada de Disallow nelas.
 User-agent: *
 Disallow: /artes.html
 Disallow: /apresentacao.html
 
-# Quando o domínio sair, acrescentar a linha abaixo com o endereço certo:
-# Sitemap: https://DOMINIO/sitemap.xml
+Sitemap: https://leticiaarthuso.com.br/sitemap.xml
