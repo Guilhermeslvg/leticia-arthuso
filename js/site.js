@@ -358,15 +358,16 @@
   }
   document.addEventListener('click',function(e){var b=e.target.closest('[data-reel]');if(!b)return;if(!car.contains(b))moveu=0;abreVideo(b)});
   fec.addEventListener('click',fecha);veu.addEventListener('click',function(){fecha();fechaModal()});
+  /* Captura (true): o Esc chega aqui antes dos controles nativos do vídeo, que engolem a tecla quando estão com o foco. */
   addEventListener('keydown',function(e){
     if(!aberta)return;
-    if(e.key==='Escape')return fecha();
+    if(e.key==='Escape'){e.preventDefault();return fecha()}
     if(e.key==='Tab'){
       var a=gav.querySelector(':scope > .btn');
       if(e.shiftKey&&document.activeElement===fec){e.preventDefault();a.focus()}
       else if(!e.shiftKey&&document.activeElement===a){e.preventDefault();fec.focus()}
     }
-  });
+  },true);
 
   /* Dúvidas: tocar na frase risca o mito em dourado e abre a resposta (uma aberta por vez).
      A primeira se abre sozinha quando a seção aparece, para mostrar como funciona. */
