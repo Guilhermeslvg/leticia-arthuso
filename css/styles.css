@@ -271,6 +271,32 @@ html:not(.js) .figura,.pronta .figura{opacity:1;transform:translateX(-50%) trans
 .painel-nota{padding-top:12px;border-top:1px solid var(--areia);font-size:.9rem;color:var(--apagado)}
 .painel .btn{margin-top:8px;width:100%}
 
+/* ORÇAMENTO: chips de procedimento e um cartão que mostra como cada um é medido */
+.orc{background:var(--claro);padding:64px var(--margem) calc(40px + var(--onda));display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+.orc-cab>p:not(.rotulo){margin-top:12px;max-width:30em;color:var(--apagado)}
+.orc-chips{display:flex;gap:8px;margin:22px calc(var(--margem)*-1) 0;padding:4px var(--margem) 8px;overflow-x:auto;scrollbar-width:none}
+.orc-chips::-webkit-scrollbar{display:none}
+.orc-chip{flex:none;min-height:42px;padding:0 16px;border:1px solid var(--bronze);border-radius:999px;background:none;color:var(--bordo);font:500 .86rem var(--corpo);cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.orc-chip:hover{background:var(--areia)}
+.orc-chip[aria-pressed=true]{background:var(--bordo);border-color:var(--bordo);color:var(--creme)}
+.orc-card{display:grid;align-self:start;padding:26px 22px 22px;border-radius:28px;background:var(--creme);box-shadow:0 30px 50px -36px rgba(58,20,22,.5)}
+.orc-vivo{min-height:9.6rem}
+.orc-proc{font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze)}
+.orc-medida{margin-top:4px;font:400 clamp(2.4rem,9vw,3.4rem)/1.05 var(--titulo);color:var(--bordo)}
+.orc-txt{margin-top:10px;color:var(--apagado)}
+.orc-vivo.troca>*{animation:orcEntra .55s var(--saida) both}
+.orc-vivo.troca>.orc-medida{animation-delay:.05s}.orc-vivo.troca>.orc-txt{animation-delay:.1s}
+@keyframes orcEntra{from{opacity:0;transform:translateY(10px)}}
+.orc-card .btn{margin-top:18px;width:100%}
+@media (max-width:459px){.orc-wa{display:none}}
+.orc-nota{margin-top:10px;font-size:.78rem;color:var(--apagado);text-align:center}
+@media (min-width:900px){
+  .orc{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center;column-gap:clamp(40px,6vw,96px);padding-left:max(var(--margem),calc((100vw - var(--largura))/2));padding-right:max(var(--margem),calc((100vw - var(--largura))/2))}
+  .orc-chips{flex-wrap:wrap;margin:26px 0 0;padding:0;overflow:visible}
+  .orc-card{padding:34px 32px 26px}
+}
+@media (prefers-reduced-motion:reduce){.orc-vivo.troca>*{animation:none}}
+
 /* FORMULÁRIO, RODAPÉ E BOTÃO FLUTUANTE */
 .form{padding:26px 22px;border-radius:28px;background:var(--claro);display:grid;box-shadow:0 30px 50px -36px rgba(58,20,22,.6)}
 .form label{margin:12px 0 6px;font-size:.86rem;font-weight:600;color:var(--bordo)}
@@ -553,7 +579,7 @@ html{scrollbar-gutter:stable}
 @supports not (overflow:clip){html,body{overflow-x:hidden}}
 /* cabeçalho não estoura entre 900 e 1100px */
 .mini a{white-space:nowrap}
-@media (min-width:900px) and (max-width:1099px){.so-largo{display:none}}
+@media (min-width:900px) and (max-width:1179px){.so-largo{display:none}}
 /* foco visível nos cartões do mosaico (o recorte da animação escondia o contorno) */
 .tile-btn:focus-visible{outline:2px solid var(--creme);outline-offset:-6px}
 /* "investimento" em ouro sobre a areia precisa de mais contraste */

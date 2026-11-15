@@ -10,6 +10,8 @@
   var WA='5531991169590';
   var reduz=matchMedia('(prefers-reduced-motion:reduce)').matches;
   function linkWa(t){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(t)}
+  /* "Preenchimento labial" vira "preenchimento labial"; siglas como PDRN ficam como estão */
+  function minus(t){return /^[A-ZÀ-Ú]{2}/.test(t)?t:t.charAt(0).toLowerCase()+t.slice(1)}
   function svg(i){return '<svg class="ic" viewBox="0 0 64 64" aria-hidden="true">'+i+'</svg>'}
 
   /* Textos e fotos dos procedimentos ficam em js/conteudo.js */
@@ -479,13 +481,44 @@
     if(navigator.clipboard)navigator.clipboard.writeText(t).then(ok,function(){copiar.textContent=t});else copiar.textContent=t;
   });
 
+  /* Orçamento: cada chip mostra como o procedimento é medido e leva o nome dele para a mensagem do WhatsApp.
+     Nenhum valor aparece no site (Código de Ética Odontológica); a Letícia passa o valor médio na conversa. */
+  var ORC={
+    labios:['em seringas','A quantidade depende do volume e do contorno que os seus lábios pedem.'],
+    botox:['em unidades','Muda conforme as regiões tratadas e a força de cada músculo.'],
+    bio:['em sessões','Costuma ser feito em mais de uma sessão, conforme a firmeza da sua pele.'],
+    skin:['em sessões','O número de sessões depende de como está a hidratação da sua pele.'],
+    face:['em seringas','Depende de quantas regiões entram no seu planejamento.'],
+    rino:['em seringas','A quantidade é definida depois de avaliar as proporções do seu rosto.'],
+    pdrn:['em sessões','O número de sessões e as combinações com outros cuidados mudam o valor.'],
+    pele:['por fase','Depende da rotina montada para você e do que entra em cada fase.']
+  };
+  var oWa=document.getElementById('o-wa'),oChips=document.getElementById('orcChips'),oVivo=document.getElementById('orcVivo'),
+      oProcT=document.getElementById('orcProc'),oMed=document.getElementById('orcMedida'),oTxt=document.getElementById('orcTxt');
+  function linkOrc(t){oWa.href=linkWa('Olá, Dra. Letícia! Vi seu site e gostaria de saber '+(t?'o valor médio de '+minus(t)+'.':'os valores médios dos procedimentos.'))}
+  ORDEM.forEach(function(id){
+    var p=P[porId(id)];if(!p||!ORC[id])return;
+    var b=document.createElement('button');b.type='button';b.className='orc-chip';b.textContent=p.t;b.dataset.id=id;b.setAttribute('aria-pressed','false');oChips.appendChild(b);
+  });
+  oChips.addEventListener('click',function(e){
+    var b=e.target.closest('.orc-chip');if(!b)return;
+    var on=b.getAttribute('aria-pressed')!=='true',id=b.dataset.id,p=P[porId(id)];
+    oChips.querySelectorAll('.orc-chip').forEach(function(x){x.setAttribute('aria-pressed',String(on&&x===b))});
+    oProcT.textContent=on?p.t:'Escolha um procedimento';
+    oMed.textContent=on?ORC[id][0]:'a avaliação define';
+    oTxt.textContent=on?ORC[id][1]:'Depois de escolher, eu te passo um valor médio pelo WhatsApp.';
+    oVivo.classList.remove('troca');void oVivo.offsetWidth;oVivo.classList.add('troca');
+    linkOrc(on?p.t:'');
+  });
+  linkOrc('');
+
   /* Formulário abre o WhatsApp com a mensagem pronta */
   var form=document.getElementById('form'),nome=document.getElementById('f-nome'),erro=document.getElementById('f-erro');
   nome.addEventListener('input',function(){erro.hidden=true;nome.removeAttribute('aria-invalid')});
   form.addEventListener('submit',function(e){
     e.preventDefault();var n=nome.value.trim();
     if(!n){erro.hidden=false;nome.setAttribute('aria-invalid','true');nome.focus();return}
-    var t='Olá, Dra. Letícia! Meu nome é '+n+'. '+(sel.value?'Gostaria de agendar uma avaliação sobre '+sel.value.toLowerCase()+'.':'Gostaria de orientação para agendar uma avaliação.');
+    var t='Olá, Dra. Letícia! Meu nome é '+n+'. '+(sel.value?'Gostaria de agendar uma avaliação sobre '+minus(sel.value)+'.':'Gostaria de orientação para agendar uma avaliação.');
     var url=linkWa(t),janela=window.open(url,'_blank');
     if(janela)janela.opener=null;else location.href=url;
   });
