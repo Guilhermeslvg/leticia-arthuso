@@ -235,6 +235,7 @@
         no.replaceChild(frag,f);
       });
     })(h);
+    h.classList.add('dividido');
   });
 
   /* Entrada ao rolar */

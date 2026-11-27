@@ -461,6 +461,9 @@ html:not(.js) .figura,.pronta .figura{opacity:1;transform:translateX(-50%) trans
 .js [data-r=down]{transform:translateY(-30px)}
 .js [data-r=up]{transform:translateY(30px)}
 .js [data-r].in{opacity:1;transform:none}
+/* o título fica escondido até o site.js quebrar em letras; se o script falhar, aparece sozinho em 2,5s */
+.js [data-split]:not(.dividido){visibility:hidden;animation:aparece 0s 2.5s forwards}
+@keyframes aparece{to{visibility:visible}}
 .palavra{display:inline-block;white-space:nowrap}
 .letra{display:inline-block;opacity:0;transform:translateY(-.5em);transition:opacity .55s var(--saida),transform .7s var(--saida);transition-delay:calc(var(--base,0s) + var(--i)*17ms)}
 .in-split .letra{opacity:1;transform:none}
